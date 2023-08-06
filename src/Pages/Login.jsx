@@ -36,18 +36,18 @@ const Login = () => {
     const login = async (values, onSubmitProps) => {
         console.log("logging")
         setIsLoading(true);
-        // const url = "https://muscle-grabber-backend.onrender.com/auth/login";
-        const url = "http://localhost:5000/auth/login";
+        const url = "https://gymesh-backend.onrender.com/auth/login";
+        // const url = "http://localhost:5000/auth/login";
         const response = await fetch(url,
             {
                 method: "POST",
-                body: JSON.stringify(values),
+                body: JSON.stringify(values), 
                 headers: { "Content-Type": "application/json" }
             });
 
         const loggedIn = await response.json();
         setIsLoading(false);
-        console.log(loggedIn); 
+        console.log(loggedIn);  
         onSubmitProps.resetForm();
         if (loggedIn) {
             // setOpen(true);

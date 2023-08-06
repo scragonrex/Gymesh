@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import Navbar from "./components/Navbar";
 import Workout from "./Pages/Workout";
 import Goal from "./Pages/Goal";
-import Profile from "./Pages/Profile";
+import Profile from "./Pages/Profile"; 
 import { useSelector } from "react-redux";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";

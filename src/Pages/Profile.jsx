@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Alert, Checkbox, FormControlLabel, IconButton, Snackbar, useMediaQuery } from '@mui/material'
+import { Alert, Checkbox, FormControlLabel, Snackbar } from '@mui/material'
 import '../styles/Workout.css'
 import '../styles/Profile.css'
 import { useSelector } from 'react-redux';
-import { Edit } from '@mui/icons-material';
 const Profile = () => {
-    const mobileView = useMediaQuery('(max-width:600px)');
+    // const mobileView = useMediaQuery('(max-width:600px)');
     const user = useSelector((state) => state.auth.user);
     const token = useSelector((state) => state.auth.token);
     const [weight, setWeight] = useState(user.weight ? user.weight : "");
@@ -24,8 +23,8 @@ const Profile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("click")
-        if (editOpen == false)
+        console.log("click") 
+        if (editOpen === false)
             setEditOpen(true);
         else {
             console.log(age, weight, gender, name);

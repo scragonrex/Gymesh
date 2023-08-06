@@ -5,7 +5,7 @@ import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { InputLabelX, SelectX } from '../components/Utils';
 const Workout = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const [formOpen, setFormOpen] = useState(true);
     const [excerciseOpen, setExcerciseOpen] = useState(false);
     const [tag, setTag] = useState(''); 

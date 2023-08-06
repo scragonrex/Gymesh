@@ -6,7 +6,7 @@ import { setLogout } from '../store/authSlice';
 import { useMediaQuery } from '@mui/material'
 const Navbar = () => {
   const navigate = useNavigate(); 
-  const dispatch = useDispatch() 
+  const dispatch = useDispatch()  
   const handleLogout = ()=>{
     dispatch(setLogout())
   }

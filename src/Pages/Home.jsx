@@ -6,7 +6,7 @@ import { useMediaQuery } from '@mui/material';
 const Home = () => {
   const navigate=useNavigate();  
   const mobileView = useMediaQuery('(max-width:720px)');
-  return (
+  return ( 
     <>
     <div className='landingContainer'>
     <div className='mainPage'>

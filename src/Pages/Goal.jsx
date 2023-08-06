@@ -5,7 +5,7 @@ import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Workout.css'
 
-const Goal = () => {
+const Goal = () => { 
   const navigate = useNavigate();
   const [taskOpen, setTaskOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(true)
