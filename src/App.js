@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  createBrowserRouter,
+  Navigate,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
+import Home from "./Pages/Home";
+import Navbar from "./components/Navbar";
+import Workout from "./Pages/Workout";
+import Goal from "./Pages/Goal";
+import Profile from "./Pages/Profile";
+import { useSelector } from "react-redux";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const router = createBrowserRouter([ 
+  { path: "*", Component: Root },
+]);
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;
+function Root() {
+  const isAuth = Boolean(useSelector(state=>state.auth.token));
+  // const isAuth=true;
+  return (
+    <>
+       {isAuth && <Navbar/>}
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/home' element={isAuth ? <Home /> : <Navigate to='/'/>} />
+          <Route path='/workout' element={isAuth ? <Workout /> : <Navigate to='/'/>} />
+          <Route path='/goal' element={isAuth ? <Goal /> : <Navigate to='/'/>} />
+          <Route path='/profile' element={isAuth ? <Profile /> : <Navigate to='/'/>} />
+        </Routes>
+    </>
+  ); 
+}

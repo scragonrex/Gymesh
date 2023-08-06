@@ -1,0 +1,35 @@
+.navbarContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+   
+}
+.imgLogo{
+    width: 4em;
+}
+
+.imgLogo img{
+    width: inherit;
+}
+
+.links ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.links ul li{
+    display: inline;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.links ul li:hover{
+    color: white;
+}

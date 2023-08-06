@@ -1,0 +1,44 @@
+{
+    "diet":[
+        {
+            "goal":"Weight Gain",
+            "food" : [
+                {
+                    "name": "Milk",
+                    "calories": 149,
+                    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwsBN7jrngtm7F9rlg_WZJl9QGl2_NIywFPg&usqp=CAU"
+                },
+                {
+                    "name": "Roasted Sweet Potato",
+                    "calories": 336,
+                    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZSyf7l5838e4BV6gtvEP45iYZRsGei9Fp0A&usqp=CAU"
+                },
+                {
+                    "name": "Rice",
+                    "calories": 204,
+                    "picture": "data:image/jpeg;base64,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"
+                }
+            ]
+        },
+        {
+            "goal":"Weight Lose",
+            "food" : [
+                {
+                    "name" : "Lupini Beans",
+                    "calories" : 197,
+                    "picture" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYjnAEEteXe6Ip_3nbxO-dJU_-m0a8w4cgw&usqp=CAU" 
+                },
+                {
+                    "name": "Shrimps",
+                    "calories": 84,
+                    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjSkTU0GsQIQVPSnVhQxiNoo3MFILmZMgYEA&usqp=CAU"
+                },
+                {
+                    "name": "Raw oats",
+                    "calories": 307,
+                    "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDXqqtQTrPnI9wMnWuDvP6IU6bVx8zm2brA&usqp=CAU"
+                }
+            ]
+        } 
+    ]
+}

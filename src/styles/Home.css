@@ -1,0 +1,126 @@
+.landingContainer{
+    background-image: url('/public/assets/dark-concrete-texture-background.jpg');
+    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+    min-height: 90vh;
+    
+}
+
+.mainPage{
+    display: flex;
+    flex-direction: row;
+    padding: 8rem 5rem 0rem 5rem;
+    justify-content: space-between;
+    color: white;
+}
+.pageTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    color:white;
+    font-family: 'Rubik', sans-serif;
+}
+.exerciseContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 5rem 5rem 1rem 5rem;
+    justify-content: space-between;
+    color: white;
+}
+.balance{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.pageTitle h1
+{
+    font-size: 4rem;
+    color: white;
+}
+.pageTitle p{
+    color:rgb(0, 205, 109);
+    font-size: 2rem;
+}
+
+.footer-basic {
+    padding:40px 0;
+    background-color: #1b1b1b;
+    color:white;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  .footer-basic li:hover {
+    color: rgb(0, 205, 109);
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+    justify-content: center;
+    gap:2rem;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    opacity:0.9;
+    color: rgb(0, 205, 109);
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+  .contentHome{
+    color: white;
+    text-align: center;
+  }
+@media only screen and (max-width: 600px)
+{
+    .pageTitle h1
+    {
+    font-size: 1.5em;
+    }
+    .pageTitle p
+    {
+    font-size: 1em;
+    }
+}
+
