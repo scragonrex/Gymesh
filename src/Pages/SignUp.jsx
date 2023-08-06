@@ -32,8 +32,8 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const register = async (values, onSubmitProps) => {
-    // const url = "http://localhost:5000/auth/signup";
-    const url = "https://gymesh-backend.onrender.com/auth/signup";
+    const url = "http://localhost:5000/auth/signup";
+    // const url = "https://gymesh-backend.onrender.com/auth/signup";
     setIsLoading(true);
     const response = await fetch(url,
       {
