@@ -36,8 +36,8 @@ const Login = () => {
     const login = async (values, onSubmitProps) => {
         console.log("logging")
         setIsLoading(true);
-        const url = "https://gymesh-backend.onrender.com/auth/login";
-        // const url = "http://localhost:5000/auth/login";
+        // const url = "https://gymesh-backend.onrender.com/auth/login";
+        const url = "http://localhost:5000/auth/login";
         const response = await fetch(url,
             {
                 method: "POST",

@@ -4,12 +4,15 @@ import React, { useState } from 'react'
 import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Workout.css'
+import { useSelector } from 'react-redux';
+import Progress from '../components/Progress';
 
 const Goal = () => { 
   const navigate = useNavigate();
+  const user = useSelector((state)=>state.auth.user);
+  const token = useSelector((state)=>state.auth.token);
   const [taskOpen, setTaskOpen] = useState(false);
-  const [formOpen, setFormOpen] = useState(true)
-  const [task, setTask] = useState(0);
+  const [formOpen, setFormOpen] = useState(false)
 
   // eslint-disable-next-line
   const [excerciseList, setExcerciseList] = useState(['Running', 'Cycling', 'Pushups', 'Burpees', 'Pullups'])
@@ -28,12 +31,7 @@ const Goal = () => {
   const [goalOptions, setGoalOptions] = useState(['select excercise first'])
 
   const handleBack = () => {
-    if (formOpen)
       navigate('/home');
-    else if (taskOpen) {
-      setTaskOpen(false);
-      setFormOpen(true);
-    }
   }
 
   const handleExcerciseChange = (e) => {
@@ -53,28 +51,37 @@ const Goal = () => {
     setExcerciseValue((prev) => { return { ...prev, goal: e.target.value } });
   }
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async() => {
     // console.log("excerciseValue", excerciseValue)
     setFormOpen(false);
     setTaskOpen(true);
+    const startDate=new Date();
+    const progress=0;
+    const userId = user._id;
+    
+
+    const url = "http://localhost:5000/profile/goal";
+    const response = await fetch(url, {
+      method:"POST", 
+      body:JSON.stringify({startDate,progress,userId, excercise:excerciseValue.excercise, frequency:excerciseValue.goal}),
+      headers:{ 
+        Authorization:`Bearer ${token}`,
+        "Content-type":"application/json"
+      }
+    })
+    const data = await response.json();
+    console.log("goal created",data);
   }
 
-  const handleTaskSubmit = () => {
-    console.log('totalTask', task)
+ 
 
-  }
 
-  const handleChange = (e) => {
-    if (e.target.checked)
-      setTask(task + 1);
-    else
-      setTask(task - 1);
-  }
   const mobileView = useMediaQuery('(max-width:600px)');
   return (
     <div className='workoutCont'>
       <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
       </div>
+      <Progress/>
       {formOpen &&
         <div className="goalFormContainer">
           <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
@@ -115,20 +122,7 @@ const Goal = () => {
           <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
         </div>}
 
-      {taskOpen && <div className='goalFormContainer'>
-        <h1 className={`font-white-para ${mobileView ? "font-1" : "font-normal"}`}>Review your Task</h1>
-        <p className="font-white">Were you able to complete your assigned goals?</p>
-        <div className="display-flex-col" style={{ marginTop: "1rem" }}>
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day1" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day2" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day3" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day4" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day5" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day6" />
-          <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" onChange={handleChange} />} label="Day7" />
-        </div>
-        <Tooltip title="You can lie to anyone, except yourself. So please be honest"><button className="btn" style={{ marginTop: "1rem" }} onClick={handleTaskSubmit}>Submit</button></Tooltip>
-      </div>}
+     
     </div >
   )
 }
