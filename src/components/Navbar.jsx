@@ -19,7 +19,7 @@ const Navbar = () => {
       
       <div className="logo flexBox gap-1 font-green font-bold">
         {/* <div className='imgLogo'></div>  */}
-        <h3 className='font-1'>Muscle Grabber</h3></div>
+        <h2 className='font-1'>GYMESH</h2></div>
       {mobileView ? (<div><Sidebar/></div>) : <div className="links">
         <ul>
           <li className='font-1 font-green' onClick={() => navigate('/home')}>Home</li>
