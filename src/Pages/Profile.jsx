@@ -120,9 +120,7 @@ const Profile = () => {
                     </div>
                 </form>
             </div>
-            <div className="goalsCont font-white">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus et laboriosam suscipit quis perferendis sapiente corrupti quasi sint sequi hic excepturi, ab nulla debitis laudantium temporibus tempora cupiditate quas cum? Veritatis molestias dolore earum.
-            </div>
+          
             <Snackbar open={alert.open} autoHideDuration={3000} onClose={handleAlertClose}>
                 <Alert variant="filled" onClose={handleAlertClose} severity={alert.status} sx={{ width: '100%' }}>
                     {alert.message}

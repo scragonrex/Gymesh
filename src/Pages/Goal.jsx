@@ -1,5 +1,5 @@
-import { ArrowBack } from '@mui/icons-material';
-import { Box, Checkbox, FormControl, FormControlLabel, IconButton, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
+import { AddCircle, ArrowBack } from '@mui/icons-material';
+import { Box, Checkbox, FormControl, FormControlLabel, IconButton, MenuItem, Modal, Tooltip, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
@@ -7,13 +7,14 @@ import '../styles/Workout.css'
 import { useSelector } from 'react-redux';
 import GoalsList from '../components/GoalsList';
 
-const Goal = () => { 
-  const navigate = useNavigate();
-  const user = useSelector((state)=>state.auth.user);
-  const token = useSelector((state)=>state.auth.token);
-  const [taskOpen, setTaskOpen] = useState(false);
-  const [formOpen, setFormOpen] = useState(true)
+const Goal = () => {
   const mobileView = useMediaQuery('(max-width:700px)');
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
+  const token = useSelector((state) => state.auth.token);
+  const [taskOpen, setTaskOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
   // eslint-disable-next-line
   const [excerciseList, setExcerciseList] = useState(['Running', 'Cycling', 'Pushups', 'Burpees', 'Pullups'])
   // eslint-disable-next-line
@@ -32,7 +33,7 @@ const Goal = () => {
   const [goalsList, setGoalsList] = useState();
 
   const handleBack = () => {
-      navigate('/home');
+    navigate('/home');
   }
 
   const handleExcerciseChange = (e) => {
@@ -52,99 +53,112 @@ const Goal = () => {
     setExcerciseValue((prev) => { return { ...prev, goal: e.target.value } });
   }
 
-  const handleFormSubmit = async() => {
+  const handleFormSubmit = async () => {
     // console.log("excerciseValue", excerciseValue)
     setFormOpen(false);
     setTaskOpen(true);
-    const startDate=new Date();
-    const progress=0;
+    const startDate = new Date();
+    const progress = [];
     const userId = user._id;
-    
+
 
     const url = "http://localhost:5000/goals/createGoal";
     const response = await fetch(url, {
-      method:"POST", 
-      body:JSON.stringify({startDate,progress,userId, excercise:excerciseValue.excercise, frequency:excerciseValue.goal}),
-      headers:{ 
-        Authorization:`Bearer ${token}`,
-        "Content-type":"application/json"
+      method: "POST",
+      body: JSON.stringify({ startDate, progress, userId, excercise: excerciseValue.excercise, frequency: excerciseValue.goal }),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json"
       }
     })
     const data = await response.json();
-    console.log("goal created",data);
+    if (data.status === "success")
+      getGoals();
   }
 
-  const getGoals = async()=>{
-    const url = `http://localhost:5000/goals/${user?._id}`;
-    const response = await fetch(url,{
-      method:"GET",
-      headers:{Authorization:`Bearer ${token}`, "Content-type":"application/json"}
+  const getGoals = async () => {
+    const url = `http://localhost:5000/goals/getGoals`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
     })
 
     const data = await response.json();
-    console.log("goals arrived",data);
-    setGoalsList(data);
+    const goals = data.filter((item) => item.userId === user._id)
+    console.log("goals arrived", goals);
+    setGoalsList(goals);
+  }
+
+  const handleAddBtn = ()=>{
+    console.log("add")
+    setModalOpen(true);
   }
 
   useEffect(() => {
     getGoals();
   }, [])
-  
 
- 
+
+
   return (
-    <div className='workoutCont'>
+    <div className='workoutCont' style={{ justifyContent: "flex-start" }}>
       <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
       </div>
       <div className='goalsListCont'>
         <div className='font-4 text-align-center font-white'>Your Goals</div>{
-        goalsList?.map((item,key)=>(
-          <GoalsList item={item} id={key} index={key+1}/>
-        ))
-      }
+          goalsList?.length > 0 ?
+            goalsList?.map((item, key) => (
+              <GoalsList item={item} id={key} index={key + 1} />
+            )) : <div className='font-3 font-white text-align-center'>No Goals Available. Click on the + icon to continue</div>
+        }
       </div>
+      <div className='addBtn' onClick={handleAddBtn}><AddCircle sx={{ color: "rgb(6, 207, 106)", fontSize: "4rem" }} /></div>
       
-      {formOpen &&
-        <div className="goalFormContainer">
-          <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
-          <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
-            <FormControl fullWidth variant='outlined'>
-              <InputLabelX>Excercise</InputLabelX>
-              <SelectX
-                label="Excercise"
-                value={excerciseValue.excercise}
-                onChange={handleExcerciseChange}
-              >
-                {
-                  excerciseList.map((item, key) => (
-                    <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
-                  ))
-                }
-              </SelectX>
-            </FormControl>
-          </Box>
+        <Modal
+        open={modalOpen}
+          onClose={()=>setModalOpen(false)}>
+          <div className="goalFormContainer">
+            <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
+            <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
+              <FormControl fullWidth variant='outlined'>
+                <InputLabelX>Excercise</InputLabelX>
+                <SelectX
+                  label="Excercise"
+                  value={excerciseValue.excercise}
+                  onChange={handleExcerciseChange}
+                >
+                  {
+                    excerciseList.map((item, key) => (
+                      <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
+                    ))
+                  }
+                </SelectX>
+              </FormControl>
+            </Box>
 
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth variant='outlined'>
-              <InputLabelX>Goal</InputLabelX>
-              <SelectX
-                value={excerciseValue.goal}
-                label="Goal"
-                onChange={handleGoalChange}
-              >
-                {
-                  goalOptions.map((item, key) => (
-                    <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
-                  ))
-                }
-              </SelectX>
-            </FormControl>
-          </Box>
-          
-          <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
-        </div>}
+            <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth variant='outlined'>
+                <InputLabelX>Goal</InputLabelX>
+                <SelectX
+                  value={excerciseValue.goal}
+                  label="Goal"
+                  onChange={handleGoalChange}
+                >
+                  {
+                    goalOptions.map((item, key) => (
+                      <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
+                    ))
+                  }
+                </SelectX>
+              </FormControl>
+            </Box>
 
-     
+            <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
+          </div>
+        </Modal>
+      
+
+
     </div >
   )
 }

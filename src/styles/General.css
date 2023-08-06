@@ -143,6 +143,18 @@
     flex-direction: row;
     gap: 1em;
 }
+
+.addBtn{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover{
+    transform: scale(120%);
+}
 .inputCont {
     padding: 1em;
     border: none;
@@ -184,8 +196,8 @@
 
 .formContainer {
     padding: 2em;
-    max-width: 49vw;
-    min-width: 25vw;
+    /* max-width: 49vw; */
+    min-width: 30vw;
     background: #1f1f1f;
     border-radius: 1rem;
     display: flex;
@@ -194,6 +206,10 @@
 }
 
 .goalFormContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 2em;
     max-width: 49vw;
     background: #1f1f1f;
@@ -201,6 +217,18 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+@media only screen and (max-width: 700px)
+{
+    .addBtn{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .formContainer{
+
+    }
 }
 
 /* For styleing MUI select component */
