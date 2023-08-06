@@ -14,6 +14,9 @@
 .margin-0{
     margin:0;
 }
+.font-0{
+font-size: 0.5rem;
+}
 .font-1{
     font-size: 1rem;
 }
@@ -100,6 +103,9 @@
 .justify-content-between {
     justify-content: space-between;
 }
+.justify-content-center{
+    justify-content: center;
+}
 
 .btnCont{
     cursor: pointer;
@@ -173,7 +179,7 @@
 
 .backBtn {
     position: absolute;
-    top: 5rem;
+    top: 7.5rem;
     left:4.5rem;
     border-radius: 100%;
     transition: 0.3s;
@@ -190,13 +196,13 @@
     padding: 2rem 5rem 2rem 5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
 }
 
 .formContainer {
     padding: 2em;
-    /* max-width: 49vw; */
+    max-width: 49vw;
     min-width: 30vw;
     background: #1f1f1f;
     border-radius: 1rem;
@@ -219,17 +225,6 @@
     gap: 10px;
 }
 
-@media only screen and (max-width: 700px)
-{
-    .addBtn{
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .formContainer{
-
-    }
-}
 
 /* For styleing MUI select component */
 .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
@@ -238,7 +233,16 @@
 
 @media only screen and (max-width: 730px)
 {
+    .formContainer{
+        width: 100%;
+    } 
+
     .backBtn {
+        top: 3rem;
         left:0.3rem;
+    }
+
+    .goalFormContainer{
+        max-width: 18rem;
     }
 }

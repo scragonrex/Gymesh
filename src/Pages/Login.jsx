@@ -78,7 +78,7 @@ const Login = () => {
                     setFieldValue,
                     resetForm,
                 }) => (
-                    <div className="workoutCont">
+                    <div className="workoutCont justify-content-center">
                         <div className="formContainer">
                             <h1 className={`font-white text-align-center ${mobileView ? "font-1er" : "font-4"}`}>Login Here!</h1>
                             <form onSubmit={handleSubmit}>

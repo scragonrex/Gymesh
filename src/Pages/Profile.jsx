@@ -97,7 +97,7 @@ const Profile = () => {
             {editOpen && <div className="font-3 ">Complete your Profile!</div>}
                 <form>
 
-                    {!editOpen ? <div>{name}</div>
+                    {!editOpen ? <div>Hi {name}!</div>
                         : <div><label className='margin-0'>Name</label><input type="text" className="inputCont width-100" placeholder='Enter your name' minLength='3' value={name} onChange={(e) => setName(e.target.value)} /></div>}
 
                     {!editOpen ? <div >Weight: {weight}</div>

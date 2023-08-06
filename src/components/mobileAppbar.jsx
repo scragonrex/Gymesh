@@ -41,29 +41,31 @@ export default function TemporaryDrawer() {
                         <ListItemText primary="Home" onClick={()=>navigate("/home")}/>
                     </ListItemButton>
                 </ListItem>
+                <Divider sx={{backgroundColor:"black"}}/>
                 <ListItem key={2} disablePadding>
                     <ListItemButton>
                         <ListItemText primary="Programs" onClick={()=>navigate("/workout")}/>
                     </ListItemButton>
                 </ListItem>
+                <Divider sx={{backgroundColor:"black"}}/>
                 <ListItem key={3} disablePadding>
                     <ListItemButton>
                         <ListItemText primary="Goal" onClick={()=>navigate("/goal")}/>
                     </ListItemButton>
                 </ListItem>
+                <Divider sx={{backgroundColor:"black"}}/>
                 <ListItem key={4} disablePadding>
                     <ListItemButton>
                         <ListItemText primary="Profile" onClick={()=>navigate("/profile")}/>
                     </ListItemButton>
                 </ListItem>
-            </List>
-            <Divider />
-            <List sx={{ color: "#1b1b1b", backgroundColor: "rgb(0, 205, 109)" }}>
+            <Divider sx={{backgroundColor:"black"}}/>
                 <ListItem key={1} disablePadding>
                     <ListItemButton>
                         <ListItemText primary="Logout" />
                     </ListItemButton>
                 </ListItem>
+                <Divider sx={{backgroundColor:"black"}}/>
             </List>
         </Box>
     );

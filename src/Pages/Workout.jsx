@@ -66,10 +66,10 @@ const Workout = () => {
         }
     }
 
-    const mobileView = useMediaQuery('(max-width:600px)');
+    const mobileView = useMediaQuery('(max-width:730px)');
 
     return (
-        <div className='workoutCont'>
+        <div className='workoutCont' style={{paddingTop:"8rem"}}>
             {isLoading && <CircularProgress color='success' />}
             <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton></div>
             {formOpen && <div className="formContainer">
@@ -81,7 +81,7 @@ const Workout = () => {
                   <SelectX
            
                     // value={age}
-                    label="Age"
+                    label="Excercise"
                   // onChange={handleChange}
                   >
                   {bodyParts.map((item, key) => (
@@ -97,14 +97,14 @@ const Workout = () => {
                 <button className="btn" onClick={handleSubmit}>Submit</button></>}
             </div>}
             {excerciseOpen &&
-                <div className='excerciseCont'>
-                    <h1 className="font-white">Your Excercises</h1>
-                    <div className='cardCont'>
+                <div className='excerciseCont font-white'>
+                    <div className={`${mobileView?"font-3":"font-4"} `}>Your Excercises</div>
+                    <div className='cardCont font-white'>
                         {excerciseList.map((item, key) => (
                             <div id={key} className="card"> 
                                 <img src={item.gifUrl
                                 } alt="gif" style={{ width: "100%" }} />
-                                <div className='font-white' style={{ textAlign: "center" }}>{item.name}</div>
+                                <div className={`${mobileView?"font-0":"font-1"}`} style={{ textAlign: "center" }}>{item.name.length>60 ? item.name.substring(0,60)+"..":item.name}</div>
                             </div>
                         ))}
                     </div></div>}
