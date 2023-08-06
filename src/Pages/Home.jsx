@@ -32,7 +32,6 @@ const Home = () => {
           </div>
 
         </div>
-
       </div>
       <div class="footer-basic">
         <footer>
@@ -44,7 +43,7 @@ const Home = () => {
             <li class="list-inline-item"><p>Terms</p></li>
             <li class="list-inline-item"><p>Privacy Policy</p></li>
           </ul>
-          <p class="copyright">Muscle Grabber © 2023</p>
+          <p class="copyright">GYMESH © 2023</p>
         </footer>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

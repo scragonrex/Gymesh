@@ -5,72 +5,83 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import {useNavigate } from 'react-router-dom';
+
+
 
 export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+    const [state, setState] = React.useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
 
-    setState({ ...state, [anchor]: open });
-  };
+        setState({ ...state, [anchor]: open });
+    };
 
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Home', 'Programs', 'Goal', 'Profile'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['Logout'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+    const navigate=useNavigate();
+    const list = (anchor) => (
+        <Box
+            sx={{ width: "250px", height: "100vh", backgroundColor: "#1b1b1b", color: "rgb(0, 205, 109)" }}
+            role="presentation"
+            onClick={toggleDrawer(anchor, false)}
+            onKeyDown={toggleDrawer(anchor, false)}
+        >
+            <List sx={{ color: "rgb(0, 205, 109)" }}>
+                <ListItem key={1} disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary="Home" onClick={()=>navigate("/home")}/>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={2} disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary="Programs" onClick={()=>navigate("/workout")}/>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={3} disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary="Goal" onClick={()=>navigate("/goal")}/>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem key={4} disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary="Profile" onClick={()=>navigate("/profile")}/>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <Divider />
+            <List sx={{ color: "#1b1b1b", backgroundColor: "rgb(0, 205, 109)" }}>
+                <ListItem key={1} disablePadding>
+                    <ListItemButton>
+                        <ListItemText primary="Logout" />
+                    </ListItemButton>
+                </ListItem>
+            </List>
+        </Box>
+    );
 
-  return (
-    <div>
-      {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
-        <div className='btnCont'  onClick={toggleDrawer(anchor, true)}><MenuIcon sx={{color:"rgb(6, 207, 106)"}}/></div>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
-  );
+    return (
+        <div>
+            {['right'].map((anchor) => (
+                <React.Fragment key={anchor}>
+                    <div className='btnCont' onClick={toggleDrawer(anchor, true)}><MenuIcon sx={{ color: "rgb(6, 207, 106)" }} /></div>
+                    <Drawer
+                        anchor={anchor}
+                        open={state[anchor]}
+                        onClose={toggleDrawer(anchor, false)}
+                    >
+                        {list(anchor)}
+                    </Drawer>
+                </React.Fragment>
+            ))}
+        </div>
+    );
 }
