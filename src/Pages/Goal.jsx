@@ -1,19 +1,19 @@
 import { ArrowBack } from '@mui/icons-material';
 import { Box, Checkbox, FormControl, FormControlLabel, IconButton, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Workout.css'
 import { useSelector } from 'react-redux';
-import Progress from '../components/Progress';
+import GoalsList from '../components/GoalsList';
 
 const Goal = () => { 
   const navigate = useNavigate();
   const user = useSelector((state)=>state.auth.user);
   const token = useSelector((state)=>state.auth.token);
   const [taskOpen, setTaskOpen] = useState(false);
-  const [formOpen, setFormOpen] = useState(false)
-
+  const [formOpen, setFormOpen] = useState(true)
+  const mobileView = useMediaQuery('(max-width:700px)');
   // eslint-disable-next-line
   const [excerciseList, setExcerciseList] = useState(['Running', 'Cycling', 'Pushups', 'Burpees', 'Pullups'])
   // eslint-disable-next-line
@@ -29,6 +29,7 @@ const Goal = () => {
   // eslint-disable-next-line
   const [excerciseValue, setExcerciseValue] = useState({ excercise: '', goal: '' });
   const [goalOptions, setGoalOptions] = useState(['select excercise first'])
+  const [goalsList, setGoalsList] = useState();
 
   const handleBack = () => {
       navigate('/home');
@@ -60,7 +61,7 @@ const Goal = () => {
     const userId = user._id;
     
 
-    const url = "http://localhost:5000/profile/goal";
+    const url = "http://localhost:5000/goals/createGoal";
     const response = await fetch(url, {
       method:"POST", 
       body:JSON.stringify({startDate,progress,userId, excercise:excerciseValue.excercise, frequency:excerciseValue.goal}),
@@ -73,15 +74,36 @@ const Goal = () => {
     console.log("goal created",data);
   }
 
+  const getGoals = async()=>{
+    const url = `http://localhost:5000/goals/${user?._id}`;
+    const response = await fetch(url,{
+      method:"GET",
+      headers:{Authorization:`Bearer ${token}`, "Content-type":"application/json"}
+    })
+
+    const data = await response.json();
+    console.log("goals arrived",data);
+    setGoalsList(data);
+  }
+
+  useEffect(() => {
+    getGoals();
+  }, [])
+  
+
  
-
-
-  const mobileView = useMediaQuery('(max-width:700px)');
   return (
     <div className='workoutCont'>
       <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
       </div>
-      <Progress/>
+      <div className='goalsListCont'>
+        <div className='font-4 text-align-center font-white'>Your Goals</div>{
+        goalsList?.map((item,key)=>(
+          <GoalsList item={item} id={key} index={key+1}/>
+        ))
+      }
+      </div>
+      
       {formOpen &&
         <div className="goalFormContainer">
           <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>

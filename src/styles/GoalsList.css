@@ -1,7 +1,14 @@
-.goalCont{
-    min-height: 100vh;
+.goalsListCont{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     width: 100%;
-    margin-top: 7rem;
+    margin-top: 3rem;
+}
+.goalCont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .progressCont{
     background-color: rgb(41 41 41);
