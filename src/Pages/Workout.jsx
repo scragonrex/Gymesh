@@ -79,7 +79,7 @@ const Workout = () => {
                 {mobileView?<> <FormControl fullWidth>
                     <InputLabelX  >Exercise</InputLabelX>
                   <SelectX
-          
+           
                     // value={age}
                     label="Age"
                   // onChange={handleChange}
