@@ -33,3 +33,10 @@
 .links ul li:hover{
     color: white;
 }
+
+@media only screen and (max-width: 730px)
+{
+    .navbarContainer{
+        padding: 1rem 1rem;
+    }
+}

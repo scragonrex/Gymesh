@@ -1,5 +1,5 @@
 .landingContainer{
-    background-image: url('/public/assets/dark-concrete-texture-background.jpg');
+    background-color: #1b1b1b;
     background-size: cover;
     width: 100%;
     overflow: hidden;
@@ -37,6 +37,7 @@
 {
     font-size: 4rem;
     color: white;
+    margin-bottom: 50px;
 }
 .pageTitle p{
     color:rgb(0, 205, 109);
@@ -111,6 +112,28 @@
   .contentHome{
     color: white;
     text-align: center;
+  }
+
+  .intro{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card{
+    width: 17rem;
+    height: 19rem;
+    border-radius: 1rem;
+    padding: 1em;
+    cursor: pointer;
+    background-color: #404040;
+    transition: 0.3s;
+    text-align: center;
+}
+
+  .programs{
+    display: flex;
+    gap: 10rem;
+    justify-content: center;
   }
 @media only screen and (max-width: 600px)
 {
