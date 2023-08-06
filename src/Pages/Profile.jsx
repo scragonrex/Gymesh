@@ -7,11 +7,11 @@ const Profile = () => {
     // const mobileView = useMediaQuery('(max-width:600px)');
     const user = useSelector((state) => state.auth.user);
     const token = useSelector((state) => state.auth.token);
-    const [weight, setWeight] = useState(user.weight ? user.weight : "");
-    const [age, setAge] = useState(user.age ? user.age : "");
-    const [gender, setGender] = useState(user.gender ? user.gender : "");
-    const [name, setName] = useState(user.name ? user.name : "");
-    const [editOpen, setEditOpen] = useState(!Boolean(user.age && user.weight && user.gender));
+    const [weight, setWeight] = useState(user?.weight ? user.weight : "");
+    const [age, setAge] = useState(user?.age ? user.age : "");
+    const [gender, setGender] = useState(user?.gender ? user.gender : "");
+    const [name, setName] = useState(user?.name ? user.name : "");
+    const [editOpen, setEditOpen] = useState(!Boolean(user?.age && user?.weight && user?.gender));
     const [alert, setAlert] = useState({ open: false, status: "", message: "" });
     const handleGenderChange = (e) => {
         if (e.target.checked) {

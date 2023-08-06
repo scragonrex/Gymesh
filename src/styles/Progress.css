@@ -1,28 +1,30 @@
 .goalCont{
     min-height: 100vh;
     width: 100%;
-    margin-top: 6rem;
+    margin-top: 7rem;
 }
 .progressCont{
     background-color: rgb(41 41 41);
     width: 100%;
     border-radius: 1rem;
 }
-.progressBar{
-    padding-top: 2em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
+
 
 .bar{
-    width: 94%;
-    height: 14%;
+    width: 0%;
+    height: 30%;
     border-radius: 1rem;
     position: absolute;
-    top: 86%;
+    top: 140%;
     background-color: rgb(6, 207, 106);
+    transition: 0.4s;
+}
+.barContainer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
 
 .checkBtn{

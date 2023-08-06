@@ -76,7 +76,7 @@ const Goal = () => {
  
 
 
-  const mobileView = useMediaQuery('(max-width:600px)');
+  const mobileView = useMediaQuery('(max-width:700px)');
   return (
     <div className='workoutCont'>
       <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
