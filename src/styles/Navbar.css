@@ -8,8 +8,15 @@
     position: absolute;
    
 }
+.logoCont{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    align-items: center;
+    cursor: pointer;
+}
 .imgLogo{
-    width: 4em;
+    width: 3em;
 }
 
 .imgLogo img{

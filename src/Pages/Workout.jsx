@@ -104,7 +104,7 @@ const Workout = () => {
                             <div id={key} className="card"> 
                                 <img src={item.gifUrl
                                 } alt="gif" style={{ width: "100%" }} />
-                                <div className={`${mobileView?"font-0":"font-1"}`} style={{ textAlign: "center" }}>{item.name.length>60 ? item.name.substring(0,60)+"..":item.name}</div>
+                                <div className={`${mobileView?"font-0":"font-1"}`} style={{ textAlign: "center" }}>{item.name.length>40 ? item.name.substring(0,40)+"..":item.name}</div>
                             </div>
                         ))}
                     </div></div>}

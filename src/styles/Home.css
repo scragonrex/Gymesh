@@ -13,11 +13,14 @@
     padding: 8rem 5rem 0rem 5rem;
     justify-content: space-between;
     color: white;
+    background-image:url("../../public/assets/background.jpg");
+    background-size: cover;
 }
 .pageTitle{
     display: flex;
     flex-direction: column;
     align-items: left;
+    justify-content: center;
     color:white;
     font-family: 'Rubik', sans-serif;
 }
@@ -44,9 +47,35 @@
     font-size: 2rem;
 }
 
+.featuresCont{
+  padding: 2rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-color: #1b1b1b;
+  
+}
+.featureCard{
+  max-width: 20rem;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  border-radius: 1rem;
+  background-color: rgb(6, 207, 106);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.featureCard:hover{
+  transform: scale(110%);
+}
+.featureCardCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .footer-basic {
     padding:40px 0;
-    background-color: #1b1b1b;
+    background-color: #2d2d2d;
     color:white;
   }
   
@@ -119,27 +148,13 @@
     flex-direction: row;
   }
 
-  .card{
-    width: 17rem;
-    height: 19rem;
-    border-radius: 1rem;
-    padding: 1em;
-    cursor: pointer;
-    background-color: #404040;
-    transition: 0.3s;
-    text-align: center;
-}
-
-.card:hover{
-  background-image: url("../../public/assets/pexels-anush-gorak-1229356.jpg");
-}
 
   .programs{
     display: flex;
     gap: 10rem;
     justify-content: center;
   }
-@media only screen and (max-width: 600px)
+@media only screen and (max-width: 730px)
 {
     .pageTitle h1
     {
@@ -148,6 +163,17 @@
     .pageTitle p
     {
     font-size: 1em;
+    }
+    .mainPage{
+      padding:8rem 1.5rem 0rem 1.5rem;
+    }
+    .featuresCont{
+      padding:2rem 1.5rem 2rem 1.5rem;
+    }
+    .featureCardCont{
+      flex-direction: column;
+      gap: 1em;
+      align-items: center;
     }
 }
 
