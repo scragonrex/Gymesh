@@ -80,12 +80,10 @@ const Workout = () => {
                     <InputLabelX  >Exercise</InputLabelX>
                   <SelectX
            
-                    // value={age}
                     label="Excercise"
-                  // onChange={handleChange}
                   >
                   {bodyParts.map((item, key) => (
-                    <MenuItem sx={{ color: "white" }} className="tags" onClick={() => handleTag(item, key)} id={key} value={item}>{item}</MenuItem>
+                    <MenuItem sx={{ color: "white",backgroundColor: "#1b1b1b" }} className="tags" onClick={() => handleTag(item, key)} id={key} value={item}>{item}</MenuItem>
                 ))}
                   </SelectX>
                 </FormControl>

@@ -2,7 +2,7 @@ import { InputLabel, OutlinedInput, Select, styled } from '@mui/material';
 
 const SelectX = styled(Select)( 
     {
-      color: "rgb(6, 207, 106)", 
+      color: "rgb(6, 207, 106) !important", 
       '.MuiOutlinedInput-notchedOutline': { 
         borderColor: 'rgb(6, 207, 106)',
       },
@@ -20,7 +20,7 @@ const SelectX = styled(Select)(
 
   const InputLabelX = styled(InputLabel)(
     {
-      color: "rgb(6, 207, 106)",
+      color: "rgb(6, 207, 106) !important",
       "&.Mui-focused": {
         color: "white"
       }
@@ -29,7 +29,7 @@ const SelectX = styled(Select)(
 
   const OutlinedInputX = styled(OutlinedInput)(
     {
-      color: "rgb(6, 207, 106)",
+      color: "rgb(6, 207, 106) !important",
       '.MuiOutlinedInput-notchedOutline': {
         borderColor: 'rgb(6, 207, 106)',
       },
