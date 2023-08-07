@@ -8,6 +8,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setLogout } from '../store/authSlice';
 
 
 
@@ -26,7 +28,10 @@ export default function TemporaryDrawer() {
 
         setState({ ...state, [anchor]: open });
     };
- 
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(setLogout())
+      }
     const navigate=useNavigate();
     const list = (anchor) => (
         <Box
@@ -61,7 +66,7 @@ export default function TemporaryDrawer() {
                 </ListItem>
             <Divider sx={{backgroundColor:"black"}}/>
                 <ListItem key={1} disablePadding>
-                    <ListItemButton>
+                    <ListItemButton onClick={handleLogout}>
                         <ListItemText primary="Logout" />
                     </ListItemButton>
                 </ListItem>
