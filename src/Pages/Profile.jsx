@@ -18,7 +18,7 @@ const Profile = () => {
             setGender(e.target.value);
         }
         else
-            setGender();
+            setGender(); 
     }
 
     const handleSubmit = async (e) => {
@@ -28,8 +28,8 @@ const Profile = () => {
             setEditOpen(true);
         else {
             console.log(age, weight, gender, name);
-            const url = `http://localhost:5000/profile/addProfile/${user._id}`;
-            // const url = `https://muscle-grabber-backend.onrender.com/profile/addProfile/${user._id}`;
+            const url = `https://gymesh-backend.onrender.com/profile/addProfile/${user._id}`;
+            // const url = `http://localhost:5000/profile/addProfile/${user._id}`;
             const response = await fetch(url, {
                 method: "POST",
                 body: JSON.stringify({ weight, age, gender, name }),

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/General.css'
 import '../styles/GoalsList.css'
-import {Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel, IconButton, Typography } from '@mui/material';
-import { CheckBox, ExpandMore } from '@mui/icons-material';
+import {Accordion, AccordionDetails, AccordionSummary, Checkbox, FormControlLabel } from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { setScore } from '../store/authSlice';
 
 
@@ -23,7 +22,7 @@ const GoalsList = ({item,index}) => {
     console.log(ele)
     if(progressList.length>0 && progressList.includes(ele))
    {
-    const temp = progressList.filter((item)=>item!=ele);
+    const temp = progressList.filter((item)=>item!==ele);
     setProgressList(temp);
    }
   else
@@ -56,11 +55,11 @@ const GoalsList = ({item,index}) => {
 
   const handleFinalSubmit = async()=>{
     if(change===false)
-    return;
+    return; 
   
     console.log("progresslist",progressList)
-    const url = `http://localhost:5000/goals/addScore/${user?._id}`;
-    // const url = `https://gymesh-backend.onrender.com/goals/addScore/${user._id}`;
+    // const url = `http://localhost:5000/goals/addScore/${user?._id}`;
+    const url = `https://gymesh-backend.onrender.com/goals/addScore/${user._id}`;
 
     const response = await fetch(url,{
       method:"POST",
@@ -82,6 +81,7 @@ const GoalsList = ({item,index}) => {
   {
     const id = document.getElementById(`barCont${index}`);
     id.style.width=`${((tasks)/7)*100}%`;
+    // eslint-disable-next-line
   },[])
 
   return (

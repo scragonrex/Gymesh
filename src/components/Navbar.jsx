@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(setLogout())
   }
-  const score = useSelector((state)=>state.auth.score);
+  const score = useSelector((state)=>state.auth.score); 
   const mobileView = useMediaQuery('(max-width:730px)');
   return (
     <div className='navbarContainer'>

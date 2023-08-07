@@ -26,7 +26,7 @@ export default function TemporaryDrawer() {
 
         setState({ ...state, [anchor]: open });
     };
-
+ 
     const navigate=useNavigate();
     const list = (anchor) => (
         <Box

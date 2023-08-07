@@ -101,7 +101,7 @@ const Workout = () => {
                     <div className={`${mobileView?"font-3":"font-4"} `}>Your Excercises</div>
                     <div className='cardCont font-white'>
                         {excerciseList.map((item, key) => (
-                            <div id={key} className="card"> 
+                            <div id={key} className="card">  
                                 <img src={item.gifUrl
                                 } alt="gif" style={{ width: "100%" }} />
                                 <div className={`${mobileView?"font-0":"font-1"}`} style={{ textAlign: "center" }}>{item.name.length>40 ? item.name.substring(0,40)+"..":item.name}</div>

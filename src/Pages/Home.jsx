@@ -3,7 +3,7 @@ import '../styles/Home.css'
 import '../styles/Workout.css'
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-import { AccountCircleOutlined, FlagCircle, FlagCircleOutlined, FlagCircleRounded, ManageSearchRounded } from '@mui/icons-material';
+import { AccountCircleOutlined, FlagCircleOutlined, ManageSearchRounded } from '@mui/icons-material';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
@@ -23,7 +23,7 @@ const Home = () => {
       <div className={`${mobileView ? "font-3":"font-4"} ${mobileView && "text-align-center"} font-white font-bold`}>Checkout our new Features!</div>
       <div className="featureCardCont">
       <div className="featureCard" onClick={()=>navigate('/workout')}>
-        <div className="display-flex-col" >
+        <div className="display-flex-col" > 
         <div className='font-2 font-bold'>Excercise Finder</div>
         <div className='font-white'>Explore various ranges of excercise according to your various muscles</div>
         </div>

@@ -1,5 +1,5 @@
 import { AddCircle, ArrowBack } from '@mui/icons-material';
-import { Box, Checkbox, FormControl, FormControlLabel, IconButton, MenuItem, Modal, Tooltip, useMediaQuery } from '@mui/material';
+import { Box, FormControl, IconButton, MenuItem, Modal, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
@@ -12,8 +12,6 @@ const Goal = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
-  const [taskOpen, setTaskOpen] = useState(false);
-  const [formOpen, setFormOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false);
   // eslint-disable-next-line
   const [excerciseList, setExcerciseList] = useState(['Running', 'Cycling', 'Pushups', 'Burpees', 'Pullups'])
@@ -55,14 +53,12 @@ const Goal = () => {
 
   const handleFormSubmit = async () => {
     // console.log("excerciseValue", excerciseValue)
-    setFormOpen(false);
-    setTaskOpen(true);
     const startDate = new Date();
     const progress = [];
     const userId = user._id;
 
-
-    const url = "http://localhost:5000/goals/createGoal";
+    const url = "https://gymesh-backend.onrender.com/goals/createGoal";
+    // const url = "http://localhost:5000/goals/createGoal";
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({ startDate, progress, userId, excercise: excerciseValue.excercise, frequency: excerciseValue.goal }),
@@ -74,10 +70,13 @@ const Goal = () => {
     const data = await response.json();
     if (data.status === "success")
       getGoals();
+
+      setModalOpen(false);
   }
 
   const getGoals = async () => {
-    const url = `http://localhost:5000/goals/getGoals`;
+    const url = "https://gymesh-backend.onrender.com/goals/getGoals";
+    // const url = `http://localhost:5000/goals/getGoals`;
     const response = await fetch(url, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
@@ -96,6 +95,7 @@ const Goal = () => {
 
   useEffect(() => {
     getGoals();
+    // eslint-disable-next-line
   }, [])
 
 
@@ -122,7 +122,7 @@ const Goal = () => {
             <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
               <FormControl fullWidth variant='outlined'>
                 <InputLabelX>Excercise</InputLabelX>
-                <SelectX
+                <SelectX 
                   label="Excercise"
                   value={excerciseValue.excercise}
                   onChange={handleExcerciseChange}

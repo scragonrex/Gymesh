@@ -9,7 +9,7 @@ const SelectX = styled(Select)(
       '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
         borderColor: 'rgb(6, 207, 106)', 
       },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
+      '&:hover .MuiOutlinedInput-notchedOutline': { 
         borderColor: 'white',
       },
       '.MuiSvgIcon-root ': {
