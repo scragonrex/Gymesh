@@ -119,7 +119,7 @@ const Goal = () => {
           {alert.message}
         </Alert>
       </Snackbar>
-      <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
+      <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
       </div>
       <div className='goalsListCont'>
         <div className='font-4 text-align-center font-white'>Your Goals</div>{

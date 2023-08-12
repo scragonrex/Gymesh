@@ -71,7 +71,7 @@ const Workout = () => {
     return (
         <div className='workoutCont' style={{paddingTop:"8rem"}}>
             {isLoading && <CircularProgress color='success' />}
-            <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton></div>
+            <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>
             {formOpen && <div className="formContainer">
                 <div>
                     <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`}>What do you want to shape?</h1>
