@@ -17,7 +17,7 @@ const initialValuesRegister = {
   email: "",
   password: "",
 }
- 
+
 
 
 const SignUp = () => {
@@ -28,12 +28,18 @@ const SignUp = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+  const handleBlur = (e) => {
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    if (!regex.test(e.target.value)) {
+   setEmailError("Not a valid email");
+  }
+  }
+  const [emailError, setEmailError]= useState();
   const navigate = useNavigate();
 
   const register = async (values, onSubmitProps) => {
-    // const url = "http://localhost:5000/auth/signup";
-    const url = "https://gymesh-backend.onrender.com/auth/signup";
+    const url = "http://localhost:5000/auth/signup";
+    // const url = "https://gymesh-backend.onrender.com/auth/signup";
     setIsLoading(true);
     const response = await fetch(url,
       {
@@ -132,7 +138,7 @@ const SignUp = () => {
 
                
                 <button className='btn'
-                  type='submit'>{isLoading ? <CircularProgress color='success'/> : "SignUp"}</button>
+                  type='submit'>{isLoading ? <CircularProgress style={{color:"black" ,width:"20px", height:"20px"}}/> : "SignUp"}</button>
                 <div className='font-white'>
                   Already have an Account?. <p className=' font-link' onClick={() => navigate('/')}> Login</p>here!
                 </div>

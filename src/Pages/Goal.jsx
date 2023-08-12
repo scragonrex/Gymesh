@@ -75,8 +75,8 @@ const Goal = () => {
   }
 
   const getGoals = async () => {
-    const url = "https://gymesh-backend.onrender.com/goals/getGoals";
-    // const url = `http://localhost:5000/goals/getGoals`;
+    // const url = "https://gymesh-backend.onrender.com/goals/getGoals";
+    const url = `http://localhost:5000/goals/getGoals`;
     const response = await fetch(url, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }

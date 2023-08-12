@@ -9,3 +9,10 @@
         max-width:78vw;
     }
 }
+
+.passwordIcon{
+    position: absolute;
+    cursor: pointer;
+    top: 54%;
+    right: 3%;
+}
