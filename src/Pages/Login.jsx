@@ -11,13 +11,24 @@ import "../styles/login.css"
 
 
 const Login = () => {
+    const mobileView = useMediaQuery('(max-width:600px)');
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [alert, setAlert] = useState({open:false, message:""});
-    const [hidePassword, setHidePassword]=useState(true);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const [hidePassword, setHidePassword] = useState(true);
+
+    //-------------------Alert----------------------------//
+    const [alert, setAlert] = useState({ open: false, message: "" });
+    const handleAlertClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setAlert({ ...alert, open: false });
+    };
+
 
     const login = async (e) => {
         e.preventDefault();
@@ -35,11 +46,10 @@ const Login = () => {
         const loggedIn = await response.json();
         setIsLoading(false);
         console.log(loggedIn);
-        if(loggedIn.status && loggedIn.status==="error")
-        {
-            setAlert({open:true, message:loggedIn.msg});
+        if (loggedIn.status && loggedIn.status === "error") {
+            setAlert({ open: true, message: loggedIn.msg });
         }
-        else if(loggedIn.user && loggedIn.token) {
+        else if (loggedIn.user && loggedIn.token) {
             // setOpen(true);
             dispatch(setLogin(
                 {
@@ -51,31 +61,26 @@ const Login = () => {
         }
     }
 
-    const handleAlertClose = (event, reason) => {
-        if (reason === 'clickaway') {
-          return;
+    const handleBlur = (e) => {
+        if (e.target.value === "")
+            setAlert({ open: true, message: "Email required" })
+        else {
+            let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+            if (!regex.test(e.target.value)) {
+                setAlert({ open: true, message: "Invalid email" })
+            }
         }
-    
-        setAlert({...alert,open:false});
-      };
-
-      const handleBlur = (e) => {
-        if(e.target.value==="")
-        setAlert({open:true,message:"Email required"})
-        else
-       { let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
-        if (!regex.test(e.target.value)) {
-       setAlert({open:true,message:"Invalid email"})
-      }}
-      }
+    }
 
 
-    const mobileView = useMediaQuery('(max-width:600px)');
+
+
+
     return (
 
         <div className="workoutCont justify-content-center">
             <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
-            anchorOrigin={{ vertical:'top', horizontal:'right' }}>
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                 <Alert onClose={handleAlertClose} severity="error" variant='filled' sx={{ width: '100%' }}>
                     {alert.message}
                 </Alert>
@@ -94,17 +99,17 @@ const Login = () => {
                         />
 
                     </div>
-                    <div className="display-flex-col" style={{position:"relative"}}>
+                    <div className="display-flex-col" style={{ position: "relative" }}>
                         <label className="font-white">Password</label>
                         <input className='inputCont' required
                             name='password' value={password}
-                            type={hidePassword?"password":"text"}
+                            type={hidePassword ? "password" : "text"}
                             placeholder='Enter you password'
                             onChange={(e) => setPassword(e.target.value)}
-                            
+
                         />
-                        <div className='passwordIcon' onClick={()=>setHidePassword(!hidePassword)}>{hidePassword?<VisibilityOffRounded sx={{color:"white"}}/>:<VisibilityRounded sx={{color:"white"}}/>}</div>
-                        
+                        <div className='passwordIcon' onClick={() => setHidePassword(!hidePassword)}>{hidePassword ? <VisibilityOffRounded sx={{ color: "white" }} /> : <VisibilityRounded sx={{ color: "white" }} />}</div>
+
                     </div>
                     <button className='btn'
                         type='submit'>{isLoading ? <CircularProgress style={{ color: "black", width: "20px", height: "20px" }} /> : "Login"}</button>
