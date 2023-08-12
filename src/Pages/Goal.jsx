@@ -1,5 +1,5 @@
 import { AddCircle, ArrowBack } from '@mui/icons-material';
-import { Box, FormControl, IconButton, MenuItem, Modal, useMediaQuery } from '@mui/material';
+import { Alert, Box, FormControl, IconButton, MenuItem, Modal, Snackbar, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { InputLabelX, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
@@ -34,6 +34,16 @@ const Goal = () => {
     navigate('/home');
   }
 
+  //--------------------------Alert---------------------------//
+  const [alert, setAlert] = useState({ status: "", open: false, message: "" });
+  const handleAlertClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setAlert({ ...alert, open: false });
+  };
+
   const handleExcerciseChange = (e) => {
     setExcerciseValue((prev) => { return { ...prev, excercise: e.target.value } });
     if (e.target.value === 'Running')
@@ -57,8 +67,8 @@ const Goal = () => {
     const progress = [];
     const userId = user._id;
 
-    const url = "https://gymesh-backend.onrender.com/goals/createGoal";
-    // const url = "http://localhost:5000/goals/createGoal";
+    // const url = "https://gymesh-backend.onrender.com/goals/createGoal";
+    const url = "http://localhost:5000/goals/createGoal";
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify({ startDate, progress, userId, excercise: excerciseValue.excercise, frequency: excerciseValue.goal }),
@@ -71,7 +81,8 @@ const Goal = () => {
     if (data.status === "success")
       getGoals();
 
-      setModalOpen(false);
+    setModalOpen(false);
+    setAlert({status:data.status,open:true,message:data.msg})
   }
 
   const getGoals = async () => {
@@ -88,7 +99,7 @@ const Goal = () => {
     setGoalsList(goals);
   }
 
-  const handleAddBtn = ()=>{
+  const handleAddBtn = () => {
     console.log("add")
     setModalOpen(true);
   }
@@ -102,6 +113,12 @@ const Goal = () => {
 
   return (
     <div className='workoutCont' style={{ justifyContent: "flex-start" }}>
+       <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <Alert onClose={handleAlertClose} severity={alert.status} variant='filled' sx={{ width: '100%' }}>
+          {alert.message}
+        </Alert>
+      </Snackbar>
       <div className='backBtn'><IconButton onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></IconButton>
       </div>
       <div className='goalsListCont'>
@@ -113,50 +130,50 @@ const Goal = () => {
         }
       </div>
       <div className='addBtn' onClick={handleAddBtn}><AddCircle sx={{ color: "rgb(6, 207, 106)", fontSize: "4rem" }} /></div>
-      
-        <Modal
+
+      <Modal
         open={modalOpen}
-          onClose={()=>setModalOpen(false)}>
-          <div className="goalFormContainer">
-            <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
-            <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
-              <FormControl fullWidth variant='outlined'>
-                <InputLabelX>Excercise</InputLabelX>
-                <SelectX 
-                  label="Excercise"
-                  value={excerciseValue.excercise}
-                  onChange={handleExcerciseChange}
-                >
-                  {
-                    excerciseList.map((item, key) => (
-                      <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
-                    ))
-                  }
-                </SelectX>
-              </FormControl>
-            </Box>
+        onClose={() => setModalOpen(false)}>
+        <div className="goalFormContainer">
+          <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
+          <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
+            <FormControl fullWidth variant='outlined'>
+              <InputLabelX>Excercise</InputLabelX>
+              <SelectX
+                label="Excercise"
+                value={excerciseValue.excercise}
+                onChange={handleExcerciseChange}
+              >
+                {
+                  excerciseList.map((item, key) => (
+                    <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
+                  ))
+                }
+              </SelectX>
+            </FormControl>
+          </Box>
 
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth variant='outlined'>
-                <InputLabelX>Goal</InputLabelX>
-                <SelectX
-                  value={excerciseValue.goal}
-                  label="Goal"
-                  onChange={handleGoalChange}
-                >
-                  {
-                    goalOptions.map((item, key) => (
-                      <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
-                    ))
-                  }
-                </SelectX>
-              </FormControl>
-            </Box>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth variant='outlined'>
+              <InputLabelX>Goal</InputLabelX>
+              <SelectX
+                value={excerciseValue.goal}
+                label="Goal"
+                onChange={handleGoalChange}
+              >
+                {
+                  goalOptions.map((item, key) => (
+                    <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
+                  ))
+                }
+              </SelectX>
+            </FormControl>
+          </Box>
 
-            <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
-          </div>
-        </Modal>
-      
+          <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
+        </div>
+      </Modal>
+
 
 
     </div >
