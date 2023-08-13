@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as yup from 'yup'  //* for importing every content of that module
 import { Formik } from 'formik'
-import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { Visibility, VisibilityOff, VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
 import { Alert, CircularProgress, FormControl, IconButton, InputAdornment, Snackbar, } from '@mui/material'
 import { useNavigate } from 'react-router'
 import { InputLabelX, OutlinedInputX } from '../components/Utils'
@@ -23,9 +23,8 @@ const initialValuesRegister = {
 const SignUp = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [hidePassword, sethidePassword] = useState(false);
+  const [hidePassword, setHidePassword] = useState(true);
   const [user, setUser] = useState({ name: "", email: "", password: "" });
-
 
   //-------------------Alert----------------------------//
   const [alert, setAlert] = useState({ open: false, message: "" });
@@ -103,14 +102,16 @@ const SignUp = () => {
             />
           </div>
 
-          <div className='display-flex-col'>
+          <div className='display-flex-col'  style={{ position: "relative" }}>
             <label htmlFor="" className="font-white">Password</label>
             <input className='inputCont'
               name='password' value={user.password}
               type={hidePassword ? 'password' : 'text'}
               onChange={handleChange}
               placeholder='Enter your password'
+              minLength='6'
             />
+            <div className='passwordIcon' onClick={() => setHidePassword(!hidePassword)}>{hidePassword ? <VisibilityOffRounded sx={{ color: "white" }} /> : <VisibilityRounded sx={{ color: "white" }} />}</div>
           </div>
 
           <button className='btn'
