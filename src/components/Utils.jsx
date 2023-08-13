@@ -46,30 +46,21 @@ const OutlinedInputX = styled(OutlinedInput)(
 
   }
 )
-
-const InputMod = (props) => {
-  const [anchor,setAnchor]=useState(null);
-  const { helperText, error } = props;
-  const open = Boolean(anchor)
-  const handleClose = () => {
-    setAnchor(null);
-  };
-  const handleBlur=()=>{
-    return props.onBlur;
+const SelectMod = ({ options, title }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [selectValue, setSelectValue] = useState("");
+  const handleChange=(e)=>{
+    setSelectValue(e.currentTarget.textContent);
+    setMenuOpen(false);
   }
-  console.log("error", error, helperText)
-  return (<>
-    <input className='inputCont' type={props.type} placeholder={props.placeholder} onChange={props.onChange} onBlur={handleBlur} value={props.value} required name={props.name}/>
-    <Popover
-      open={open}
-      anchorEl={anchor}
-      onClose={handleClose}
-      anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'right',
-      }}
-    >{props.helperText}</Popover>
-  </>
+  return (
+    <>
+    <input onClick={(e)=>setMenuOpen(!menuOpen)} placeholder={title} value={selectValue}/>
+      {menuOpen && options?.map((item,key)=>(
+        <div id={key} value={item} onClick={handleChange}>{item}</div>
+      ))
+      }
+      </>
   )
 }
-export { InputLabelX, SelectX, OutlinedInputX, InputMod };
+export { InputLabelX, SelectX, OutlinedInputX, SelectMod };

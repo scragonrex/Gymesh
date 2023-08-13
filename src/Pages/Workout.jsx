@@ -3,7 +3,7 @@ import '../styles/Workout.css'
 import { CircularProgress, FormControl, IconButton, MenuItem, useMediaQuery } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { InputLabelX, SelectX } from '../components/Utils';
+import { InputLabelX, SelectMod, SelectX } from '../components/Utils';
 const Workout = () => {
     const navigate = useNavigate(); 
     const [formOpen, setFormOpen] = useState(true);
@@ -72,6 +72,7 @@ const Workout = () => {
         <div className='workoutCont' style={{paddingTop:"8rem"}}>
             {isLoading && <CircularProgress color='success' />}
             <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>
+            <SelectMod title='Excercise' options={bodyParts} />
             {formOpen && <div className="formContainer">
                 <div>
                     <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`}>What do you want to shape?</h1>

@@ -21,8 +21,8 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 function Root() {
-  const isAuth = Boolean(useSelector(state=>state.auth.token));
-  // const isAuth=true;
+  // const isAuth = Boolean(useSelector(state=>state.auth.token));
+  const isAuth=true;
   return (
     <>
        {isAuth && <Navbar/>}

@@ -19,8 +19,7 @@ const Navbar = () => {
       
       <div className="logo flexBox gap-1 font-green font-bold">
         <div className='logoCont'>
-        <div className='imgLogo'><img src="/assets/logo.png" alt="logo" /></div> 
-        <div className='font-3'>Gymesh</div></div>
+        <div className={mobileView?'font-2':'font-3'}>Muscle Grabber</div></div>
         </div>
       {mobileView ? (<div><Sidebar/></div>) : <div className="links">
         <ul>

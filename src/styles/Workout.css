@@ -49,15 +49,15 @@
 @media only screen and (max-width: 600px)
 {
     .card{
-        width: 8rem;
-        height: 10rem;
-        font-size: 0.7rem;
+        width: 9rem;
+        height: 12rem;
+        padding: 0.5rem;
     }
     .cardCont {
-        gap: 0.7rem;
+        gap: 1.5rem;
     }
     .workoutCont {
-        padding: 1.5rem;
+        padding: 0rem;
     }
     .formContainer{
         max-width: 59vw;

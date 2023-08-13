@@ -6,20 +6,6 @@ import { Alert, CircularProgress, FormControl, IconButton, InputAdornment, Snack
 import { useNavigate } from 'react-router'
 import { InputLabelX, OutlinedInputX } from '../components/Utils'
 
-const registerSchema = yup.object().shape({
-  name: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
-})
-
-const initialValuesRegister = {
-  name: "",
-  email: "",
-  password: "",
-}
-
-
-
 const SignUp = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
