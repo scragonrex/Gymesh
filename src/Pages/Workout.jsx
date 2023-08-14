@@ -72,12 +72,10 @@ const Workout = () => {
         <div className='workoutCont' style={{paddingTop:"8rem"}}>
             {isLoading && <CircularProgress color='success' />}
             <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>
-            <SelectMod title='Excercise' options={bodyParts} />
             {formOpen && <div className="formContainer">
-                <div>
-                    <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`}>What do you want to shape?</h1>
-                </div>
-                {mobileView?<> <FormControl fullWidth>
+            <SelectMod title='Excercise' options={bodyParts} />
+                    {/* <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`}>What do you want to shape?</h1> */}
+                {/* {mobileView?<> <FormControl fullWidth>
                     <InputLabelX  >Exercise</InputLabelX>
                   <SelectX
            
@@ -93,8 +91,9 @@ const Workout = () => {
                         <div className="tags" onClick={() => handleTag(item, key)} id={key}>{item}</div>
                     ))}
                 </div>
-                <button className="btn" onClick={handleSubmit}>Submit</button></>}
-            </div>}
+                <button className="btn" onClick={handleSubmit}>Submit</button></>} */}
+            </div>
+            }
             {excerciseOpen &&
                 <div className='excerciseCont font-white'>
                     <div className={`${mobileView?"font-3":"font-4"} `}>Your Excercises</div>

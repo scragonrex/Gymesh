@@ -1,0 +1,10 @@
+#optionCont {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+  
+  #optionCont.expanded {
+    height: 20rem;
+  }
+  

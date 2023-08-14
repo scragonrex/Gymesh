@@ -220,6 +220,27 @@ font-size: 0.8rem;
     gap: 10px;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #121212; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(43, 41, 41); 
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(62, 61, 61); 
+  }
+
 
 /* For styleing MUI select component */
 .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
