@@ -4,7 +4,7 @@ import '../styles/Utils.css';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
-const SelectMod = ({ options, title,onChange,ide }) => {
+ export const SelectMod = ({ options, title,onChange,ide }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectValue, setSelectValue] = useState(title);
 
@@ -46,4 +46,4 @@ const SelectMod = ({ options, title,onChange,ide }) => {
         </ClickAwayListener>
   )
 }
-export { SelectMod };
+

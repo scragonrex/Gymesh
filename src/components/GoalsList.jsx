@@ -158,7 +158,8 @@ const GoalsList = ({ item, index }) => {
               />
 
             </div>
-            <div style={{ position: "absolute", right: "0", bottom: "0" }}>
+            <div style={{ display:"flex", gap:"1em", position: "absolute", right: "0", bottom: "0" }}>
+              <button className='btn' style={{backgroundColor:"#8f0e0e"}}>Delete</button>
               <button className="btn" onClick={handleFinalSubmit}>Final Submit</button>
             </div>
           </div>
