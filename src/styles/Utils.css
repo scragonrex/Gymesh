@@ -3,6 +3,7 @@
     overflow: hidden;
     transition: height 0.3s ease;
     position: absolute;
+    z-index: 2;
     width: 100%;
     border-radius: 0 0 5px 5px;
     cursor: pointer;
@@ -10,8 +11,8 @@
     overflow: auto;
   }
   
-  .optionCont.expanded {
-    height: 20rem;
+ .expanded {
+    height: 10rem;
   }
 
   .option{
@@ -23,11 +24,11 @@
     background-color:#1f1f20;
   }
   
-  #expandIcon{
+  .expandIcon{
     transition: 0.3s;
     transform: rotate(0deg);
   }
-  #expandIcon.rotate{
+.rotate{
     transform: rotate(180deg);
   }
 

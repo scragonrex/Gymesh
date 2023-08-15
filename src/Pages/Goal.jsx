@@ -1,7 +1,7 @@
 import { AddCircle, ArrowBack } from '@mui/icons-material';
 import { Alert, Box, FormControl, IconButton, MenuItem, Modal, Snackbar, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { InputLabelX, SelectX } from '../components/Utils'
+import { InputLabelX, SelectMod, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
 import '../styles/Workout.css'
 import { useSelector } from 'react-redux';
@@ -45,20 +45,21 @@ const Goal = () => {
   };
 
   const handleExcerciseChange = (e) => {
-    setExcerciseValue((prev) => { return { ...prev, excercise: e.target.value } });
-    if (e.target.value === 'Running')
+    console.log(e);
+    setExcerciseValue((prev) => { return { ...prev, excercise: e } });
+    if (e === 'Running')
       setGoalOptions(runningOptions);
-    else if (e.target.value === 'Cycling')
+    else if (e === 'Cycling')
       setGoalOptions(cyclingOptions);
-    else if (e.target.value === 'Pushups')
+    else if (e === 'Pushups')
       setGoalOptions(pushupsOptions);
-    else if (e.target.value === 'Burpees')
+    else if (e === 'Burpees')
       setGoalOptions(burpeesOptions);
-    else if (e.target.value === 'Pullups')
+    else if (e === 'Pullups')
       setGoalOptions(pullupsOptions);
   }
   const handleGoalChange = (e) => {
-    setExcerciseValue((prev) => { return { ...prev, goal: e.target.value } });
+    setExcerciseValue((prev) => { return { ...prev, goal: e } });
   }
 
   const handleFormSubmit = async () => {
@@ -137,37 +138,35 @@ const Goal = () => {
         <div className="goalFormContainer">
           <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
           <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
-            <FormControl fullWidth variant='outlined'>
-              <InputLabelX>Excercise</InputLabelX>
-              <SelectX
-                label="Excercise"
-                value={excerciseValue.excercise}
+              <SelectMod
+                title="Excercise"
+                options={excerciseList}
+                ide="sm1"
+                // value={excerciseValue.excercise}
                 onChange={handleExcerciseChange}
               >
-                {
+                {/* {
                   excerciseList.map((item, key) => (
                     <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
                   ))
-                }
-              </SelectX>
-            </FormControl>
+                } */}
+              </SelectMod>
           </Box>
 
           <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth variant='outlined'>
-              <InputLabelX>Goal</InputLabelX>
-              <SelectX
-                value={excerciseValue.goal}
-                label="Goal"
+              <SelectMod
+                // value={excerciseValue.goal}
+                ide="sm2"
+                title="Goal"
+                options={goalOptions}
                 onChange={handleGoalChange}
               >
-                {
+                {/* {
                   goalOptions.map((item, key) => (
                     <MenuItem id={key} sx={{ color: "white" }} value={item}>{item}</MenuItem>
                   ))
-                }
-              </SelectX>
-            </FormControl>
+                } */}
+              </SelectMod>
           </Box>
 
           <button className="btn" style={{ marginTop: "1rem" }} onClick={handleFormSubmit}>Submit</button>
