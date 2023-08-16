@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setScore } from '../store/authSlice';
 
 
-const GoalsList = ({ item, index }) => {
+const GoalsList = ({ item, index, getGoals }) => {
   const [tasks, setTasks] = useState(item.progress.length);
   const [change, setChange] = useState(false);
   const [progressList, setProgressList] = useState(item.progress);
@@ -65,8 +65,8 @@ const GoalsList = ({ item, index }) => {
       return;
 
     console.log("progresslist", progressList)
-    // const url = `https://gymesh-backend.onrender.com/goals/addScore/${user._id}`;
-    const url = `http://localhost:5000/goals/addScore/${user?._id}`;
+    // const url = `https://gymesh-backend.onrender.com/goals/addScore`;
+    const url = "http://localhost:5000/goals/addScore";
 
     const response = await fetch(url, {
       method: "POST",
@@ -85,6 +85,20 @@ const GoalsList = ({ item, index }) => {
     console.log(data);
   }
 
+  const handleDeleteGoal = async()=>{
+    // const url = `https://gymesh-backend.onrender.com/goals/deleteGoal`;
+    const url = "http://localhost:5000/goals/deleteGoal";
+    const response = await fetch(url,{
+      method:"DELETE",
+      body:JSON.stringify({goalId: item._id}),
+      headers:{Authorization:`Bearer ${token}`, "Content-type":"application/json"}
+    });
+
+    const data =await response.json();
+    if(data.status==="success")
+    {const res = getGoals();}
+    setAlert({open:true, status:data.status, message:data.msg});
+  }
  
 
   useEffect(() => {
@@ -159,7 +173,7 @@ const GoalsList = ({ item, index }) => {
 
             </div>
             <div style={{ display:"flex", gap:"1em", position: "absolute", right: "0", bottom: "0" }}>
-              <button className='btn' style={{backgroundColor:"#8f0e0e"}}>Delete</button>
+              <button className='btn' onClick={handleDeleteGoal} style={{backgroundColor:"#8f0e0e"}}>Delete</button>
               <button className="btn" onClick={handleFinalSubmit}>Final Submit</button>
             </div>
           </div>
