@@ -22,12 +22,12 @@ const Navbar = () => {
         <div className={mobileView?'font-2':'font-3'}>Muscle Grabber</div></div>
         </div>
       {mobileView ? (<div><Sidebar/></div>) : <div className="links">
-        <ul>
-          <li className='font-1 font-green' onClick={() => navigate('/home')}>Home</li>
-          <li className='font-1 font-green' onClick={() => navigate('/workout')}>Programs</li>
-          <li className='font-1 font-green' onClick={() => navigate('/goal')}>Goal</li>
-          <li className='font-1 font-green' onClick={() => navigate('/profile')}>Profile</li>
-          <li className='font-1 font-bold font-green' ><Bolt/>{score}</li>
+        <ul className='font-white'>
+          <li className='font-1' onClick={() => navigate('/home')}>Home</li>
+          <li className='font-1' onClick={() => navigate('/workout')}>Programs</li>
+          <li className='font-1' onClick={() => navigate('/goal')}>Goal</li>
+          <li className='font-1' onClick={() => navigate('/profile')}>Profile</li>
+          <li className='font-1 font-bold font-white' ><Bolt/>{score}</li>
           <li className='font-1 font-green' onClick={handleLogout}><button className='btn'>Logout</button></li>
         </ul>
       </div>}

@@ -12,10 +12,10 @@ const Home = () => {
      <div className='landingContainer'>
     <div className='mainPage'>
       <div className="pageTitle">
-        <div className={`${mobileView?"font-3":"font-4"} ${mobileView?"margin-bottom-2":"margin-bottom-4"} font-bold`}>Unleash Your Fitness Potential, Unleash Your Life</div>
-        <p>Your Journey to Fitness Begins Here.Try our newly launched Programmes for better growth</p>
+        <div className={`${mobileView?"font-3":"font-6"} ${mobileView?"margin-bottom-2":"margin-bottom-2"} font-bold`}>Unleash Your Fitness Potential, Unleash Your Life</div>
+        <p className='font-green font-2'>Your Journey to Fitness Begins Here.Try our newly launched Programmes for better growth</p>
       </div>
-      {!mobileView && <div className="flexBox" style={{width:"100%"}}>
+      {!mobileView && <div className="flexBox">
         <img src="/assets/mainPageImg.png" alt="mainimage" style={{width:"100%"}} />
       </div>}
     </div> 

@@ -9,15 +9,16 @@
 
 .mainPage{
     display: flex;
+    min-height: 100vh;
     flex-direction: row;
     padding: 8rem 5rem 0rem 5rem;
-    justify-content: space-between;
     color: white;
     background-image:url("../../public/assets/background.jpg");
     background-size: cover;
 }
 .pageTitle{
     display: flex;
+    max-width: 60%;
     flex-direction: column;
     align-items: left;
     justify-content: center;
@@ -36,16 +37,7 @@
     flex-direction: row;
     gap: 30px;
 }
-.pageTitle h1
-{
-    font-size: 4rem;
-    color: white;
-    margin-bottom: 50px;
-}
-.pageTitle p{
-    color:rgb(0, 205, 109);
-    font-size: 2rem;
-}
+
 
 .featuresCont{
   padding: 2rem 5rem 4rem 5rem;
