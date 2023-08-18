@@ -1,53 +1,62 @@
-.landingContainer{
-    background-color: #1b1b1b;
-    background-size: cover;
-    width: 100%;
-    overflow: hidden;
-    min-height: 90vh;
-    
+.landingContainer {
+  width: 100%;
+  overflow: hidden;
+  min-height: 90vh;
+
 }
 
-.mainPage{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: row;
-    padding: 8rem 5rem 0rem 5rem;
-    color: white;
-    background-image:url("../../public/assets/background.jpg");
-    background-size: cover;
+.mainPage {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 8rem 5rem 0rem 5rem;
+  color: white;
 }
-.pageTitle{
-    display: flex;
-    max-width: 60%;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    color:white;
-    font-family: 'Rubik', sans-serif;
+
+.bgImg{
+  position: absolute;
+  z-index: -1;
+  object-fit: contain;
+  box-sizing: border-box;
+  width: 100%;
+  filter: brightness(50%);
 }
-.exerciseContainer{
-    display: flex;
-    flex-direction: row;
-    padding: 5rem 5rem 1rem 5rem;
-    justify-content: space-between;
-    color: white;
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Rubik', sans-serif;
 }
-.balance{
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+
+.exerciseContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 5rem 5rem 1rem 5rem;
+  justify-content: space-between;
+  color: white;
+}
+
+.balance {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 
 
-.featuresCont{
+.featuresCont {
   padding: 2rem 5rem 4rem 5rem;
   display: flex;
   flex-direction: column;
   gap: 1em;
   background-color: #1b1b1b;
-  
+
 }
-.featureCard{
+
+.featureCard {
   max-width: 20rem;
   display: flex;
   flex-direction: row;
@@ -57,115 +66,121 @@
   cursor: pointer;
   transition: 0.3s;
 }
-.featureCard:hover{
+
+.featureCard:hover {
   transform: scale(110%);
 }
-.featureCardCont{
+
+.featureCardCont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .footer-basic {
-    padding:40px 0;
-    background-color: #2d2d2d;
-    color:white;
-  }
-  
-  .footer-basic ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
-  }
-  
-  .footer-basic li {
-    padding:0 10px;
-  }
-  .footer-basic li:hover {
-    color: rgb(0, 205, 109);
-  }
-  
-  .footer-basic ul a {
-    color:inherit;
-    text-decoration:none;
-    opacity:0.8;
-  }
-  
-  .footer-basic ul a:hover {
-    opacity:1;
-  }
-  
-  .footer-basic .social {
-    text-align:center;
-    padding-bottom:25px;
-    justify-content: center;
-    gap:2rem;
-  }
-  
-  .footer-basic .social > a {
-    font-size:24px;
-    width:40px;
-    height:40px;
-    line-height:40px;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    border:1px solid #ccc;
-    margin:0 8px;
-    color:inherit;
-    opacity:0.75;
-  }
-  
-  .footer-basic .social > a:hover {
-    opacity:0.9;
-    color: rgb(0, 205, 109);
-  }
-  
-  .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:#aaa;
-    margin-bottom:0;
-  }
-  .contentHome{
-    color: white;
-    text-align: center;
-  }
-
-  .intro{
-    display: flex;
-    flex-direction: row;
-  }
-
-
-  .programs{
-    display: flex;
-    gap: 10rem;
-    justify-content: center;
-  }
-@media only screen and (max-width: 730px)
-{
-    .pageTitle h1
-    {
-    font-size: 1.5em;
-    }
-    .pageTitle p
-    {
-    font-size: 1em;
-    }
-    .mainPage{
-      padding:8rem 1.5rem 0rem 1.5rem;
-    }
-    .featuresCont{
-      padding:2rem 1.5rem 2rem 1.5rem;
-    }
-    .featureCardCont{
-      flex-direction: column;
-      gap: 1em;
-      align-items: center;
-    }
+  padding: 40px 0;
+  background-color: #2d2d2d;
+  color: white;
 }
 
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer-basic li {
+  padding: 0 10px;
+}
+
+.footer-basic li:hover {
+  color: rgb(0, 205, 109);
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity: 1;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.footer-basic .social>a {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social>a:hover {
+  opacity: 0.9;
+  color: rgb(0, 205, 109);
+}
+
+.footer-basic .copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
+.contentHome {
+  color: white;
+  text-align: center;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.programs {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 730px) {
+  .pageTitle h1 {
+    font-size: 1.5em;
+  }
+
+  .pageTitle p {
+    font-size: 1em;
+  }
+
+  .mainPage {
+    padding: 8rem 1.5rem 0rem 1.5rem;
+  }
+
+  .featuresCont {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+
+  .featureCardCont {
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+  }
+}

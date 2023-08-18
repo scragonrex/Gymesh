@@ -11,13 +11,15 @@ const Home = () => {
     <>
      <div className='landingContainer'>
     <div className='mainPage'>
+      <img src="/assets/background1.jpg" alt="img1" className="bgImg" />
       <div className="pageTitle">
-        <div className={`${mobileView?"font-3":"font-6"} ${mobileView?"margin-bottom-2":"margin-bottom-2"} font-bold`}>Unleash Your Fitness Potential, Unleash Your Life</div>
-        <p className='font-green font-2'>Your Journey to Fitness Begins Here.Try our newly launched Programmes for better growth</p>
+        <div className={`${mobileView?"font-3":"font-6"} font-bold`}>Elevate Your Fitness Journey with Us!</div>
+        <p className='font-green font-2 text-align-center'> Every drop of sweat is a testament to your dedication, bringing you closer to a stronger, healthier, and more confident you. Join us to unleash the beast inside you.</p>
+        <button className="btn"><div className='font-3'>Signup Now</div></button>
       </div>
-      {!mobileView && <div className="flexBox">
+      {/* {!mobileView && <div className="flexBox">
         <img src="/assets/mainPageImg.png" alt="mainimage" style={{width:"100%"}} />
-      </div>}
+      </div>} */}
     </div> 
     <div className="featuresCont">
       <div className={`${mobileView ? "font-3":"font-4"} ${mobileView && "text-align-center"} font-white font-bold`}>Checkout our new Features!</div>
