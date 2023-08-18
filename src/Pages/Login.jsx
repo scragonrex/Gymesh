@@ -57,7 +57,7 @@ const Login = () => {
                     token: loggedIn.token,
                 })
             )
-            navigate('/home');
+            navigate('/');
         }
     }
 

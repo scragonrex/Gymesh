@@ -4,6 +4,7 @@ import {
   Route,
   RouterProvider,
   Routes,
+  useLocation,
 } from "react-router-dom";
 import Home from "./Pages/Home";
 import Navbar from "./components/Navbar";
@@ -21,18 +22,20 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 function Root() {
-  // const isAuth = Boolean(useSelector(state=>state.auth.token));
-  const isAuth=true;
+  const isAuth = Boolean(useSelector(state=>state.auth.token));
+  // const isAuth=true;
+  const location = useLocation();
+  console.log(location.pathname)
   return (
     <>
-       {isAuth && <Navbar/>}
+    {(location.pathname==="/login" || location.pathname==="/signup")?null:<Navbar/>}
         <Routes>
-          <Route path='/' element={<Login />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/home' element={isAuth ? <Home /> : <Navigate to='/'/>} />
-          <Route path='/workout' element={isAuth ? <Workout /> : <Navigate to='/'/>} />
-          <Route path='/goal' element={isAuth ? <Goal /> : <Navigate to='/'/>} />
-          <Route path='/profile' element={isAuth ? <Profile /> : <Navigate to='/'/>} />
+          <Route path='/workout' element={isAuth ? <Workout /> : <Navigate to='/signup'/>} />
+          <Route path='/goal' element={isAuth ? <Goal /> : <Navigate to='/signup'/>} />
+          <Route path='/profile' element={isAuth ? <Profile /> : <Navigate to='/signup'/>} />
         </Routes>
     </>
   ); 

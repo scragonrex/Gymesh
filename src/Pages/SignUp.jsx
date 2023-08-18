@@ -50,7 +50,7 @@ const SignUp = () => {
     setIsLoading(false);
     setAlert({open:true,status:registered.status,message:registered.msg})
     if (registered.status==="success") {
-      navigate('/');
+      navigate('/login');
     }
   }
 
@@ -64,7 +64,7 @@ const SignUp = () => {
         </Alert>
       </Snackbar>
       <div className="formContainer">
-        <h1 className="font-white ">SignUp Here!</h1>
+        <h1 className="font-white ">Register Here First!</h1>
         <form onSubmit={register}>
 
           <div className='display-flex-col'>
@@ -103,7 +103,7 @@ const SignUp = () => {
           <button className='btn'
             type='submit'>{isLoading ? <CircularProgress style={{ color: "black", width: "20px", height: "20px" }} /> : "SignUp"}</button>
           <div className='font-white'>
-            Already have an Account?. <p className=' font-link' onClick={() => navigate('/')}> Login</p>here!
+            Already have an Account?. <p className=' font-link' onClick={() => navigate('/login')}> Login</p>here!
           </div>
         </form>
       </div>

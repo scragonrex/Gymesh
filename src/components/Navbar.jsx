@@ -9,11 +9,13 @@ import { Bolt } from '@mui/icons-material';
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const handleLogout = () => {
-    dispatch(setLogout())
-  }
+  const user = useSelector((state)=>state.auth.user);
   const score = useSelector((state)=>state.auth.score); 
   const mobileView = useMediaQuery('(max-width:730px)');
+  const handleLogout = () => {
+    dispatch(setLogout())
+    navigate('/login')
+  }
   return (
     <div className='navbarContainer'>
       
@@ -23,12 +25,12 @@ const Navbar = () => {
         </div>
       {mobileView ? (<div><Sidebar/></div>) : <div className="links">
         <ul className='font-white'>
-          <li className='font-1' onClick={() => navigate('/home')}>Home</li>
+          <li className='font-1' onClick={() => navigate('/')}>Home</li>
           <li className='font-1' onClick={() => navigate('/workout')}>Programs</li>
           <li className='font-1' onClick={() => navigate('/goal')}>Goal</li>
           <li className='font-1' onClick={() => navigate('/profile')}>Profile</li>
           <li className='font-1 font-bold font-white' ><Bolt/>{score}</li>
-          <li className='font-1 font-green' onClick={handleLogout}><button className='btn'>Logout</button></li>
+          {user && <li className='font-1 font-green' onClick={handleLogout}><button className='btn'>Logout</button></li>}
         </ul>
       </div>}
     </div>

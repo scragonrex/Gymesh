@@ -6,7 +6,7 @@
     width: 100%;
     box-sizing: border-box;
     position: absolute;
-   
+    min-height: 15vh;
 }
 .logoCont{
     display: flex;

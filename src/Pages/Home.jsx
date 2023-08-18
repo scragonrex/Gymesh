@@ -4,9 +4,15 @@ import '../styles/Workout.css'
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import { AccountCircleOutlined, FlagCircleOutlined, ManageSearchRounded } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
+  const user = useSelector((state)=>state.auth.user)
+
+  const handleSignUp = ()=>{
+    navigate('/signup')
+  }
   return (
     <>
      <div className='landingContainer'>
@@ -14,12 +20,10 @@ const Home = () => {
       <img src="/assets/background1.jpg" alt="img1" className="bgImg" />
       <div className="pageTitle">
         <div className={`${mobileView?"font-3":"font-6"} font-bold`}>Elevate Your Fitness Journey with Us!</div>
-        <p className='font-green font-2 text-align-center'> Every drop of sweat is a testament to your dedication, bringing you closer to a stronger, healthier, and more confident you. Join us to unleash the beast inside you.</p>
-        <button className="btn"><div className='font-3'>Signup Now</div></button>
+        <p className='font-green font-1 text-align-center'> Every drop of sweat is a testament to your dedication, bringing you closer to a stronger, healthier, and more confident you. Join us to unleash the beast inside you.</p>
+        <button className="btn" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us":"Signup Now"}</div></button>
       </div>
-      {/* {!mobileView && <div className="flexBox">
-        <img src="/assets/mainPageImg.png" alt="mainimage" style={{width:"100%"}} />
-      </div>} */}
+      
     </div> 
     <div className="featuresCont">
       <div className={`${mobileView ? "font-3":"font-4"} ${mobileView && "text-align-center"} font-white font-bold`}>Checkout our new Features!</div>
