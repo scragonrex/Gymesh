@@ -38,7 +38,7 @@ const Workout = () => {
 
     const handleBack = () => {
         if (formOpen)
-            navigate('/home');
+            navigate('/');
         else if (excerciseOpen) {
             setExcerciseOpen(false);
             setFormOpen(true);

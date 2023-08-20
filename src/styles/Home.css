@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding: 8rem 5rem 0rem 5rem;
+  padding: 8rem 9rem 0rem 9rem;
   color: white;
 }
 
@@ -19,7 +19,6 @@
   position: absolute;
   z-index: -1;
   object-fit: contain;
-  box-sizing: border-box;
   width: 100%;
   filter: brightness(50%);
 }
@@ -51,32 +50,53 @@
   padding: 2rem 5rem 4rem 5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1em;
-  background-color: #1b1b1b;
+  background-color: #0e0e0e;
 
 }
 
 .featureCard {
   max-width: 20rem;
   display: flex;
-  flex-direction: row;
+  gap: 1rem;
+  flex-direction: column;
   padding: 1em;
-  border-radius: 1rem;
-  background-color: rgb(6, 207, 106);
+  background-color: rgb(29 29 29);
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
+  border-radius: 5px;
+  position: relative;
 }
 
 .featureCard:hover {
-  transform: scale(110%);
+  background-color:rgb(6, 207, 106);
+}
+.featureCard:hover div{
+  color: #0e0e0e;
+}
+.featureCard:hover svg{
+  color: #0e0e0e;
 }
 
 .featureCardCont {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
+.cardContent{
+  z-index: 0;
+  padding: 1em;
+
+}
+.cardImg{
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  filter: brightness(50%);
+}
 .footer-basic {
   padding: 40px 0;
   background-color: #2d2d2d;

@@ -31,7 +31,7 @@ const Goal = () => {
   const [goalsList, setGoalsList] = useState();
 
   const handleBack = () => {
-    navigate('/home');
+    navigate('/');
   }
 
   //--------------------------Alert---------------------------//

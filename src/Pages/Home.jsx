@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
 import { AccountCircleOutlined, FlagCircleOutlined, ManageSearchRounded } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
+import LeaderBoard from '../components/LeaderBoard';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
@@ -20,7 +21,7 @@ const Home = () => {
       <img src="/assets/background1.jpg" alt="img1" className="bgImg" />
       <div className="pageTitle">
         <div className={`${mobileView?"font-3":"font-6"} font-bold`}>Elevate Your Fitness Journey with Us!</div>
-        <p className='font-green font-1 text-align-center'> Every drop of sweat is a testament to your dedication, bringing you closer to a stronger, healthier, and more confident you. Join us to unleash the beast inside you.</p>
+        <p className=' font-1 text-align-center'>Join us to unleash the beast inside you.</p>
         <button className="btn" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us":"Signup Now"}</div></button>
       </div>
       
@@ -29,29 +30,31 @@ const Home = () => {
       <div className={`${mobileView ? "font-3":"font-4"} ${mobileView && "text-align-center"} font-white font-bold`}>Checkout our new Features!</div>
       <div className="featureCardCont">
       <div className="featureCard" onClick={()=>navigate('/workout')}>
-        <div className="display-flex-col" > 
-        <div className='font-2 font-bold'>Excercise Finder</div>
+        <ManageSearchRounded sx={{fontSize:"5em", color:"white"}}/>
+        <div>
+        <div className='font-3 font-white font-bold'>Excercise Finder</div>
         <div className='font-white'>Explore various ranges of excercise according to your various muscles</div>
         </div>
-        <ManageSearchRounded sx={{fontSize:"5em"}}/>
       </div>
-      <div className="featureCard" onClick={()=>navigate('/goal')}>
-      <div className="display-flex-col">
-        <div className='font-2 font-bold'>Goal Maker</div>
+      <div className="featureCard" onClick={()=>navigate('/workout')}>
+        <FlagCircleOutlined sx={{fontSize:"5em", color:"white"}}/>
+        <div>
+        <div className='font-3 font-white font-bold'>Goal Maker</div>
         <div className='font-white'>Create a weeekly plan for your Workouts and gain muscle scores after completion of the goals</div>
         </div>
-        <FlagCircleOutlined sx={{fontSize:"5em"}}/>
       </div>
-      <div className="featureCard" onClick={()=>navigate('/profile')}>
-      <div className="display-flex-col">
-        <div className='font-2 font-bold'>Profile</div>
-        <div className='font-white font-1'>Setup your Profile for extra evaluations and benefits</div>
+      <div className="featureCard" onClick={()=>navigate('/workout')}>
+        <AccountCircleOutlined sx={{fontSize:"5em", color:"white"}}/>
+        <div>
+        <div className='font-3 font-white font-bold'>Profile</div>
+        <div className='font-white'>Setup your Profile for extra evaluations and benefits</div>
         </div>
-        <AccountCircleOutlined sx={{fontSize:"5em"}}/>
       </div>
+     
       </div>
     </div>
 
+    <LeaderBoard/>
     </div>
     <div class="footer-basic">
         <footer>

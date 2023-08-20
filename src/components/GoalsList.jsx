@@ -86,7 +86,7 @@ const GoalsList = ({ item, index, getGoals }) => {
   }
 
   const handleDeleteGoal = async()=>{
-    // const url = `https://gymesh-backend.onrender.com/goals/deleteGoal`;
+    // const url = "https://gymesh-backend.onrender.com/goals/deleteGoal";
     const url = "http://localhost:5000/goals/deleteGoal";
     const response = await fetch(url,{
       method:"DELETE",
