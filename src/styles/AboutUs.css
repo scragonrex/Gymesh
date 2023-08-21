@@ -1,0 +1,19 @@
+.aboutUs{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    gap: 2rem;
+}
+.aboutUsCont{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.techStacks{
+    display: flex;
+    margin-top: 0.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

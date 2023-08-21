@@ -1,4 +1,5 @@
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
 * {
     margin: 0;
@@ -8,9 +9,15 @@
 
 
 
-
+.font-heading
+{
+    font-family: 'Oswald', sans-serif;
+}
 .width-100{
     width:100%;
+}
+.width-50{
+    width:50%;
 }
 .margin-0{
     margin:0;
@@ -32,6 +39,9 @@
 }
 .margin-top-2{
     margin-top: 2rem;
+}
+.margin-top-1{
+    margin-top: 1rem;
 }
 .font-0{
 font-size: 0.8rem;
@@ -62,7 +72,9 @@ font-size: 0.8rem;
 .font-white {
     color: white;
 }
-
+.font-grey{
+    color:#878787;
+}
 .text-align-center {
     text-align: center;
 }
@@ -166,6 +178,20 @@ font-size: 0.8rem;
     transform: scale(110%);
 }
 
+.btn1{
+    background: transparent;
+    border: 2px solid rgb(6, 207, 106);
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    color:rgb(6, 207, 106);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn1:hover{
+    background-color:rgb(6, 207, 106) ;
+    color: black;
+}
 .btnGroup{
     display: flex;
     flex-direction: row;

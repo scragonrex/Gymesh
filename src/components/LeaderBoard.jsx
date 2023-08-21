@@ -27,23 +27,29 @@ const LeaderBoard = () => {
     <>
       {leaderList && 
         <div className="leaderBoard">
-        <div className="font-4 font-white">Leaderboard</div>
+        <div className="font-4 font-white font-heading">Leaderboard</div>
           <div className='display-flex-row justify-content-between width-100 margin-top-2'>
-        <div className="scoreCont">
+        <div className="scoreCont" 
+        style={{boxShadow:"silver 0px 0px 10px 2px"}}
+        >
         <img src="/assets/silver.png" alt="s2" />
           <div className='text-align-center'>
           <div>{leaderList[1].name}</div> 
           <div className='batch'>{leaderList[1].score}</div>
           </div>
           </div>
-        <div className="scoreCont">
+        <div className="scoreCont" 
+        style={{boxShadow:"gold 0px 0px 10px 2px"}}
+        >
           <img src="/assets/gold.png" alt="s1" />
           <div className='text-align-center'>
           <div>{leaderList[0].name}</div> 
           <div className='batch'>{leaderList[0].score}</div>
           </div>
           </div>
-        <div className="scoreCont">
+        <div className="scoreCont" 
+        style={{boxShadow:"#c77602 0px 0px 10px 2px"}}
+        >
         <img src="/assets/bronze.png" alt="s3" />
         <div className='text-align-center'>
           <div>{leaderList[2].name}</div> 

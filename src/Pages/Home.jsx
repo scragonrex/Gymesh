@@ -6,12 +6,19 @@ import { useMediaQuery } from '@mui/material';
 import { AccountCircleOutlined, FlagCircleOutlined, ManageSearchRounded } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import LeaderBoard from '../components/LeaderBoard';
+import AboutUs from '../components/AboutUs';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
   const user = useSelector((state)=>state.auth.user)
 
-  const handleSignUp = ()=>{
+  const handleSignUp = (e)=>{
+    const id = document.getElementById("exploreFeature");
+    if(e.currentTarget.innerText==="Explore Us")
+    {
+      id.scrollIntoView({ behavior: 'smooth' });
+    }
+    else
     navigate('/signup')
   }
   return (
@@ -21,40 +28,55 @@ const Home = () => {
       <img src="/assets/background1.jpg" alt="img1" className="bgImg" />
       <div className="pageTitle">
         <div className={`${mobileView?"font-3":"font-6"} font-bold`}>Elevate Your Fitness Journey with Us!</div>
-        <p className=' font-1 text-align-center'>Join us to unleash the beast inside you.</p>
-        <button className="btn" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us":"Signup Now"}</div></button>
+        <p className=' font-1 text-align-center font-grey'>We're more than just a gym – we're a haven for individuals seeking holistic wellness and growth. Our philosophy revolves around the understanding that true transformation extends beyond the physical.
+        </p>
+        <button className="btn1" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us":"Signup Now"}</div></button>
       </div>
       
     </div> 
-    <div className="featuresCont">
-      <div className={`${mobileView ? "font-3":"font-4"} ${mobileView && "text-align-center"} font-white font-bold`}>Checkout our new Features!</div>
+    <div id="exploreFeature" className="featuresCont">
+      <div className="display-flex-col width-50">
+      <div className="font-white font-4 font-bold font-heading">Checkout our new Features!</div>
+      <div className="margin-top-1 font-grey">Use these features to enhance your your workout experience. Every feature has there own benefits and functionality. So have fun with playing it. </div>
+      </div>
       <div className="featureCardCont">
       <div className="featureCard" onClick={()=>navigate('/workout')}>
-        <ManageSearchRounded sx={{fontSize:"5em", color:"white"}}/>
+        <div className='cardImg'>
+        <img src="/assets/c1.png" alt="c1"  />
+        </div>
         <div>
         <div className='font-3 font-white font-bold'>Excercise Finder</div>
-        <div className='font-white'>Explore various ranges of excercise according to your various muscles</div>
+        <div className='font-grey margin-top-1'>Explore various ranges of excercise according to your various muscles</div>
         </div>
       </div>
-      <div className="featureCard" onClick={()=>navigate('/workout')}>
-        <FlagCircleOutlined sx={{fontSize:"5em", color:"white"}}/>
+
+      <div className="featureCard" onClick={()=>navigate('/goal')}>
+      <div className='cardImg'>
+      <img src="/assets/c2.png" alt="c2"  />
+      </div>
         <div>
         <div className='font-3 font-white font-bold'>Goal Maker</div>
-        <div className='font-white'>Create a weeekly plan for your Workouts and gain muscle scores after completion of the goals</div>
+        <div className='font-grey margin-top-1'>Create a weeekly plan for your Workouts and gain muscle scores after completion of the goals</div>
         </div>
       </div>
-      <div className="featureCard" onClick={()=>navigate('/workout')}>
-        <AccountCircleOutlined sx={{fontSize:"5em", color:"white"}}/>
+
+      <div className="featureCard" onClick={()=>navigate('/goal')}>
+      <div className='cardImg'>
+      <img src="/assets/c3.png" alt="c3"  />
+      </div>
         <div>
-        <div className='font-3 font-white font-bold'>Profile</div>
-        <div className='font-white'>Setup your Profile for extra evaluations and benefits</div>
+        <div className='font-3 font-white font-bold'>Comming Soon</div>
+        <div className='font-grey margin-top-1'>Currently working on the new feature. </div>
         </div>
       </div>
+     
+     
      
       </div>
     </div>
 
     <LeaderBoard/>
+    <AboutUs/>
     </div>
     <div class="footer-basic">
         <footer>

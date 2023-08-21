@@ -49,15 +49,14 @@
 .featuresCont {
   padding: 2rem 5rem 4rem 5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   gap: 1em;
   background-color: #0e0e0e;
 
 }
 
 .featureCard {
-  max-width: 20rem;
+  max-width:15rem;
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -82,7 +81,8 @@
 .featureCardCont {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 2rem;
+  /* justify-content: space-between; */
   width: 100%;
 }
 
@@ -91,11 +91,12 @@
   padding: 1em;
 
 }
+
 .cardImg{
-  position: absolute;
-  z-index: 0;
+  padding: 0 3rem;
+}
+.cardImg img{
   width: 100%;
-  filter: brightness(50%);
 }
 .footer-basic {
   padding: 40px 0;

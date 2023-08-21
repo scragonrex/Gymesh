@@ -4,10 +4,9 @@
     align-items: center;
     background-color: rgb(29 29 29);
     padding: 2rem 12rem;
-    /* background-image: url("/public/assets/leaderBoardBg.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center; */
+    /* background-image: url("/public/assets/leaderBoardBg.png"); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
     
 }
 .scoreCont{
