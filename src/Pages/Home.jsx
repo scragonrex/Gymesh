@@ -2,11 +2,12 @@ import React from 'react'
 import '../styles/Home.css'
 import '../styles/Workout.css'
 import { useNavigate } from 'react-router-dom';
-import { useMediaQuery } from '@mui/material';
-import { AccountCircleOutlined, FlagCircleOutlined, ManageSearchRounded } from '@mui/icons-material';
+import { IconButton, Tooltip, useMediaQuery } from '@mui/material';
+import { AccountCircleOutlined, FlagCircleOutlined, GitHub, Instagram, LinkedIn, ManageSearchRounded, WhatsApp } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import LeaderBoard from '../components/LeaderBoard';
 import AboutUs from '../components/AboutUs';
+import Footer from '../components/Footer';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
@@ -34,6 +35,7 @@ const Home = () => {
       </div>
       
     </div> 
+   
     <div id="exploreFeature" className="featuresCont">
       <div className="display-flex-col width-50">
       <div className="font-white font-4 font-bold font-heading">Checkout our new Features!</div>
@@ -75,22 +77,11 @@ const Home = () => {
       </div>
     </div>
 
-    <LeaderBoard/>
+   
+    </div> 
     <AboutUs/>
-    </div>
-    <div class="footer-basic">
-        <footer>
-            <div class="social display-flex-row"><p><i class="icon ion-social-instagram"></i></p><p><i class="icon ion-social-snapchat"></i></p><p><i class="icon ion-social-twitter"></i></p><p><i class="icon ion-social-facebook"></i></p></div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><p>Home</p></li> 
-                <li class="list-inline-item"><p>Services</p></li>
-                <li class="list-inline-item"><p>About</p></li>
-                <li class="list-inline-item"><p>Terms</p></li>
-                <li class="list-inline-item"><p>Privacy Policy</p></li> 
-            </ul>
-            <p class="copyright">Gymesh © 2023</p>
-        </footer>
-    </div>
+    <Footer/>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     </>

@@ -3,6 +3,7 @@ import { Alert, Checkbox, FormControlLabel, Snackbar } from '@mui/material'
 import '../styles/Workout.css'
 import '../styles/Profile.css'
 import { useSelector } from 'react-redux';
+import LeaderBoard from '../components/LeaderBoard';
 const Profile = () => {
     // const mobileView = useMediaQuery('(max-width:600px)');
     const user = useSelector((state) => state.auth.user);
@@ -93,6 +94,7 @@ const Profile = () => {
     // }
     return (
         <div className='profileCont'>
+             <LeaderBoard/>
             <div className="formContainer font-white">
             {editOpen && <div className="font-3 ">Complete your Profile!</div>}
                 <form>

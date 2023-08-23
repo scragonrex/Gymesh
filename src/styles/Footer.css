@@ -1,0 +1,15 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(29, 28, 28);
+    color: grey;
+    padding: 1rem 3rem 0rem 3rem;
+}
+.iconsCont{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
