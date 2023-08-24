@@ -13,3 +13,14 @@
     gap: 2rem;
     margin-top: 0.5rem;
 }
+
+.iconsCont a{
+    color: inherit;
+}
+.iconsCont svg{
+    cursor: pointer;
+    transition: 0.2s;
+}
+.iconsCont svg:hover{
+    color: green;
+}
