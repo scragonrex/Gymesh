@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Alert, Checkbox, FormControlLabel, Snackbar } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Alert, Checkbox, Divider, FormControlLabel, Snackbar } from '@mui/material'
 import '../styles/Workout.css'
 import '../styles/Profile.css'
 import { useSelector } from 'react-redux';
 import LeaderBoard from '../components/LeaderBoard';
+import { ExpandMore } from '@mui/icons-material';
 const Profile = () => {
     // const mobileView = useMediaQuery('(max-width:600px)');
     const user = useSelector((state) => state.auth.user);
@@ -19,12 +20,12 @@ const Profile = () => {
             setGender(e.target.value);
         }
         else
-            setGender(); 
+            setGender();
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("click") 
+        console.log("click")
         if (editOpen === false)
             setEditOpen(true);
         else {
@@ -77,26 +78,14 @@ const Profile = () => {
 
     const handleCancel = (e) => {
         e.preventDefault();
-       
+
         setEditOpen(false);
     }
-    // const handleEdit = () => {
 
-    //     const id = document.getElementById("edit1");
-    //     console.log("id",id);
-
-    //     if (id.disabled) {
-    //         document.getElementById("edit1").disabled = false;
-    //     }
-    //     else {
-    //         document.getElementById("edit1").disabled = true;
-    //     }
-    // }
     return (
         <div className='profileCont'>
-             <LeaderBoard/>
             <div className="formContainer font-white">
-            {editOpen && <div className="font-3 ">Complete your Profile!</div>}
+                {editOpen && <div className="font-3 ">Complete your Profile!</div>}
                 <form>
 
                     {!editOpen ? <div>Hi {name}!</div>
@@ -122,7 +111,170 @@ const Profile = () => {
                     </div>
                 </form>
             </div>
-          
+
+            <div className="userCont">
+                <p className="font-6">Rank: 4</p>
+                <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMore sx={{ color: "white" }} />}
+                    >
+                        Goals completed: 12
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ backgroundColor: "rgb(41 41 41)" }}>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"grey"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                       
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMore sx={{ color: "white" }} />}
+                    >
+                        Goals uncompleted: 9
+                    </AccordionSummary>
+                    <AccordionDetails sx={{ backgroundColor: "rgb(41 41 41)" }}>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                            <div>Completed: 23%</div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"grey"}}/>
+                        </div>
+                        <div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Start date: 12/08/23</div>
+                            <div>End date: 19/08/23</div>
+                            </div>
+                            <div className="display-flex-row justify-content-between">
+                            <div>Excercise: Pushups</div>
+                            <div>Frequency: 10 times a day</div>
+                            </div>
+                        </div>
+                        <div className="margin-top-1 margin-bottom-1">
+                        <Divider sx={{bgcolor:"white"}}/>
+                        </div>
+                       
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
+                    <AccordionSummary
+                       
+                    >
+                        Goals in progress: 9
+                    </AccordionSummary>
+                    
+                </Accordion>
+            </div>
+
             <Snackbar open={alert.open} autoHideDuration={3000} onClose={handleAlertClose}>
                 <Alert variant="filled" onClose={handleAlertClose} severity={alert.status} sx={{ width: '100%' }}>
                     {alert.message}

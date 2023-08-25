@@ -4,8 +4,6 @@
     font-family: 'Rubik', sans-serif;
     padding: 7rem 5rem 2rem 5rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 1em;
 }
 
@@ -13,4 +11,15 @@
     background: #1f1f1f;
     border-radius: 1rem;
     padding: 1em;
+}
+
+.userCont{
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    background: #1f1f1f;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
