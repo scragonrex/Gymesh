@@ -1,0 +1,14 @@
+.reviewCont{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 5rem;
+    gap: 3rem;
+    background-color: #04090f;
+    color: white;
+}
+
+.reviewCard{
+    background-color: #1d1d1d;
+    border-radius: 0.3rem;
+    padding: 1rem;
+}

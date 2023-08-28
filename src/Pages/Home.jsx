@@ -3,11 +3,12 @@ import '../styles/Home.css'
 import '../styles/Workout.css'
 import { useNavigate } from 'react-router-dom';
 import { IconButton, Tooltip, useMediaQuery } from '@mui/material';
-import { AccountCircleOutlined, FlagCircleOutlined, GitHub, Instagram, LinkedIn, ManageSearchRounded, WhatsApp } from '@mui/icons-material';
+
 import { useSelector } from 'react-redux';
 import LeaderBoard from '../components/LeaderBoard';
 import AboutUs from '../components/AboutUs';
 import Footer from '../components/Footer';
+import Review from '../components/Review';
 const Home = () => {
   const navigate = useNavigate();
   const mobileView = useMediaQuery('(max-width:720px)');
@@ -34,11 +35,10 @@ const Home = () => {
         <button className="btn1" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us":"Signup Now"}</div></button>
       </div>
       
-    </div> 
-   
+    </div>
     <div id="exploreFeature" className="featuresCont">
       <div className="display-flex-col width-50">
-      <div className="font-white font-4 font-bold font-heading">Checkout our new Features!</div>
+      <div className="font-white font-5 font-bold font-heading">Checkout our new Features!</div>
       <div className="margin-top-1 font-grey">Use these features to enhance your your workout experience. Every feature has there own benefits and functionality. So have fun with playing it. </div>
       </div>
       <div className="featureCardCont">
@@ -79,6 +79,7 @@ const Home = () => {
 
    
     </div> 
+    <Review/>
     <AboutUs/>
     <Footer/>
     

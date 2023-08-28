@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import * as yup from 'yup'  //* for importing every content of that module
-import { Formik } from 'formik'
-import { CheckBox, Visibility, VisibilityOff, VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
-import { Alert, CircularProgress, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Popover, Snackbar, TextField, useMediaQuery } from '@mui/material'
+import {  VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
+import { Alert, CircularProgress, Snackbar, useMediaQuery } from '@mui/material'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { setLogin } from '../store/authSlice'

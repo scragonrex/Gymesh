@@ -28,7 +28,7 @@ const LeaderBoard = () => {
       {leaderList && 
         <div className="leaderBoard">
         <div className="font-4 font-white font-heading">Leaderboard</div>
-          <div className='display-flex-row justify-content-between width-100 margin-top-2'>
+          <div className='display-flex-row justify-content-between width-100'>
         <div className="scoreCont" 
         style={{boxShadow:"silver 0px 0px 10px 2px"}}
         >
