@@ -121,6 +121,10 @@ font-size: 0.8rem;
     gap: 1rem;
 }
 
+.gap-4 {
+    gap: 2rem;
+}
+
 .display-flex-row {
     display: flex;
     flex-direction: row;
