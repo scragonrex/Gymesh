@@ -1,57 +1,95 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/Review.css"
 import Avatar from '@mui/material/Avatar';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 const Review = () => {
-  return (
-    <div className='reviewCont'>
-        <div>
-            <p className="font-5 text-align-center font-heading">What are Clients have to say?</p>
-            <p className='font-grey text-align-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quo autem ipsum sequi tempore nihil placeat rem quos tempora perferendis in temporibus harum.</p>
-        </div>
-        <div className='reviewCardCont'>
-            <div className="reviewCard">
-                <div className="display-flex-row align-item-center gap-2">
-               <Avatar sx={{width:60, height:60, bgcolor:"purple", fontSize:"2rem"}}>H</Avatar>
-               <div>
-               <div className="font-2">Scragon Rex</div>
-               <div className="font-grey">Scragon Rex</div>
-               </div>
-                </div>
-                <p className="font-grey margin-top-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus </p>
-            </div>
-            <div className="reviewCard">
-                <div className="display-flex-row align-item-center gap-2">
-               <Avatar sx={{width:60, height:60, bgcolor:"purple", fontSize:"2rem"}}>H</Avatar>
-               <div>
-               <div className="font-2">Scragon Rex</div>
-               <div className="font-grey">Scragon Rex</div>
-               </div>
-                </div>
-                <p className="font-grey margin-top-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus </p>
-            </div>
-            <div className="reviewCard">
-                <div className="display-flex-row align-item-center gap-2">
-               <Avatar sx={{width:60, height:60, bgcolor:"purple", fontSize:"2rem"}}>H</Avatar>
-               <div>
-               <div className="font-2">Scragon Rex</div>
-               <div className="font-grey">Scragon Rex</div>
-               </div>
-                </div>
-                <p className="font-grey margin-top-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus </p>
-            </div>
 
-            <div className='cardLeft'>
-            <ArrowCircleLeftOutlinedIcon sx={{fontSize:"2rem"}} />
-            </div>
+    const [activeIndex, setActiveIndex] = useState(0);
 
-            <div  className='cardRight'>
-            <ArrowCircleRightOutlinedIcon sx={{fontSize:"2rem"}} />
+    const handleReview = (value) => {
+        const size = index.length - 3;
+        if (value < 0)
+            setActiveIndex(size);
+        else if (value > size)
+            setActiveIndex(0)
+        else
+        setActiveIndex(value);
+
+        console.log("value",value)
+    }
+    const index = [{
+        name: "Scragon Rex1",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex2",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex3",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex4",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex5",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex6",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    {
+        name: "Scragon Rex7",
+        designation: "Web Developer",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+    },
+    ]
+    return (
+        <div className='reviewCont'>
+            <div>
+                <p className="font-5 text-align-center font-heading">What are Clients have to say?</p>
+                <p className='font-grey text-align-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quo autem ipsum sequi tempore nihil placeat rem quos tempora perferendis in temporibus harum.</p>
+            </div>
+            <div className='reviewCardCont'>
+                <div className="swipeWindow" style={{ transform: `translateX(-${activeIndex * 34}%` }}>
+
+                    {
+                        index?.length > 0 && index.map((item, key) => (
+                            <div id={key} className="reviewCard">
+                                <div className="display-flex-row align-item-center gap-2">
+                                    <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
+                                    <div>
+                                        <div className="font-2">{item.name}</div>
+                                        <div className="font-grey">{item.designation}</div>
+                                    </div>
+                                </div>
+                                <p className="font-grey margin-top-2">{item.description}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+            <div className="display-flex-row gap-2 align-item-center">
+                <ArrowCircleLeftOutlinedIcon onClick={() => handleReview(activeIndex - 1)} sx={{ fontSize: "2rem" }} />
+                {
+                    index?.length>0 && index.map((item,key)=>(
+                        <div className='sliderDots'>.</div>
+                    ))
+                }
+                <ArrowCircleRightOutlinedIcon onClick={() => handleReview(activeIndex + 1)} sx={{ fontSize: "2rem" }} />
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default Review

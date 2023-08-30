@@ -12,24 +12,23 @@
     background-color: #1d1d1d;
     border-radius: 0.3rem;
     padding: 1rem;
-    max-width: 21rem;
+    min-width: 31.3%;
 }
 .reviewCardCont{
+
+    width: 100%;
+    overflow-x: hidden;
+}
+.swipeWindow{
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    position: relative;
+    transition: 0.3s;
 }
-
-.cardLeft{
-    position: absolute;
-    left: -3rem;
-    top: 45%;
-    cursor: pointer;
+.sliderDots{
+    font-size: 2rem;
+    color: grey;
 }
-.cardRight{
-    position: absolute;
-    right: -3rem;
-    top: 45%;
-    cursor: pointer;
+.active{
+    color: white;
 }
