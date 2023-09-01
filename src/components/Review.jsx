@@ -22,47 +22,39 @@ const Review = () => {
         console.log("value",value)
     }
     const index = [{
-        name: "Scragon Rex1",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+        name: "Scragon Rex",
+        designation: "React Developer",
+        description: "I've used this website for research, and it's been a helpful resource"
     },
     {
-        name: "Scragon Rex2",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+        name: "Eren",
+        designation: "Backend Developer",
+        description: "The search function is efficient, making it easy to find specific information"
     },
     {
-        name: "Scragon Rex3",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+        name: "Logan",
+        designation: "Android Developer",
+        description: "The website's responsiveness on mobile devices is impressive. It's been a reliable source of information"
     },
     {
-        name: "Scragon Rex4",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+        name: "Abhishek",
+        designation: "ML Enthusiastic ",
+        description: "The content is top-notch, and the user experience is excellent. Keep up the great work!"
     },
     {
-        name: "Scragon Rex5",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
+        name: "Vivek",
+        designation: "Data Scientist",
+        description: " It's user-friendly, but it could benefit from more frequent updates in certain sections"
     },
-    {
-        name: "Scragon Rex6",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
-    },
-    {
-        name: "Scragon Rex7",
-        designation: "Web Developer",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum repellat at minus "
-    },
+
+ 
     ];
    
     return (
         <div className='reviewCont'>
             <div>
                 <p className="font-5 text-align-center font-heading">What are Clients have to say?</p>
-                <p className='font-grey text-align-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quo autem ipsum sequi tempore nihil placeat rem quos tempora perferendis in temporibus harum.</p>
+                <p className='font-grey text-align-center'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not</p>
             </div>
     
            
@@ -84,6 +76,7 @@ const Review = () => {
                        </div>
                    ))
                }
+                
            </div>
            
        </div>
