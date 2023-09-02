@@ -1,22 +1,29 @@
-.reviewCont{
+.review{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     padding: 2rem 5rem;
     gap: 1rem;
     background-color: #04090f;
     color: white;
 }
 
+.reviewCont{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    gap: 1rem;
+}
+
 .reviewCard{
     background-color: #1d1d1d;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     padding: 1rem;
-    min-width: 31.3%;
+    min-width: 97%;
 }
 .reviewCardCont{
 
-    width: 100%;
+    width: 85%;
     overflow-x: hidden;
 
 }

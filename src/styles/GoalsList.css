@@ -16,7 +16,7 @@
     border-radius: 1rem;
 }
 
-.addBtn{
+.addBtnPos{
     position: fixed;
     bottom: 1.5%;
     right: 0.5%;
@@ -24,9 +24,7 @@
     transition: 0.3s;
 }
 
-.addBtn:hover{
-    transform: scale(120%);
-}
+
 .bar{
     width: 0%;
     height: 30%;

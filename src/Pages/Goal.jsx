@@ -130,7 +130,7 @@ const Goal = () => {
             )) : <div className='font-3 font-white text-align-center'>No Goals Available. Click on the + icon to continue</div>
         }
       </div>
-      <div className='addBtn' onClick={handleAddBtn}><AddCircle sx={{ color: "rgb(6, 207, 106)", fontSize: "4rem" }} /></div>
+      <div className='addBtn addBtnPos' onClick={handleAddBtn}><AddCircle sx={{ color: "rgb(6, 207, 106)", fontSize: "4rem" }} /></div>
 
       <Modal
         open={modalOpen}

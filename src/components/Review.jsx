@@ -5,21 +5,23 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
+import { AddCircle } from '@mui/icons-material';
+import { Modal } from '@mui/material';
 const Review = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const handleReview = (value) => {
-       
-        const size = index.length - 3;
+    const handleReviewIndex = (value) => {
+
+        const size = index.length-1;
         if (value < 0)
             setActiveIndex(size);
         else if (value > size)
             setActiveIndex(0)
         else
-        setActiveIndex(value);
+            setActiveIndex(value);
 
-        console.log("value",value)
+        console.log("value", value)
     }
     const index = [{
         name: "Scragon Rex",
@@ -47,54 +49,100 @@ const Review = () => {
         description: " It's user-friendly, but it could benefit from more frequent updates in certain sections"
     },
 
- 
-    ];
-   
-    return (
-        <div className='reviewCont'>
-            <div>
-                <p className="font-5 text-align-center font-heading">What are Clients have to say?</p>
-                <p className='font-grey text-align-center'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not</p>
-            </div>
-    
-           
-            <div className='reviewCardCont'>
-           
-           <div className="swipeWindow" style={{ transform: `translateX(-${activeIndex * 34}%` }}>
 
-               {
-                   index?.length > 0 && index.map((item, key) => (
-                       <div id={key} className="reviewCard">
-                           <div className="display-flex-row align-item-center gap-2">
-                               <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
-                               <div>
-                                   <div className="font-2">{item.name}</div>
-                                   <div className="font-grey">{item.designation}</div>
-                               </div>
-                           </div>
-                           <p className="font-grey margin-top-2">{item.description}</p>
-                       </div>
-                   ))
-               }
+    ];
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [rname, setRname] = useState("");
+    const [rdesignation, setRdesignation] = useState("");
+    const [review, setReview] = useState("");
+    const openReview = () => {
+        setModalOpen(true);
+    }
+
+    const handleReview = (e) => {
+        e.preventDefault();
+        console.log(rname, rdesignation, review);
+    }
+    return (
+        <div className='review'>
+            <div>
+                <p className="font-5 font-heading">What are Clients have to say?</p>
+                <p className='font-grey'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
+                <div className="font-grey font-3">Add your review here  <div className="addBtn"><AddCircle onClick={openReview}  /></div></div>
                 
-           </div>
-           
-       </div>
-           
-            
-           
+            </div>
+            <div className="reviewCont">
+            <div className='reviewCardCont'>
+                <div className="swipeWindow" style={{ transform: `translateX(-${activeIndex * 105}%` }}>
+
+                    {
+                        index?.length > 0 && index.map((item, key) => (
+                            <div id={key} className="reviewCard">
+                                <div className="display-flex-row align-item-center gap-2">
+                                    <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
+                                    <div>
+                                        <div className="font-2">{item.name}</div>
+                                        <div className="font-grey">{item.designation}</div>
+                                    </div>
+                                </div>
+                                <p className="font-grey margin-top-2">{item.description}</p>
+                            </div>
+                        ))
+                    }
+
+                </div>
+            </div>
             <div className="display-flex-row gap-2 align-item-center">
-            <ArrowCircleLeftOutlinedIcon onClick={() => handleReview(activeIndex - 1)} sx={{ fontSize: "2rem", cursor:"pointer" }} />
+                <ArrowCircleLeftOutlinedIcon onClick={() => handleReviewIndex(activeIndex - 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
                 {
-                      
-                    index?.length>0 && index.slice(0,index.length-2).map((item,key)=>(
-                        <>{key === activeIndex ? <CircleRoundedIcon sx={{fontSize:"0.7rem"}}/> : <CircleOutlinedIcon sx={{fontSize:"0.7rem"}}/>
+
+                    index?.length > 0 && index.map((item, key) => (
+                        <>{key === activeIndex ? <CircleRoundedIcon sx={{ fontSize: "0.7rem" }} /> : <CircleOutlinedIcon sx={{ fontSize: "0.7rem" }} />
                         }</>
                     ))
                 }
-                 <ArrowCircleRightOutlinedIcon onClick={() => handleReview(activeIndex + 1)} sx={{ fontSize: "2rem",cursor:"pointer" }} />
-                
+                <ArrowCircleRightOutlinedIcon onClick={() => handleReviewIndex(activeIndex + 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
             </div>
+            </div>
+            <Modal
+                open={modalOpen}
+                onClose={() => setModalOpen(false)}>
+                <div className="goalFormContainer">
+                    <h2 className='font-white'>Add your review</h2>
+                    <form onSubmit={handleReview}>
+                        <div className='display-flex-col margin-top-1 margin-bottom-1'>
+                            <label htmlFor="" className="font-white">Name</label>
+                            <input className='inputCont'
+                                name='email'
+                                value={rname}
+                                onChange={(e) => setRname(e.target.value)}
+                                placeholder="Enter your name"
+                            />
+                        </div>
+                        <div className='display-flex-col margin-top-1 margin-bottom-1'>
+                            <label htmlFor="" className="font-white">Designation</label>
+                            <input className='inputCont'
+                                name='email'
+                                value={rdesignation}
+                                onChange={(e) => setRdesignation(e.target.value)}
+                                placeholder="Enter your designation"
+                            />
+                        </div>
+                        <div className='display-flex-col margin-top-1 margin-bottom-1'>
+                            <label htmlFor="" className="font-white">Review</label>
+                            <textarea className='inputCont'
+                                name='email'
+                                rows="3"
+                                value={review}
+                                onChange={(e) => setReview(e.target.value)}
+                                required placeholder="Enter your review"
+                            />
+                        </div>
+                        <button className='btn width-100' onClick={handleReview}>Add review</button>
+                    </form>
+                </div>
+            </Modal>
         </div>
     )
 }
