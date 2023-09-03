@@ -1,7 +1,7 @@
 .review{
     display: flex;
     flex-direction: row;
-    padding: 2rem 5rem;
+    padding: 4rem 5rem;
     gap: 1rem;
     background-color: #04090f;
     color: white;

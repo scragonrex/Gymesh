@@ -4,7 +4,7 @@ import "../styles/LeaderBoard.css";
 
 const LeaderBoard = () => {
   const token = useSelector((state) => state.auth.token);
-  const [leaderList, setLeaderList] = useState([{name:"abhishek", score:"66"},{name:"abhishek", score:"66"},{name:"abhishek", score:"66"}]);
+  const [leaderList, setLeaderList] = useState([{ name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }]);
 
   const getLeaderBoard = async () => {
     const url = "http://localhost:5000/profile/getLeaderBoard";
@@ -25,40 +25,41 @@ const LeaderBoard = () => {
   }, [])
   return (
     <>
-      {leaderList && 
-        <div className="leaderBoard">
-        <div className="font-4 font-white font-heading">Leaderboard</div>
-          <div className='display-flex-row justify-content-between width-100'>
-        <div className="scoreCont" 
-        style={{boxShadow:"silver 0px 0px 10px 2px"}}
-        >
-        <img src="/assets/silver.png" alt="s2" />
-          <div className='text-align-center'>
-          <div>{leaderList[1].name}</div> 
-          <div className='batch'>{leaderList[1].score}</div>
+      {leaderList &&
+        <div className="leader">
+          <img src="/assets/leader.png" alt="leader" />
+          <div className="display-flex-col justify-content-between">
+          <div className="display-flex-col">
+            <div className="font-5 font-white font-heading">Leaderboard</div>
+            <div className="font-grey margin-top-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, totam?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, ullam!
+            </div>
           </div>
-          </div>
-        <div className="scoreCont" 
-        style={{boxShadow:"gold 0px 0px 10px 2px"}}
-        >
-          <img src="/assets/gold.png" alt="s1" />
-          <div className='text-align-center'>
-          <div>{leaderList[0].name}</div> 
-          <div className='batch'>{leaderList[0].score}</div>
-          </div>
-          </div>
-        <div className="scoreCont" 
-        style={{boxShadow:"#c77602 0px 0px 10px 2px"}}
-        >
-        <img src="/assets/bronze.png" alt="s3" />
-        <div className='text-align-center'>
-          <div>{leaderList[2].name}</div> 
-          <div className='batch'>{leaderList[2].score}</div>
+          <div className="leaderBoard">
+            <div className="display-flex-col margin-top-3">
+              <div className="font-white">{leaderList[1].name}</div>
+              <div className="pos">
+                {leaderList[1].score}
+              </div>
+            </div>
+
+            <div className="display-flex-col">
+              <div className="font-white">{leaderList[0].name}</div>
+              <div className="pos">
+                {leaderList[0].score}
+              </div>
+            </div>
+
+            <div className="display-flex-col margin-top-4">
+              <div className="font-white">{leaderList[2].name}</div>
+              <div className="pos">
+                {leaderList[1].score}
+              </div>
+            </div>
+           
           </div>
           </div>
         </div>
-      </div>
-    }
+      }
     </>
   )
 }

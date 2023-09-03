@@ -78,7 +78,8 @@ const Home = () => {
     </div>
 
    
-    </div> 
+    </div>
+    <LeaderBoard/> 
     <Review/>
     <AboutUs/>
     <Footer/>
