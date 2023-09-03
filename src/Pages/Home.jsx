@@ -62,7 +62,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="featureCard" onClick={()=>navigate('/goal')}>
+      <div className="featureCard" >
       <div className='cardImg'>
       <img src="/assets/c3.png" alt="c3"  />
       </div>
