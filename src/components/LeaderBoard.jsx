@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
+import Avatar from '@mui/material/Avatar';
 import "../styles/LeaderBoard.css";
+import { Bolt } from '@mui/icons-material';
+import { Divider } from '@mui/material';
 
 const LeaderBoard = () => {
   const token = useSelector((state) => state.auth.token);
@@ -29,34 +32,51 @@ const LeaderBoard = () => {
         <div className="leader">
           <img src="/assets/leader.png" alt="leader" />
           <div className="display-flex-col justify-content-between">
-          <div className="display-flex-col">
-            <div className="font-5 font-white font-heading">Leaderboard</div>
-            <div className="font-grey margin-top-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, totam?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, ullam!
-            </div>
-          </div>
-          <div className="leaderBoard">
-            <div className="display-flex-col margin-top-3">
-              <div className="font-white">{leaderList[1].name}</div>
-              <div className="pos">
-                {leaderList[1].score}
-              </div>
-            </div>
-
             <div className="display-flex-col">
-              <div className="font-white">{leaderList[0].name}</div>
-              <div className="pos">
-                {leaderList[0].score}
+              <div className="font-5 font-white font-heading">Leaderboard</div>
+              <div className="font-grey margin-top-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, totam?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, ullam!
               </div>
             </div>
+            <div className="display-flex-row justify-content-between">
+              <div className="leaderBoard">
+                <div className="display-flex-col margin-top-3">
+                  <div className="font-white">{leaderList[1].name}</div>
+                  <div className="pos">
+                    {leaderList[1].score}
+                  </div>
+                </div>
 
-            <div className="display-flex-col margin-top-4">
-              <div className="font-white">{leaderList[2].name}</div>
-              <div className="pos">
-                {leaderList[1].score}
+                <div className="display-flex-col">
+                  <div className="font-white">{leaderList[0].name}</div>
+                  <div className="pos">
+                    {leaderList[0].score}
+                  </div>
+                </div>
+
+                <div className="display-flex-col margin-top-4">
+                  <div className="font-white">{leaderList[2].name}</div>
+                  <div className="pos">
+                    {leaderList[1].score}
+                  </div>
+                </div>
+
+              </div>
+              <div className="leaderTable">
+                <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Score</th>
+                </tr>
+                <Divider sx={{bgColor:"grey"}}/>
+                {leaderList.map((item,index)=>(
+                  <tr>
+                    <td>{index+1}</td>
+                    <td><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{bgcolor:"purple"}}>{item.name[0]}</Avatar>{item.name}</div></td>
+                    <td><div className="display-flex-row gap-1 align-item-center"><Bolt sx={{color:"green"}}/>{item.score} </div></td>
+                  </tr>
+                ))}
               </div>
             </div>
-           
-          </div>
           </div>
         </div>
       }
