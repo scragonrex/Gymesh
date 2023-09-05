@@ -63,16 +63,16 @@ const LeaderBoard = () => {
               </div>
               <div className="leaderTable">
                 <tr>
-                  <th>Rank</th>
-                  <th>Name</th>
-                  <th>Score</th>
+                  <th className='rankCell'>Rank</th>
+                  <th className='nameCell'>Name</th>
+                  <th className='scoreCell'>Score</th>
                 </tr>
                 <Divider sx={{bgColor:"grey"}}/>
                 {leaderList.map((item,index)=>(
                   <tr>
-                    <td>{index+1}</td>
-                    <td><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{bgcolor:"purple"}}>{item.name[0]}</Avatar>{item.name}</div></td>
-                    <td><div className="display-flex-row gap-1 align-item-center"><Bolt sx={{color:"green"}}/>{item.score} </div></td>
+                    <td className='rankCell'>{index+1}</td>
+                    <td className='nameCell'><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{bgcolor:"purple"}}>{item.name[0]}</Avatar>{item.name}</div></td>
+                    <td className='scoreCell'><div className="display-flex-row gap-1 align-item-center"><Bolt sx={{color:"green"}}/>{item.score} </div></td>
                   </tr>
                 ))}
               </div>

@@ -27,6 +27,15 @@
     max-height: 14rem;
     overflow-y: scroll;
 }
+.rankCell{
+    min-width: 5rem;
+}
+.nameCell{
+    min-width: 12rem;
+}
+.scoreCell{
+    min-width: 6rem;
+}
 .leaderTable td,th{
     padding: 0.5rem 1rem;
 }
