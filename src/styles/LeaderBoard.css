@@ -20,11 +20,12 @@
 
 .leaderTable
 {
+   
     padding: 1rem;
     color: white;
     border-radius: 0.5rem;
     background-color: #1d1d1d;
-    max-height: 14rem;
+    max-height: 17rem;
     overflow-y: scroll;
 }
 .rankCell{
@@ -38,6 +39,10 @@
 }
 .leaderTable td,th{
     padding: 0.5rem 1rem;
+}
+.activeUser{
+    box-shadow: 0 0 17px rgb(6, 207, 106);
+    border-radius: 0.4rem;
 }
 .pos{
     background-color: rgb(6, 207, 106);

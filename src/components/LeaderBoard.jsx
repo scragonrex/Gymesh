@@ -7,6 +7,8 @@ import { Divider } from '@mui/material';
 
 const LeaderBoard = () => {
   const token = useSelector((state) => state.auth.token);
+  const userInfo = useSelector((state)=>state.auth.user);
+  
   const [leaderList, setLeaderList] = useState([{ name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }]);
 
   const getLeaderBoard = async () => {
@@ -34,10 +36,11 @@ const LeaderBoard = () => {
           <div className="display-flex-col justify-content-between">
             <div className="display-flex-col">
               <div className="font-5 font-white font-heading">Leaderboard</div>
-              <div className="font-grey margin-top-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, totam?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, ullam!
+              <div className="font-grey margin-top-1">Discover the platform where champions seize their well-deserved positions of glory and distinction. Explore your personal score and engage in spirited competition with fellow participants, as you endeavor to ascend to the pinnacle of success and radiate in the limelight
               </div>
+
             </div>
-            <div className="display-flex-row justify-content-between">
+            <div className="display-flex-row justify-content-between margin-top-2">
               <div className="leaderBoard">
                 <div className="display-flex-col margin-top-3">
                   <div className="font-white">{leaderList[1].name}</div>
@@ -53,7 +56,7 @@ const LeaderBoard = () => {
                   </div>
                 </div>
 
-                <div className="display-flex-col margin-top-4">
+                <div className="display-flex-col margin-top-5">
                   <div className="font-white">{leaderList[2].name}</div>
                   <div className="pos">
                     {leaderList[1].score}
@@ -69,7 +72,7 @@ const LeaderBoard = () => {
                 </tr>
                 <Divider sx={{bgColor:"grey"}}/>
                 {leaderList.map((item,index)=>(
-                  <tr>
+                  <tr className={`${item.name==userInfo?.name && "activeUser"}`}>
                     <td className='rankCell'>{index+1}</td>
                     <td className='nameCell'><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{bgcolor:"purple"}}>{item.name[0]}</Avatar>{item.name}</div></td>
                     <td className='scoreCell'><div className="display-flex-row gap-1 align-item-center"><Bolt sx={{color:"green"}}/>{item.score} </div></td>
