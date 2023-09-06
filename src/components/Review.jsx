@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/Review.css"
 import Avatar from '@mui/material/Avatar';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
@@ -48,10 +48,9 @@ const Review = () => {
         designation: "Data Scientist",
         description: " It's user-friendly, but it could benefit from more frequent updates in certain sections"
     },
-
-
     ];
 
+    const [reviewList, setReviewList] = useState(index);
     const [modalOpen, setModalOpen] = useState(false);
     const [rname, setRname] = useState("");
     const [rdesignation, setRdesignation] = useState("");
@@ -60,10 +59,32 @@ const Review = () => {
         setModalOpen(true);
     }
 
-    const handleReview = (e) => {
+    const handleReview = async(e) => {
         e.preventDefault();
-        console.log(rname, rdesignation, review);
+        console.log(rname,rdesignation,review)
+        const response = await fetch("http://localhost:5000/profile/addReview",
+        {
+            method:"POST",
+            body:JSON.stringify({rname,rdesignation,review}),
+            headers:{"Content-type":"application/json"}
+        });
+
+        const data = await response.json();
     }
+
+    const getReview = async()=>{
+        const response = await fetch("http://localhost:5000/profile/getReviews",
+        {
+            method:"GET",
+        });
+        const data = await response.json();
+        setReview(data.reviews);
+    }
+
+    useEffect(() => {
+     getReview();
+    }, [])
+    
     return (
         <div className='review'>
             <div>
