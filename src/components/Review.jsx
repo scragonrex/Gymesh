@@ -11,54 +11,31 @@ const Review = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
-      //-------------------Alert----------------------------//
-      const [alert, setAlert] = useState({ open: false, status:" ", message: "" });
-      const handleAlertClose = (event, reason) => {
-          if (reason === 'clickaway') {
-              return;
-          }
-  
-          setAlert({ ...alert, open: false });
-      };
+    //-------------------Alert----------------------------//
+    const [alert, setAlert] = useState({ open: false, status: " ", message: "" });
+    const handleAlertClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
 
+        setAlert({ ...alert, open: false });
+    };
+
+    //---------------------Sliding window ----------------//
+    
+        
+    
     const handleReviewIndex = (value) => {
-
-        const size = reviewList.length-1;
+        const size = reviewList.length - 1;
         if (value < 0)
             setActiveIndex(size);
         else if (value > size)
             setActiveIndex(0)
         else
             setActiveIndex(value);
-
-        console.log("value", value)
     }
-    const index = [{
-        name: "Scragon Rex",
-        designation: "React Developer",
-        description: "I've used this website for research, and it's been a helpful resource"
-    },
-    {
-        name: "Eren",
-        designation: "Backend Developer",
-        description: "The search function is efficient, making it easy to find specific information"
-    },
-    {
-        name: "Logan",
-        designation: "Android Developer",
-        description: "The website's responsiveness on mobile devices is impressive. It's been a reliable source of information"
-    },
-    {
-        name: "Abhishek",
-        designation: "ML Enthusiastic ",
-        description: "The content is top-notch, and the user experience is excellent. Keep up the great work!"
-    },
-    {
-        name: "Vivek",
-        designation: "Data Scientist",
-        description: " It's user-friendly, but it could benefit from more frequent updates in certain sections"
-    },
-    ];
+   
+
 
     const [reviewList, setReviewList] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
@@ -70,38 +47,57 @@ const Review = () => {
     }
 
     //Adding review API call
-    const handleReview = async(e) => {
+    const handleReview = async (e) => {
         e.preventDefault();
-        console.log(rname,rdesignation,review)
+        console.log(rname, rdesignation, review)
         const response = await fetch("http://localhost:5000/profile/addReview",
-        {
-            method:"POST",
-            body:JSON.stringify({rname,rdesignation,review}),
-            headers:{"Content-type":"application/json"}
-        });
+            {
+                method: "POST",
+                body: JSON.stringify({ rname, rdesignation, review }),
+                headers: { "Content-type": "application/json" }
+            });
 
         const data = await response.json();
-        setAlert({open:true, status:data.status, message:data.message});
+        getReview();
+        setAlert({ open: true, status: data.status, message: data.message });
         setModalOpen(false);
+
     }
 
+
     //Getting review list
-    const getReview = async()=>{
+    const getReview = async () => {
         const response = await fetch("http://localhost:5000/profile/getReviews",
-        {
-            method:"GET",
-        });
+            {
+                method: "GET",
+            });
         const data = await response.json();
         setReviewList(data.reviews);
     }
 
-    
-  
+
+
 
     useEffect(() => {
-     getReview();
-    }, [])
+        getReview();
+        // const handleReviewSlider =
+        //     setInterval(() => {
+        //         const size = reviewList.length - 1;
+        //         console.log("activeIndex",size,activeIndex)
+        //         if (activeIndex < 0)
+        //             setActiveIndex(size);
+        //         else if (activeIndex > size)
+        //             setActiveIndex(0)
+        //         else
+        //         {
+        //             console.log("ddfdfdf")
+        //             setActiveIndex(activeIndex+1);
+        //         }
+        //     }, 500);
     
+        // let temp = handleReviewSlider;
+    }, [])
+
     return (
         <div className='review'>
             <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
@@ -113,41 +109,41 @@ const Review = () => {
             <div>
                 <p className="font-5 font-heading">What are Clients have to say?</p>
                 <p className='font-grey'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
-                <div className="font-grey font-3">Add your review here  <div className="addBtn"><AddCircle onClick={openReview}  /></div></div>
-                
+                <div className="font-grey font-3">Add your review here  <div className="addBtn"><AddCircle onClick={openReview} /></div></div>
+
             </div>
             <div className="reviewCont">
-            <div className='reviewCardCont'>
-                <div className="swipeWindow" style={{ transform: `translateX(-${activeIndex * 105}%` }}>
+                <div className='reviewCardCont'>
+                    <div className="swipeWindow" style={{ transform: `translateX(-${activeIndex * 100}%` }}>
 
-                    {
-                        index?.length > 0 && index.map((item, key) => (
-                            <div id={key} className="reviewCard">
-                                <div className="display-flex-row align-item-center gap-2">
-                                    <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
-                                    <div>
-                                        <div className="font-2">{item.name}</div>
-                                        <div className="font-grey">{item.designation}</div>
+                        {
+                            reviewList?.length > 0 && reviewList.map((item, key) => (
+                                <div id={key} className="reviewCard">
+                                    <div className="display-flex-row align-item-center gap-2">
+                                        <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
+                                        <div>
+                                            <div className="font-2">{item.name}</div>
+                                            <div className="font-grey">{item.designation}</div>
+                                        </div>
                                     </div>
+                                    <p className="font-grey margin-top-2">{item.review}</p>
                                 </div>
-                                <p className="font-grey margin-top-2">{item.description}</p>
-                            </div>
+                            ))
+                        }
+
+                    </div>
+                </div>
+                <div className="display-flex-row gap-2 align-item-center">
+                    <ArrowCircleLeftOutlinedIcon onClick={() => handleReviewIndex(activeIndex - 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
+                    {
+
+                        reviewList?.length > 0 && reviewList.map((item, key) => (
+                            <>{key === activeIndex ? <CircleRoundedIcon sx={{ fontSize: "0.7rem" }} /> : <CircleOutlinedIcon sx={{ fontSize: "0.7rem" }} />
+                            }</>
                         ))
                     }
-
+                    <ArrowCircleRightOutlinedIcon onClick={() => handleReviewIndex(activeIndex + 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
                 </div>
-            </div>
-            <div className="display-flex-row gap-2 align-item-center">
-                <ArrowCircleLeftOutlinedIcon onClick={() => handleReviewIndex(activeIndex - 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
-                {
-
-                    reviewList?.length > 0 && reviewList.map((item, key) => (
-                        <>{key === activeIndex ? <CircleRoundedIcon sx={{ fontSize: "0.7rem" }} /> : <CircleOutlinedIcon sx={{ fontSize: "0.7rem" }} />
-                        }</>
-                    ))
-                }
-                <ArrowCircleRightOutlinedIcon onClick={() => handleReviewIndex(activeIndex + 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
-            </div>
             </div>
             <Modal
                 open={modalOpen}
