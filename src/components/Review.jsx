@@ -6,14 +6,24 @@ import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOu
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import { AddCircle } from '@mui/icons-material';
-import { Modal } from '@mui/material';
+import { Alert, Modal, Snackbar } from '@mui/material';
 const Review = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
+      //-------------------Alert----------------------------//
+      const [alert, setAlert] = useState({ open: false, status:" ", message: "" });
+      const handleAlertClose = (event, reason) => {
+          if (reason === 'clickaway') {
+              return;
+          }
+  
+          setAlert({ ...alert, open: false });
+      };
+
     const handleReviewIndex = (value) => {
 
-        const size = index.length-1;
+        const size = reviewList.length-1;
         if (value < 0)
             setActiveIndex(size);
         else if (value > size)
@@ -50,7 +60,7 @@ const Review = () => {
     },
     ];
 
-    const [reviewList, setReviewList] = useState(index);
+    const [reviewList, setReviewList] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [rname, setRname] = useState("");
     const [rdesignation, setRdesignation] = useState("");
@@ -59,6 +69,7 @@ const Review = () => {
         setModalOpen(true);
     }
 
+    //Adding review API call
     const handleReview = async(e) => {
         e.preventDefault();
         console.log(rname,rdesignation,review)
@@ -70,16 +81,22 @@ const Review = () => {
         });
 
         const data = await response.json();
+        setAlert({open:true, status:data.status, message:data.message});
+        setModalOpen(false);
     }
 
+    //Getting review list
     const getReview = async()=>{
         const response = await fetch("http://localhost:5000/profile/getReviews",
         {
             method:"GET",
         });
         const data = await response.json();
-        setReview(data.reviews);
+        setReviewList(data.reviews);
     }
+
+    
+  
 
     useEffect(() => {
      getReview();
@@ -87,6 +104,12 @@ const Review = () => {
     
     return (
         <div className='review'>
+            <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                <Alert onClose={handleAlertClose} severity={alert.status} variant='filled' sx={{ width: '100%' }}>
+                    {alert.message}
+                </Alert>
+            </Snackbar>
             <div>
                 <p className="font-5 font-heading">What are Clients have to say?</p>
                 <p className='font-grey'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
@@ -118,7 +141,7 @@ const Review = () => {
                 <ArrowCircleLeftOutlinedIcon onClick={() => handleReviewIndex(activeIndex - 1)} sx={{ fontSize: "2rem", cursor: "pointer" }} />
                 {
 
-                    index?.length > 0 && index.map((item, key) => (
+                    reviewList?.length > 0 && reviewList.map((item, key) => (
                         <>{key === activeIndex ? <CircleRoundedIcon sx={{ fontSize: "0.7rem" }} /> : <CircleOutlinedIcon sx={{ fontSize: "0.7rem" }} />
                         }</>
                     ))
