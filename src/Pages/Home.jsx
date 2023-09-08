@@ -36,8 +36,10 @@ const Home = () => {
       </div>
       
     </div>
-    <div id="exploreFeature" className="featuresCont">
-      <div className="display-flex-col width-50">
+    <div className="features">
+      <img src="/assets/featuresBg.png" alt="feature" />
+      <div id="exploreFeature" className="featuresCont">
+      <div className="display-flex-col">
       <div className="font-white font-5 font-bold font-heading">Checkout our new Features!</div>
       <div className="margin-top-1 font-grey">Use these features to enhance your your workout experience. Every feature has there own benefits and functionality. So have fun with playing it. </div>
       </div>
@@ -74,6 +76,7 @@ const Home = () => {
      
      
      
+      </div>
       </div>
     </div>
 

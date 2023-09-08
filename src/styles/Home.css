@@ -45,13 +45,21 @@
   gap: 30px;
 }
 
-
-.featuresCont {
-  padding: 2rem 5rem 4rem 5rem;
+.features{
+  padding: 4rem 5rem;
   display: flex;
-  flex-direction: row;
-  gap: 1em;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   background-color: #0e0e0e;
+}
+.features img{
+  width: 30%;
+}
+.featuresCont {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  
 
 }
 
@@ -61,7 +69,6 @@
   gap: 1rem;
   flex-direction: column;
   padding: 1em;
-  background-color: rgb(29 29 29);
   cursor: pointer;
   transition: 0.2s;
   border-radius: 5px;
