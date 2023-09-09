@@ -22,10 +22,8 @@ const Review = () => {
     };
 
     //---------------------Sliding window ----------------//
-    
-        
-    
     const handleReviewIndex = (value) => {
+        console.log("active index",value);
         const size = reviewList.length - 1;
         if (value < 0)
             setActiveIndex(size);
@@ -34,8 +32,18 @@ const Review = () => {
         else
             setActiveIndex(value);
     }
-   
 
+    //To make the slider move automatically
+    const handleReviewSlider = () => {
+        const value = activeIndex+1;
+        const size = reviewList.length - 1;
+        if (value < 0)
+            setActiveIndex(size);
+        else if (value > size)
+            setActiveIndex(0)
+        else
+            setActiveIndex(value);
+    }
 
     const [reviewList, setReviewList] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
@@ -76,27 +84,14 @@ const Review = () => {
     }
 
 
-
-
     useEffect(() => {
-        getReview();
-        // const handleReviewSlider =
-        //     setInterval(() => {
-        //         const size = reviewList.length - 1;
-        //         console.log("activeIndex",size,activeIndex)
-        //         if (activeIndex < 0)
-        //             setActiveIndex(size);
-        //         else if (activeIndex > size)
-        //             setActiveIndex(0)
-        //         else
-        //         {
-        //             console.log("ddfdfdf")
-        //             setActiveIndex(activeIndex+1);
-        //         }
-        //     }, 500);
-    
-        // let temp = handleReviewSlider;
-    }, [])
+        if(reviewList?.length===0) getReview();
+        const intervalId = setInterval(handleReviewSlider, 2500);
+        return () => {
+            console.log("unmounted");
+            clearInterval(intervalId);
+        };
+    }, [activeIndex]);
 
     return (
         <div className='review'>

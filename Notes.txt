@@ -1,0 +1,17 @@
+
+Review.jsx (useEffetct)
+
+We use clearInterval in the example code to stop the automatic sliding of the carousel when the component is unmounted or when the user navigates away from it. This is important for several reasons:
+
+Memory Management: When you set an interval using setInterval, it continues running until explicitly stopped. If you don't clear the interval when the component is unmounted, it can lead to a memory leak because the interval will still be active, trying to update the state of a component that no longer exists. Clearing the interval ensures that there are no lingering references to the component.
+
+Performance: Unnecessary intervals can consume system resources, impacting the performance of your application. Clearing the interval when it's no longer needed helps maintain good performance by releasing those resources.
+
+Preventing Errors: Without clearing the interval, if the component is unmounted, it might try to update its state, causing errors. By clearing the interval, you prevent attempts to update the state of an unmounted component, which can lead to issues in your application.
+
+In the code example provided, the useEffect hook is used with a return statement to ensure that the clearInterval function is called when the component is unmounted. This is a best practice when working with timers, intervals, or other asynchronous tasks to ensure proper cleanup and prevent potential issues in your React application.
+
+
+
+
+
