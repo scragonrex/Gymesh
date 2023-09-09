@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
 import "../styles/LeaderBoard.css";
 import { Bolt } from '@mui/icons-material';
 import { Divider } from '@mui/material';
+import { setRank } from '../store/authSlice';
 
 const LeaderBoard = () => {
   const token = useSelector((state) => state.auth.token);
   const userInfo = useSelector((state)=>state.auth.user);
-  
+  const dispatch = useDispatch();
+
   const [leaderList, setLeaderList] = useState([{ name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }]);
 
   const getLeaderBoard = async () => {
@@ -22,6 +24,12 @@ const LeaderBoard = () => {
     const data = await response.json();
     if (data.status === "success") {
       setLeaderList(data.users);
+      let rank="Not recorded";
+      data.users.forEach((item,index)=>{
+        if(item?.name === userInfo?.name && item?.score === userInfo?.score)
+        rank = index+1;
+      })
+      dispatch(setRank(rank));
     }
   }
 

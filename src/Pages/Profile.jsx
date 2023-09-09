@@ -9,6 +9,7 @@ const Profile = () => {
     // const mobileView = useMediaQuery('(max-width:600px)');
     const user = useSelector((state) => state.auth.user);
     const token = useSelector((state) => state.auth.token);
+    const rank = useSelector((state)=>state.auth.rank);
     const [weight, setWeight] = useState(user?.weight ? user.weight : "");
     const [age, setAge] = useState(user?.age ? user.age : "");
     const [gender, setGender] = useState(user?.gender ? user.gender : "");
@@ -113,7 +114,7 @@ const Profile = () => {
             </div>
 
             <div className="userCont">
-                <p className="font-6">Rank: 4</p>
+                <p className="font-6">Rank: {rank}</p>
                 <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{ color: "white" }} />}

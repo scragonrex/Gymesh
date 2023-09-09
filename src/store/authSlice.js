@@ -3,7 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 const initialState = {
     user:null,
     token:null,
-    score:null
+    score:null,
+    rank:null
 }
 
 export const authSlice = createSlice({
@@ -20,11 +21,13 @@ export const authSlice = createSlice({
             state.token = null;
         },
         setScore : (state,action)=>{
-            console.log("newScore",action.payload.score )
             state.score = action.payload.score;
+        },
+        setRank :(state,action)=>{
+            state.rank = action.payload;
         }
     }
 })
 
-export const { setLogin, setLogout, setScore} = authSlice.actions;
+export const { setLogin, setLogout, setScore, setRank} = authSlice.actions;
 export default authSlice.reducer;
