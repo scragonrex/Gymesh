@@ -37,7 +37,7 @@ const Features = () => {
       <img src="/assets/c3.png" alt="c3"  />
       </div>
         <div>
-        <div className='font-3 font-white font-bold'>Comming Soon</div>
+        <div className='font-3 font-white font-bold'>Coming Soon</div>
         <div className='font-grey margin-top-1'>Currently working on the new feature. </div>
         </div>
       </div>

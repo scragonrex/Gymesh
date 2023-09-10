@@ -27,9 +27,7 @@ const GoalsList = ({ item, index, getGoals }) => {
  
   const handleTaskChange = (e) => {
     const id = document.getElementById(`barCont${index}`);
-    console.log(id);
     const ele = e.target.name;
-    console.log(ele)
     if (progressList.length > 0 && progressList.includes(ele)) {
       const temp = progressList.filter((item) => item !== ele);
       setProgressList(temp);
