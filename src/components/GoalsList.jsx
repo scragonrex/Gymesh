@@ -78,6 +78,7 @@ const GoalsList = ({ item, index, getGoals }) => {
       dispatch(setScore({
         score: data.score
       }))
+      const res = getGoals();
     }
     setAlert({status:data.status,open:true, message:data.msg})
     console.log(data);
@@ -113,17 +114,20 @@ const GoalsList = ({ item, index, getGoals }) => {
           {alert.message}
         </Alert>
       </Snackbar>
-      <Accordion sx={{ backgroundColor:item.progressValue=== 100 ? "#03311c" : "rgb(41 41 41)", color: "white", minHeight: "4.5rem" }}>
+      <Accordion sx={{ 
+        backgroundColor:item.status=== "completed" ? "#03311c" : item.status === "not completed" ? "#601826" : "rgb(41 41 41)", color: "white", minHeight: "4.5rem" }}>
         <AccordionSummary
           expandIcon={<ExpandMore sx={{ color: "white" }} />}
         >
           <div className="barContainer">
             <div>{`${item?.excercise} (${item?.frequency})`}</div>
-            <div>{Math.ceil((tasks / 7) * 100)} %</div>
+            <div>{Math.ceil((tasks / 7) * 100)} % {item.status === "not completed" && "(Not completed)"}</div>
             <div id={`barCont${index}`} className="bar"></div>
           </div>
         </AccordionSummary>
-        <AccordionDetails sx={{backgroundColor:item.progressValue=== 100 ? "#03311c" : "rgb(41 41 41)"}}>
+        <AccordionDetails sx={{ 
+          backgroundColor:item.status=== "completed" ? "#03311c" : item.status === "not completed" ? "#601826" : "rgb(41 41 41)"
+          }}>
           <div style={{ position: "relative" }}>
             <div className="display-flex-col width-100">
               <FormControlLabel
@@ -171,8 +175,8 @@ const GoalsList = ({ item, index, getGoals }) => {
 
             </div>
             <div style={{ display:"flex", gap:"1em", position: "absolute", right: "0", bottom: "0" }}>
-              <button className='btn' onClick={handleDeleteGoal}>Delete</button>
-              <button className="deleteBtn" onClick={handleFinalSubmit}>Final Submit</button>
+              <button className="btn" onClick={handleFinalSubmit}>Final Submit</button>
+              <button className='deleteBtn' onClick={handleDeleteGoal}>Delete</button>
             </div>
           </div>
         </AccordionDetails>
