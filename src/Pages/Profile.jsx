@@ -74,11 +74,12 @@ const Profile = () => {
         newDate.setDate(newDate.getDate() + num);
         const temp = newDate.getDate() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getFullYear();
         return temp;
-      }
+    }
 
-    //Retrieving completed , progress goals
+    //Retrieving completed , progress goals and not completed goals
     const [completedGoalsList, setCompletedGoalsList] = useState([]);
     const [progressGoalsList, setProgressGoalsList] = useState([]);
+    const [notCompletedGoalsList, setNotCompletedGoalsList] = useState([]);
     const getUsersGoalInfo = async () => {
         const url = "http://localhost:5000/profile/getUserGoalsInfo";
         const response = await fetch(url, {
@@ -88,6 +89,7 @@ const Profile = () => {
         const data = await response.json();
         setCompletedGoalsList(data.completedGoals);
         setProgressGoalsList(data.progressGoals);
+        setNotCompletedGoalsList(data.notCompletedGoals);
     }
 
     const handleAlertClose = (event, reason) => {
@@ -159,8 +161,8 @@ const Profile = () => {
                                 <>
                                     <div>
                                         <div className="display-flex-row justify-content-between">
-                                            <div>Start date:{handleDate(item.startDate,0)}</div>
-                                            <div>End date: {handleDate(item.startDate,7)}</div>
+                                            <div>Start date:{handleDate(item.startDate, 0)}</div>
+                                            <div>End date: {handleDate(item.startDate, 7)}</div>
                                         </div>
                                         <div className="display-flex-row justify-content-between">
                                             <div>Excercise: {item.excercise}</div>
@@ -172,7 +174,7 @@ const Profile = () => {
                                     </div>
                                 </>
                             ))
-                            }            
+                        }
 
                     </AccordionDetails>
                 </Accordion>
@@ -180,80 +182,32 @@ const Profile = () => {
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{ color: "white" }} />}
                     >
-                        Goals uncompleted: 9
+                        Goals uncompleted: {notCompletedGoalsList?.length}
                     </AccordionSummary>
                     <AccordionDetails sx={{ backgroundColor: "rgb(41 41 41)" }}>
-                        <div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Start date: 12/08/23</div>
-                                <div>End date: 19/08/23</div>
-                            </div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Excercise: Pushups</div>
-                                <div>Frequency: 10 times a day</div>
-                            </div>
-                            <div>Completed: 23%</div>
-                        </div>
-                        <div className="margin-top-1 margin-bottom-1">
-                            <Divider sx={{ bgcolor: "white" }} />
-                        </div>
-                        <div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Start date: 12/08/23</div>
-                                <div>End date: 19/08/23</div>
-                            </div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Excercise: Pushups</div>
-                                <div>Frequency: 10 times a day</div>
-                            </div>
-                        </div>
-                        <div className="margin-top-1 margin-bottom-1">
-                            <Divider sx={{ bgcolor: "white" }} />
-                        </div>
-                        <div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Start date: 12/08/23</div>
-                                <div>End date: 19/08/23</div>
-                            </div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Excercise: Pushups</div>
-                                <div>Frequency: 10 times a day</div>
-                            </div>
-                        </div>
-                        <div className="margin-top-1 margin-bottom-1">
-                            <Divider sx={{ bgcolor: "white" }} />
-                        </div>
-                        <div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Start date: 12/08/23</div>
-                                <div>End date: 19/08/23</div>
-                            </div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Excercise: Pushups</div>
-                                <div>Frequency: 10 times a day</div>
-                            </div>
-                        </div>
-                        <div className="margin-top-1 margin-bottom-1">
-                            <Divider sx={{ bgcolor: "grey" }} />
-                        </div>
-                        <div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Start date: 12/08/23</div>
-                                <div>End date: 19/08/23</div>
-                            </div>
-                            <div className="display-flex-row justify-content-between">
-                                <div>Excercise: Pushups</div>
-                                <div>Frequency: 10 times a day</div>
-                            </div>
-                        </div>
-                        <div className="margin-top-1 margin-bottom-1">
-                            <Divider sx={{ bgcolor: "white" }} />
-                        </div>
-
+                        {notCompletedGoalsList?.length > 0 && notCompletedGoalsList.map((item, key) => (
+                            <>
+                                <div>
+                                    <div className="display-flex-row justify-content-between">
+                                        <div>Start date: {handleDate(item.startDate,0)}</div>
+                                        <div>End date: {handleDate(item.startDate,7)}</div>
+                                    </div>
+                                    <div className="display-flex-row justify-content-between">
+                                        <div>Excercise: {item.excercise}</div>
+                                        <div>Frequency: {item.frequency}</div>
+                                    </div>
+                                    <div>Completed: {item.progressValue}%</div>
+                                </div>
+                                <div className="margin-top-1 margin-bottom-1">
+                                    <Divider sx={{ bgcolor: "white" }} />
+                                </div>
+                            </>
+                        ))}
+                    
                     </AccordionDetails>
                 </Accordion>
                 <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
-                    <AccordionSummary onClick={()=>navigate('/goal')}
+                    <AccordionSummary onClick={() => navigate('/goal')}
                     >
                         Goals in progress: {progressGoalsList?.length}
                     </AccordionSummary>

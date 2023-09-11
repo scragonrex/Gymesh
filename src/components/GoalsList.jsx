@@ -121,7 +121,7 @@ const GoalsList = ({ item, index, getGoals }) => {
         >
           <div className="barContainer">
             <div>{`${item?.excercise} (${item?.frequency})`}</div>
-            <div>{Math.ceil((tasks / 7) * 100)} % {item.status === "not completed" && "(Not completed)"}</div>
+            <div>{Math.ceil((tasks / 7) * 100)} % {item.status === "not completed" ? "(Not completed)" : item.status === "completed" && "(completed)"}</div>
             <div id={`barCont${index}`} className="bar"></div>
           </div>
         </AccordionSummary>
