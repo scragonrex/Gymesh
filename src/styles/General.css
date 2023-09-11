@@ -259,6 +259,14 @@ font-size: 0.8rem;
 }
 
 
+/*-----------------------Containers----------------------------*/
+.pageContainer{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ----------------------------------Forms-------------------------------- */
 .formContainer {
     padding: 2em;
@@ -309,6 +317,20 @@ font-size: 0.8rem;
     padding: 15px;
     cursor: "pointer";
 }
+
+/*------------------Additional Styling---------------------------*/
+.blur{
+    background: transparent;
+    backdrop-filter: blur(40px);
+}
+
+.bgImg{
+    position: absolute;
+    z-index: -1;
+    object-fit: contain;
+    width: 100%;
+  }
+
 
 
 

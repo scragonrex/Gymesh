@@ -56,20 +56,21 @@ const SignUp = () => {
 
   return (
 
-    <div className="workoutCont justify-content-center">
+    <div className="pageContainer">
       <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
         <Alert onClose={handleAlertClose} severity="error" variant='filled' sx={{ width: '100%' }}>
           {alert.message}
         </Alert>
       </Snackbar>
-      <div className="formContainer">
+      <img src="/assets/background2.jpg" className='bgImg' alt="login" />
+      <div className="formContainer blur">
         <h1 className="font-white ">Register Here First!</h1>
         <form onSubmit={register}>
 
           <div className='display-flex-col'>
             <label htmlFor="" className="font-white">Name</label>
-            <input className='inputCont' name='name'
+            <input className='inputCont blur' name='name'
               value={user.name}
               required
               onChange={handleChange}
@@ -79,7 +80,7 @@ const SignUp = () => {
 
           <div className='display-flex-col'>
             <label htmlFor="" className="font-white">Email</label>
-            <input className='inputCont' name='email'
+            <input className='inputCont blur' name='email'
               value={user.email}
               required
               onBlur={handleBlur}
@@ -90,7 +91,7 @@ const SignUp = () => {
 
           <div className='display-flex-col'  style={{ position: "relative" }}>
             <label htmlFor="" className="font-white">Password</label>
-            <input className='inputCont'
+            <input className='inputCont blur'
               name='password' value={user.password}
               type={hidePassword ? 'password' : 'text'}
               onChange={handleChange}

@@ -76,19 +76,20 @@ const Login = () => {
 
     return (
 
-        <div className="workoutCont justify-content-center">
+        <div className="pageContainer">
             <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
                 <Alert onClose={handleAlertClose} severity="error" variant='filled' sx={{ width: '100%' }}>
                     {alert.message}
                 </Alert>
             </Snackbar>
-            <div className="formContainer">
+            <img src="/assets/background2.jpg" className='bgImg' alt="login" />
+            <div className="formContainer blur">
                 <h1 className={`font-white ${mobileView ? "font-1er" : "font-4"}`}>Login Here!</h1>
                 <form onSubmit={login}>
                     <div className='display-flex-col'>
                         <label htmlFor="" className="font-white">Email</label>
-                        <input className='inputCont'
+                        <input className='inputCont blur'
                             name='email'
                             value={email}
                             onBlur={handleBlur}
@@ -99,7 +100,7 @@ const Login = () => {
                     </div>
                     <div className="display-flex-col" style={{ position: "relative" }}>
                         <label className="font-white">Password</label>
-                        <input className='inputCont' required
+                        <input className='inputCont blur' required
                             name='password' value={password}
                             type={hidePassword ? "password" : "text"}
                             placeholder='Enter you password'
