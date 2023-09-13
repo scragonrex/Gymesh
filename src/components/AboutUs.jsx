@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className='aboutUs'>
       <img src="/assets/profile.png" alt="profile" />
       <div className="aboutUsCont">
-      <div className="font-5 font-white font-heading">About Us</div>
+      <div className="font-headingfont-white font-heading">About Us</div>
       <div className="font-grey margin-top-1">Greetings! I'm Abhishek Anand, a B.Tech Mechanical Engineering student at IIT Bhubaneswar. Alongside my studies, I'm diving into Fullstack Web Development with great enthusiasm, driven by my passion for acquiring new web technologies.
       <br />
       <br />

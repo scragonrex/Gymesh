@@ -43,7 +43,7 @@ const LeaderBoard = () => {
           <img src="/assets/leader.png" alt="leader" />
           <div className="display-flex-col justify-content-between">
             <div className="display-flex-col">
-              <div className="font-5 font-white font-heading">Leaderboard</div>
+              <div className="font-headingfont-white font-heading">Leaderboard</div>
               <div className="font-grey margin-top-1">Discover the platform where champions seize their well-deserved positions of glory and distinction. Explore your personal score and engage in spirited competition with fellow participants, as you endeavor to ascend to the pinnacle of success and radiate in the limelight
               </div>
 

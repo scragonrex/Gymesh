@@ -102,9 +102,9 @@ const Review = () => {
                 </Alert>
             </Snackbar>
             <div>
-                <p className="font-5 font-heading">What are Clients have to say?</p>
+                <p className="font-headingfont-heading">What are Clients have to say?</p>
                 <p className='font-grey'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
-                <div className="font-grey font-3">Add your review here  <div className="addBtn"><AddCircle onClick={openReview} /></div></div>
+                <div className="font-grey font-subHeading">Add your review here  <div className="addBtn"><AddCircle onClick={openReview} /></div></div>
 
             </div>
             <div className="reviewCont">

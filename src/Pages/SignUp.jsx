@@ -63,14 +63,13 @@ const SignUp = () => {
           {alert.message}
         </Alert>
       </Snackbar>
-      <img src="/assets/background2.jpg" className='bgImg' alt="login" />
-      <div className="formContainer blur">
+      <div className="formContainer ">
         <h1 className="font-white ">Register Here First!</h1>
         <form onSubmit={register}>
 
           <div className='display-flex-col'>
             <label htmlFor="" className="font-white">Name</label>
-            <input className='inputCont blur' name='name'
+            <input className='inputCont ' name='name'
               value={user.name}
               required
               onChange={handleChange}
@@ -80,7 +79,7 @@ const SignUp = () => {
 
           <div className='display-flex-col'>
             <label htmlFor="" className="font-white">Email</label>
-            <input className='inputCont blur' name='email'
+            <input className='inputCont ' name='email'
               value={user.email}
               required
               onBlur={handleBlur}
@@ -91,7 +90,7 @@ const SignUp = () => {
 
           <div className='display-flex-col'  style={{ position: "relative" }}>
             <label htmlFor="" className="font-white">Password</label>
-            <input className='inputCont blur'
+            <input className='inputCont '
               name='password' value={user.password}
               type={hidePassword ? 'password' : 'text'}
               onChange={handleChange}

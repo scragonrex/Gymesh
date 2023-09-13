@@ -83,13 +83,13 @@ const Login = () => {
                     {alert.message}
                 </Alert>
             </Snackbar>
-            <img src="/assets/background2.jpg" className='bgImg' alt="login" />
-            <div className="formContainer blur">
-                <h1 className={`font-white ${mobileView ? "font-1er" : "font-4"}`}>Login Here!</h1>
+           
+            <div className="formContainer ">
+                <h1 className={`font-white ${mobileView ? "font-paraer" : "font-4"}`}>Login Here!</h1>
                 <form onSubmit={login}>
                     <div className='display-flex-col'>
                         <label htmlFor="" className="font-white">Email</label>
-                        <input className='inputCont blur'
+                        <input className='inputCont '
                             name='email'
                             value={email}
                             onBlur={handleBlur}
@@ -100,7 +100,7 @@ const Login = () => {
                     </div>
                     <div className="display-flex-col" style={{ position: "relative" }}>
                         <label className="font-white">Password</label>
-                        <input className='inputCont blur' required
+                        <input className='inputCont' required
                             name='password' value={password}
                             type={hidePassword ? "password" : "text"}
                             placeholder='Enter you password'

@@ -120,10 +120,10 @@ const Profile = () => {
     return (
         <div className='profileCont'>
             <div className="formContainer font-white">
-                {editOpen && <div className="font-3 ">Complete your Profile!</div>}
+                {editOpen && <div className="font-subHeading ">Complete your Profile!</div>}
                 <form>
 
-                    {!editOpen ? <div className='font-heading font-6'>Hi, {name}</div>
+                    {!editOpen ? <div className='font-heading font-big'>Hi, {name}</div>
                         : <div><label className='margin-0'>Name</label><input type="text" className="inputCont width-100" placeholder='Enter your name' minLength='3' value={name} onChange={(e) => setName(e.target.value)} /></div>}
 
                     {!editOpen ? <div >Weight: {weight}</div>
@@ -148,7 +148,7 @@ const Profile = () => {
             </div>
 
             <div className="userCont">
-                <p className="font-6">Rank: {rank}</p>
+                <p className="font-big">Rank: {rank}</p>
                 <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{ color: "white" }} />}

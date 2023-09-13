@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
         <footer className='footer'>
-            <div className='font-1'>Muscle Grabber</div>
+            <div className='font-para'>Muscle Grabber</div>
             <div >scragondragon@gmail.com</div>
             <div className="iconsCont">
               <a href="https://github.com/scragonrex/Gymesh-frontend" target="_blank"><GitHub/></a>

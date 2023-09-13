@@ -26,22 +26,22 @@ const Home = () => {
   return (
     <>
       <div className='landingContainer'>
-        <div className='mainPage'>
           <img src="/assets/background1.jpg" alt="img1" className="bgImg" />
+        <div className='mainPage'>
           <div className="pageTitle">
-            <div className={`${mobileView ? "font-3" : "font-6"} font-bold`}>Elevate Your Fitness Journey with Us!</div>
-            <p className=' font-1 text-align-center font-grey'>We're more than just a gym – we're a haven for individuals seeking holistic wellness and growth. Our philosophy revolves around the understanding that true transformation extends beyond the physical.
+            <div className="font-big font-bold text-align-center">Elevate Your Fitness Journey with Us!</div>
+            <p className="font-para text-align-center font-grey">We're more than just a gym – we're a haven for individuals seeking holistic wellness and growth. Our philosophy revolves around the understanding that true transformation extends beyond the physical.
             </p>
-            <button className="btn1" onClick={handleSignUp}><div className='font-3'>{user ? "Explore Us" : "Signup Now"}</div></button>
+            <button className="btn1" onClick={handleSignUp}><div className='font-subHeading'>{user ? "Explore Us" : "Signup Now"}</div></button>
           </div>
 
         </div>
       </div>
       <Features/>
-      <LeaderBoard />
-      <Review />
-      <AboutUs />
-      <Footer />
+      {/* <LeaderBoard /> */}
+      {/* <Review /> */}
+      {/* <AboutUs /> */}
+      {/* <Footer /> */}
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

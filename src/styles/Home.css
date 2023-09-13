@@ -1,13 +1,12 @@
 .landingContainer {
   width: 100%;
   overflow: hidden;
-  min-height: 90vh;
 
 }
 
 .mainPage {
   display: flex;
-  min-height: 100vh;
+  min-height: 100svh;
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -132,21 +131,11 @@
 }
 
 @media only screen and (max-width: 730px) {
-  .pageTitle h1 {
-    font-size: 1.5em;
-  }
-
-  .pageTitle p {
-    font-size: 1em;
-  }
-
+ 
   .mainPage {
     padding: 8rem 1.5rem 0rem 1.5rem;
   }
 
-  .featuresCont {
-    padding: 2rem 1.5rem 2rem 1.5rem;
-  }
 
   .featureCardCont {
     flex-direction: column;

@@ -127,7 +127,7 @@ const Goal = () => {
           goalsList?.length > 0 ?
             goalsList?.map((item, key) => (
               <GoalsList item={item} id={key} index={key + 1} getGoals={getGoals} />
-            )) : <div className='font-3 font-white text-align-center'>No Goals Available. Click on the + icon to continue</div>
+            )) : <div className='font-subHeading font-white text-align-center'>No Goals Available. Click on the + icon to continue</div>
         }
       </div>
       <div className='addBtn addBtnPos' onClick={handleAddBtn}><AddCircle sx={{ color: "rgb(6, 207, 106)", fontSize: "4rem" }} /></div>
@@ -136,7 +136,7 @@ const Goal = () => {
         open={modalOpen}
         onClose={() => setModalOpen(false)}>
         <div className="goalFormContainer">
-          <h1 className={`font-white ${mobileView ? "font-1" : "font-4"}`} >What's your Goal for this Week?</h1>
+          <h1 className={`font-white ${mobileView ? "font-para" : "font-4"}`} >What's your Goal for this Week?</h1>
           <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
               <SelectMod
                 title="Excercise"
