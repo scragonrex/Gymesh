@@ -111,6 +111,7 @@ const Profile = () => {
 
     useEffect(() => {
         getUsersGoalInfo();
+         // eslint-disable-next-line
     }, [])
 
     return (
@@ -137,7 +138,7 @@ const Profile = () => {
                         </div>
                     }
                     <div className="btnGroup">
-                        <button className="btn width-100" onClick={handleSubmit}>Edit</button>
+                        <button className="btn width-100" onClick={handleSubmit}>{editOpen ? "Submot" : "Edit"}</button>
                         {editOpen && <button className='cancelBtn width-100' onClick={handleCancel}>Cancel</button>}
                     </div>
                 </form>

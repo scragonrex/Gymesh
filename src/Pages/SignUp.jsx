@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import * as yup from 'yup'  //* for importing every content of that module
-import { Formik } from 'formik'
-import { Visibility, VisibilityOff, VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
-import { Alert, CircularProgress, FormControl, IconButton, InputAdornment, Snackbar, } from '@mui/material'
+import { VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
+import { Alert, CircularProgress, Snackbar, } from '@mui/material'
 import { useNavigate } from 'react-router'
-import { InputLabelX, OutlinedInputX } from '../components/Utils'
 import { useSelector } from 'react-redux'
 
 const SignUp = () => {
@@ -25,6 +22,7 @@ const SignUp = () => {
   };
 
   const handleBlur = (e) => {
+     // eslint-disable-next-line
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     if (!regex.test(e.target.value)) {
       setAlert({ open:true, status: "error", message: "Not a valid email" });

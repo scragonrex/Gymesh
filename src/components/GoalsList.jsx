@@ -11,7 +11,6 @@ const GoalsList = ({ item, index, getGoals }) => {
   const [change, setChange] = useState(false);
   const [progressList, setProgressList] = useState(item.progress);
   const url = useSelector((state)=>state.auth.url);
-  const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
 
@@ -76,7 +75,7 @@ const GoalsList = ({ item, index, getGoals }) => {
       dispatch(setScore({
         score: data.score
       }))
-      const res = getGoals();
+      getGoals();
     }
     setAlert({status:data.status,open:true, message:data.msg})
     console.log(data);
@@ -91,7 +90,7 @@ const GoalsList = ({ item, index, getGoals }) => {
 
     const data =await response.json();
     if(data.status==="success")
-    {const res = getGoals();}
+    {getGoals();}
     setAlert({open:true, status:data.status, message:data.msg});
   }
  

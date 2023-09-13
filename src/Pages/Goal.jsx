@@ -1,5 +1,5 @@
 import { AddCircle, ArrowBack } from '@mui/icons-material';
-import { Alert, Box, FormControl, IconButton, MenuItem, Modal, Snackbar, useMediaQuery } from '@mui/material';
+import { Alert, Box, Modal, Snackbar, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { SelectMod } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
@@ -37,7 +37,7 @@ const Goal = () => {
   //--------------------------Alert---------------------------//
   const [alert, setAlert] = useState({ status: "", open: false, message: "" });
   const handleAlertClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === 'clickaway') { 
       return;
     }
 
@@ -66,7 +66,7 @@ const Goal = () => {
     const startDate = new Date();
     const progress = [];
     const userId = user._id;
-
+ 
     const response = await fetch(`${url}/goals/createGoal`, {
       method: "POST",
       body: JSON.stringify({ startDate, progress, userId, excercise: excerciseValue.excercise, frequency: excerciseValue.goal }),
@@ -91,12 +91,10 @@ const Goal = () => {
 
     const data = await response.json();
     const goals = data.filter((item) => item.userId === user._id)
-    console.log("goals arrived", goals);
     setGoalsList(goals);
   }
 
   const handleAddBtn = () => {
-    console.log("add")
     setModalOpen(true);
   }
 

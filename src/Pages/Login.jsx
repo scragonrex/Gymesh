@@ -60,6 +60,7 @@ const Login = () => {
         if (e.target.value === "")
             setAlert({ open: true, message: "Email required" })
         else {
+             // eslint-disable-next-line
             let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
             if (!regex.test(e.target.value)) {
                 setAlert({ open: true, message: "Invalid email" })

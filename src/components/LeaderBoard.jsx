@@ -8,7 +8,6 @@ import { setRank } from '../store/authSlice';
 
 const LeaderBoard = () => {
   const mobileView = useMediaQuery('(max-width:720px)');
-  const token = useSelector((state) => state.auth.token);
   const url = useSelector((state)=>state.auth.url);
   const userInfo = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
@@ -16,9 +15,9 @@ const LeaderBoard = () => {
   const [leaderList, setLeaderList] = useState([{ name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }]);
 
   const getLeaderBoard = async () => {
-    const response = await fetch(`${url}/getLeaderBoard`, {
+    const response = await fetch(`${url}/profile/getLeaderBoard`, {
       method: "GET",
-      headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
+      headers: { "Content-type": "application/json" }
     });
 
     const data = await response.json();
@@ -34,7 +33,8 @@ const LeaderBoard = () => {
   }
 
   useEffect(() => {
-    if (token) { getLeaderBoard(); }
+     getLeaderBoard();
+     // eslint-disable-next-line
   }, [])
   return (
     <>
@@ -80,7 +80,7 @@ const LeaderBoard = () => {
                 </tr>
                 <Divider sx={{ bgColor: "grey" }} />
                 {leaderList.map((item, index) => (
-                  <tr className={`${item.name == userInfo?.name && "activeUser"}`}>
+                  <tr className={`${item.name === userInfo?.name && "activeUser"}`}>
                     <td className='rankCell'>{index + 1}</td>
                     <td className='nameCell'><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{ bgcolor: "purple", width:35, height:35}}>{item.name[0]}</Avatar>{item.name}</div></td>
                     <td className='scoreCell'><div className="display-flex-row gap-1 align-item-center"><Bolt sx={{ color: "green" }} />{item.score} </div></td>

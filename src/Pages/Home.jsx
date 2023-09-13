@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/Home.css'
 import '../styles/Workout.css'
 import { useNavigate } from 'react-router-dom';
-import { IconButton, Tooltip, useMediaQuery } from '@mui/material';
 
 import { useSelector } from 'react-redux';
 import LeaderBoard from '../components/LeaderBoard';

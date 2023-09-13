@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../styles/Workout.css'
-import { CircularProgress, FormControl, IconButton, MenuItem, useMediaQuery } from '@mui/material'
+import { CircularProgress, useMediaQuery } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { SelectMod } from '../components/Utils';
@@ -52,8 +52,8 @@ const Workout = () => {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': process.env.apiKey,
-                'X-RapidAPI-Host': process.env.apiHost
+                'X-RapidAPI-Key': "a47529c91emsha25daef1e66a341p1ba7adjsn5c4aed17e5e6",
+                'X-RapidAPI-Host': "exercisedb.p.rapidapi.com"
             }
         };
 

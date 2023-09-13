@@ -5,8 +5,8 @@ const initialState = {
     token:null,
     score:null,
     rank:null,
-    // url:"https://gymesh-backend.onrender.com"
-    url:"http://localhost:5000",
+    url:"https://gymesh-backend.onrender.com"
+    // url:"http://localhost:5000",
 }
 
 export const authSlice = createSlice({

@@ -7,9 +7,11 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import { AddCircle } from '@mui/icons-material';
 import { Alert, Modal, Snackbar, useMediaQuery } from '@mui/material';
+import { useSelector } from 'react-redux';
 const Review = () => {
-
+    const url = useSelector((state)=>state.auth.url);
     const [activeIndex, setActiveIndex] = useState(0);
+
 
     //-------------------Alert----------------------------//
     const [alert, setAlert] = useState({ open: false, status: " ", message: "" });
@@ -61,7 +63,7 @@ const Review = () => {
     const handleReview = async (e) => {
         e.preventDefault();
         console.log(rname, rdesignation, review)
-        const response = await fetch("http://localhost:5000/profile/addReview",
+        const response = await fetch(`${url}/profile/addReview`,
             {
                 method: "POST",
                 body: JSON.stringify({ rname, rdesignation, review }),
@@ -78,7 +80,7 @@ const Review = () => {
 
     //Getting review list
     const getReview = async () => {
-        const response = await fetch("http://localhost:5000/profile/getReviews",
+        const response = await fetch(`${url}/profile/getReviews`,
             {
                 method: "GET",
             });
@@ -94,6 +96,7 @@ const Review = () => {
             console.log("unmounted");
             clearInterval(intervalId);
         };
+        // eslint-disable-next-line
     }, [activeIndex]);
 
     const mobileView = useMediaQuery('(max-width:720px)');
