@@ -95,6 +95,7 @@ const GoalsList = ({ item, index, getGoals }) => {
   }
  
 
+  
   useEffect(() => {
     const id = document.getElementById(`barCont${index}`);
     id.style.width = `${((tasks) / 7) * 100}%`;

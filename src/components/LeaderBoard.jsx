@@ -80,6 +80,7 @@ const LeaderBoard = () => {
                 </tr>
                 <Divider sx={{ bgColor: "grey" }} />
                 {leaderList.map((item, index) => (
+                  
                   <tr className={`${item.name === userInfo?.name && "activeUser"}`}>
                     <td className='rankCell'>{index + 1}</td>
                     <td className='nameCell'><div className="display-flex-row gap-2 align-item-center"><Avatar sx={{ bgcolor: "purple", width:35, height:35}}>{item.name[0]}</Avatar>{item.name}</div></td>

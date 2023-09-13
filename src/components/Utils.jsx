@@ -5,11 +5,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
  export const SelectMod = ({ options, title,onChange,ide }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [selectValue, setSelectValue] = useState(title);
 
   const handleChange = (e) => {
     setSelectValue(e.currentTarget.textContent);
+    // eslint-disable-next-line
     const output = onChange(e.currentTarget.textContent);
     const id = document.getElementById(`optionCont${ide}`);
     const icon = document.getElementById(`expandIcon${ide}`);
@@ -31,7 +31,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
   return (
-
       <ClickAwayListener onClickAway={handleClickAway}>
     <div style={{ position: "relative" }}>
       <div className='selectCont' onClick={handleSelect}>{selectValue} <div className='expandIcon' id={`expandIcon${ide}`}><ExpandMoreIcon /></div> </div>

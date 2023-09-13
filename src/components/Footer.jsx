@@ -18,6 +18,7 @@ const Footer = () => {
               </Tooltip>
             </div>
             <div className='font-para margin-top-1'>Muscle Grabber © 2023</div>
+            
         </footer>
     </div>
   )

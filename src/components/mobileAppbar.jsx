@@ -34,6 +34,7 @@ export default function TemporaryDrawer() {
       }
     const navigate=useNavigate();
     const list = (anchor) => (
+        
         <Box
             sx={{ width: "250px", height: "100vh", backgroundColor: "#1b1b1b", color: "rgb(0, 205, 109)" }}
             role="presentation"

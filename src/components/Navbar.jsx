@@ -4,9 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogout } from '../store/authSlice';
 import { useMediaQuery } from '@mui/material'
-import Sidebar from './Sidebar';
 import { Bolt } from '@mui/icons-material';
-import BottomNav from './BottomNav';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -39,7 +37,6 @@ const Navbar = () => {
   return (
     
     <div className={`navbarContainer ${isScrolled ? 'blur' : ''}`}>
-      
       <div className="logo flexBox gap-1 font-green font-bold">
         <div className='logoCont'>
         <div className={mobileView?'font-bigger-para text-align-center':'font-subHeading'}>Muscle Grabber</div></div>

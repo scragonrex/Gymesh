@@ -98,6 +98,7 @@ const Review = () => {
         };
         // eslint-disable-next-line
     }, [activeIndex]);
+    
 
     const mobileView = useMediaQuery('(max-width:720px)');
     return (

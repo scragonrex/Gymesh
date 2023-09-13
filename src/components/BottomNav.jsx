@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { setLogout } from '../store/authSlice';
  
 const BottomNav = () => {
+  
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
