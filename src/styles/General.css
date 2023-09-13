@@ -124,12 +124,14 @@ font-size: 0.8rem;
 @media (max-width:720px){
     .font-big{
         font-size: 2rem;
+        text-align: center;
     }
     .font-para{
         font-size: 0.8rem;
     }
     .font-heading{
         font-size: 1.8rem;
+        text-align: center;
     }
     .font-subHeading{
         font-size: 1rem;
@@ -169,7 +171,9 @@ font-size: 0.8rem;
     justify-content: center;
     align-items: center;
 }
-
+.flexWrap{
+    flex-wrap: wrap;
+}
 .justify-content-between {
     justify-content: space-between;
 }
