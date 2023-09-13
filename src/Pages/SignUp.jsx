@@ -5,8 +5,10 @@ import { Visibility, VisibilityOff, VisibilityOffRounded, VisibilityRounded } fr
 import { Alert, CircularProgress, FormControl, IconButton, InputAdornment, Snackbar, } from '@mui/material'
 import { useNavigate } from 'react-router'
 import { InputLabelX, OutlinedInputX } from '../components/Utils'
+import { useSelector } from 'react-redux'
 
 const SignUp = () => {
+  const url = useSelector((state)=>state.auth.url);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [hidePassword, setHidePassword] = useState(true);
@@ -36,10 +38,10 @@ const SignUp = () => {
   const register = async (e) => {
     e.preventDefault();
     console.log("user", user);
-    const url = "http://localhost:5000/auth/signup";
+    // const url = "http://localhost:5000/auth/signup";
     // const url = "https://gymesh-backend.onrender.com/auth/signup";
     setIsLoading(true);
-    const response = await fetch(url,
+    const response = await fetch(`${url}/auth/signup`,
       {
         method: "POST",
         body: JSON.stringify(user),

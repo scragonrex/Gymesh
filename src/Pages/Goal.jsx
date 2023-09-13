@@ -1,7 +1,7 @@
 import { AddCircle, ArrowBack } from '@mui/icons-material';
 import { Alert, Box, FormControl, IconButton, MenuItem, Modal, Snackbar, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { InputLabelX, SelectMod, SelectX } from '../components/Utils'
+import { SelectMod } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import GoalsList from '../components/GoalsList';
@@ -9,6 +9,7 @@ import  "../styles/Goals.css";
 const Goal = () => {
   const mobileView = useMediaQuery('(max-width:700px)');
   const navigate = useNavigate();
+  const url = useSelector((state)=>state.auth.url);
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
   const [modalOpen, setModalOpen] = useState(false);
@@ -27,93 +28,7 @@ const Goal = () => {
   // eslint-disable-next-line
   const [excerciseValue, setExcerciseValue] = useState({ excercise: '', goal: '' });
   const [goalOptions, setGoalOptions] = useState(['select excercise first'])
-  const [goalsList, setGoalsList] = useState([
-    {
-        "_id": "64e894550c1c81525ad77f8d",
-        "userId": "64ddc33e453b91316a2aa19a",
-        "startDate": "2023-08-25T11:45:25.427Z",
-        "excercise": "Pushups",
-        "frequency": "15 times a day",
-        "progress": [
-            "2",
-            "4",
-            "1",
-            "3",
-            "5",
-            "6",
-            "7"
-        ],
-        "__v": 3,
-        "progressValue": 100,
-        "status": "completed"
-    },
-    {
-        "_id": "64f48714e4a290ce93c8eec2",
-        "userId": "64ddc33e453b91316a2aa19a",
-        "startDate": "2023-09-03T13:16:04.439Z",
-        "excercise": "Burpees",
-        "frequency": "50 times a day",
-        "progress": [
-            "1",
-            "3",
-            "2",
-            "4",
-            "5"
-        ],
-        "__v": 3,
-        "progressValue": 72,
-        "status": "not completed"
-    },
-    {
-        "_id": "64fdccaad3b0879ab2720198",
-        "userId": "64ddc33e453b91316a2aa19a",
-        "startDate": "2023-09-10T14:03:22.555Z",
-        "excercise": "Running",
-        "frequency": "1 km",
-        "progress": [
-            "1",
-            "3",
-            "2",
-            "4",
-            "5",
-            "6",
-            "7"
-        ],
-        "__v": 1,
-        "progressValue": 100,
-        "status": "completed"
-    },
-    {
-        "_id": "64fdccbfd3b0879ab27201a1",
-        "userId": "64ddc33e453b91316a2aa19a",
-        "startDate": "2023-09-10T14:03:43.141Z",
-        "excercise": "Cycling",
-        "frequency": "6 km",
-        "progress": [
-            "1",
-            "2"
-        ],
-        "__v": 1,
-        "progressValue": 29,
-        "status": "pending"
-    },
-    {
-        "_id": "64fdcccbd3b0879ab27201aa",
-        "userId": "64ddc33e453b91316a2aa19a",
-        "startDate": "2023-09-10T14:03:54.964Z",
-        "excercise": "Pullups",
-        "frequency": "6 times a day",
-        "progress": [
-            "1",
-            "3",
-            "2",
-            "4"
-        ],
-        "__v": 2,
-        "progressValue": 58,
-        "status": "pending"
-    }
-]);
+  const [goalsList, setGoalsList] = useState([]);
 
   const handleBack = () => {
     navigate('/');
@@ -148,14 +63,11 @@ const Goal = () => {
   }
 
   const handleFormSubmit = async () => {
-    // console.log("excerciseValue", excerciseValue)
     const startDate = new Date();
     const progress = [];
     const userId = user._id;
 
-    // const url = "https://gymesh-backend.onrender.com/goals/createGoal";
-    const url = "http://localhost:5000/goals/createGoal";
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/goals/createGoal`, {
       method: "POST",
       body: JSON.stringify({ startDate, progress, userId, excercise: excerciseValue.excercise, frequency: excerciseValue.goal }),
       headers: {
@@ -172,9 +84,7 @@ const Goal = () => {
   }
 
   const getGoals = async () => {
-    // const url = "https://gymesh-backend.onrender.com/goals/getGoals";
-    const url = `http://localhost:5000/goals/getGoals`;
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/goals/getGoals`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
     })

@@ -2,13 +2,12 @@ import React, { useState } from 'react'
 import {  VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
 import { Alert, CircularProgress, Snackbar, useMediaQuery } from '@mui/material'
 import { useNavigate } from 'react-router'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setLogin } from '../store/authSlice'
-import { InputLabelX, InputMod, OutlinedInputX } from '../components/Utils'
 import "../styles/login.css"
 
-
 const Login = () => {
+    const url = useSelector((state)=>state.auth.url);
     const mobileView = useMediaQuery('(max-width:600px)');
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -32,9 +31,7 @@ const Login = () => {
         e.preventDefault();
         console.log("logging")
         setIsLoading(true);
-        // const url = "https://gymesh-backend.onrender.com/auth/login";
-        const url = "http://localhost:5000/auth/login";
-        const response = await fetch(url,
+        const response = await fetch(`${url}/auth/login`,
             {
                 method: "POST",
                 body: JSON.stringify({ email, password }),
@@ -69,13 +66,7 @@ const Login = () => {
             }
         }
     }
-
-
-
-
-
     return (
-
         <div className="pageContainer">
             <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
                 anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>

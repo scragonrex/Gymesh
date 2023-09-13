@@ -3,7 +3,7 @@ import "../styles/AboutUs.css"
 import { useMediaQuery } from '@mui/material';
 const AboutUs = () => {
   const mobileView = useMediaQuery('(max-width:720px)');
-  return (
+  return ( 
     <div className='aboutUs'>
       {!mobileView && <img src="/assets/profile.png" alt="profile" />}
       <div className="aboutUsCont">

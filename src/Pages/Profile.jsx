@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Profile = () => {
     // const mobileView = useMediaQuery('(max-width:600px)');
     const navigate = useNavigate();
+    const url = useSelector((state)=>state.auth.url);
     const user = useSelector((state) => state.auth.user);
     const token = useSelector((state) => state.auth.token);
     const rank = useSelector((state) => state.auth.rank);
@@ -33,9 +34,7 @@ const Profile = () => {
             setEditOpen(true);
         else {
             console.log(age, weight, gender, name);
-            // const url = "https://gymesh-backend.onrender.com/profile/addProfile";
-            const url = "http://localhost:5000/profile/addProfile";
-            const response = await fetch(url, {
+            const response = await fetch(`${url}/profile/addProfile`, {
                 method: "POST",
                 body: JSON.stringify({ weight, age, gender, name }),
                 headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" },
@@ -79,8 +78,7 @@ const Profile = () => {
     const [progressGoalsList, setProgressGoalsList] = useState([]);
     const [notCompletedGoalsList, setNotCompletedGoalsList] = useState([]);
     const getUsersGoalInfo = async () => {
-        const url = "http://localhost:5000/profile/getUserGoalsInfo";
-        const response = await fetch(url, {
+        const response = await fetch(`${url}/profile/getUserGoalsInfo`, {
             method: "GET",
             headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
         })

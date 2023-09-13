@@ -10,6 +10,7 @@ const GoalsList = ({ item, index, getGoals }) => {
   const [tasks, setTasks] = useState(item.progress.length);
   const [change, setChange] = useState(false);
   const [progressList, setProgressList] = useState(item.progress);
+  const url = useSelector((state)=>state.auth.url);
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
@@ -62,10 +63,8 @@ const GoalsList = ({ item, index, getGoals }) => {
       return;
 
     console.log("progresslist", progressList)
-    // const url = `https://gymesh-backend.onrender.com/goals/addScore`;
-    const url = "http://localhost:5000/goals/addScore";
 
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/goals/addScore`, {
       method: "POST",
       body: JSON.stringify({ score: Math.ceil((tasks / 7) * 100), newProgress: progressList, goalId: item._id }),
       headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
@@ -84,9 +83,7 @@ const GoalsList = ({ item, index, getGoals }) => {
   }
 
   const handleDeleteGoal = async()=>{
-    // const url = "https://gymesh-backend.onrender.com/goals/deleteGoal";
-    const url = "http://localhost:5000/goals/deleteGoal";
-    const response = await fetch(url,{
+    const response = await fetch(`${url}/goals/deleteGoal`,{
       method:"DELETE",
       body:JSON.stringify({goalId: item._id}),
       headers:{Authorization:`Bearer ${token}`, "Content-type":"application/json"}

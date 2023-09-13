@@ -9,15 +9,14 @@ import { setRank } from '../store/authSlice';
 const LeaderBoard = () => {
   const mobileView = useMediaQuery('(max-width:720px)');
   const token = useSelector((state) => state.auth.token);
+  const url = useSelector((state)=>state.auth.url);
   const userInfo = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
   const [leaderList, setLeaderList] = useState([{ name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }, { name: "abhishek", score: "66" }]);
 
   const getLeaderBoard = async () => {
-    const url = "http://localhost:5000/profile/getLeaderBoard";
-    // const url="https://gymesh-backend.onrender.com/getLeaderBoard";
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/getLeaderBoard`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}`, "Content-type": "application/json" }
     });

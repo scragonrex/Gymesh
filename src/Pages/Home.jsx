@@ -12,7 +12,6 @@ import Review from '../components/Review';
 import Features from '../components/Features';
 const Home = () => {
   const navigate = useNavigate();
-  const mobileView = useMediaQuery('(max-width:720px)');
   const user = useSelector((state) => state.auth.user)
 
   const handleSignUp = (e) => {
@@ -42,12 +41,9 @@ const Home = () => {
       <Review />
       <AboutUs />
       <Footer />
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     </>
 
   )
 }
 
-export default Home
+export default Home;

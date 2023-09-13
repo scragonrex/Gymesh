@@ -1,6 +1,6 @@
 import React from 'react'
 import "../styles/Footer.css"
-import { AccountCircleOutlined, Facebook, FlagCircleOutlined, GitHub, Instagram, LinkedIn, ManageSearchRounded, WhatsApp } from '@mui/icons-material';
+import {  Facebook, GitHub, Instagram, LinkedIn, ManageSearchRounded, WhatsApp } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
 const Footer = () => {
   return (

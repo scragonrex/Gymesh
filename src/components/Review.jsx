@@ -88,7 +88,7 @@ const Review = () => {
 
 
     useEffect(() => {
-        getReview();
+        if(reviewList?.length===0) getReview();
         const intervalId = setInterval(handleReviewSlider, 2500);
         return () => {
             console.log("unmounted");

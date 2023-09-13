@@ -3,11 +3,12 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { setLogout } from '../store/authSlice';
-
+ 
 const BottomNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const handleLogout = () => {
     dispatch(setLogout())
     navigate('/login')
