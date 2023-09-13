@@ -70,32 +70,32 @@ const Workout = () => {
         }
     }
 
-    const mobileView = useMediaQuery('(max-width:730px)');
+    const mobileView = useMediaQuery('(max-width:720px)');
 
     return (
-        <div className='workoutCont' style={{ paddingTop: "8rem" }}>
+        <div className='pageContainer'>
             {isLoading && <CircularProgress color='success' />}
-            <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>
+            {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>}
             {formOpen && <div className="formContainer">
-                <h1 className={`font-white ${mobileView ? "font-para" : "font-4"}`}>What do you want to shape?</h1>
-                {mobileView?
-                <> 
-                <SelectMod ide="sm3" title='Excercise' options={bodyParts} onChange={handleExcerciseValue}/>
-                <button className="btn" onClick={handleSubmit}>Submit</button>
-                </>
-                
-                :<><div className='display-flex-row' style={{ flexWrap: "wrap", gap: "1em", margin: "1em 0" }}>
-                    {bodyParts.map((item, key) => (
-                        <div className="tags" onClick={() => handleTag(item, key)} id={key}>{item}</div>
-                    ))}
-                </div>
-                <button className="btn" onClick={handleSubmit}>Submit</button></>}
+                <h1 className={`font-white font-heading`}>What do you want to shape?</h1>
+                {mobileView ?
+                    <>
+                        <SelectMod ide="sm3" title='Excercise' options={bodyParts} onChange={handleExcerciseValue} />
+                        <button className="btn" onClick={handleSubmit}>Submit</button>
+                    </>
+
+                    : <><div className='display-flex-row' style={{ flexWrap: "wrap", gap: "1em", margin: "1em 0" }}>
+                        {bodyParts.map((item, key) => (
+                            <div className="tags" onClick={() => handleTag(item, key)} id={key}>{item}</div>
+                        ))}
+                    </div>
+                        <button className="btn" onClick={handleSubmit}>Submit</button></>}
             </div>
             }
             {excerciseOpen &&
-                <div className='excerciseCont font-white'>
-                    <div className={`${mobileView ? "font-subHeading" : "font-4"} `}>Your Excercises</div>
-                    <div className='cardCont font-white'>
+                <div className='excerciseCont'>
+                    <div className="font-heading">Your Excercises</div>
+                    <div className='cardCont'>
                         {excerciseList.map((item, key) => (
                             <div id={key} className="card">
                                 <img src={item.gifUrl
