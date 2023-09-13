@@ -14,6 +14,8 @@ import Profile from "./Pages/Profile";
 import { useSelector } from "react-redux";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
+import { useMediaQuery } from "@mui/material";
+import BottomNav from "./components/BottomNav";
 
 const router = createBrowserRouter([ 
   { path: "*", Component: Root },
@@ -25,10 +27,14 @@ function Root() {
   const isAuth = Boolean(useSelector(state=>state.auth.token));
   // const isAuth=true;
   const location = useLocation();
-  console.log(location.pathname)
+  const mobileView = useMediaQuery('(max-width:720px)');
   return (
     <>
-    {(location.pathname==="/login" || location.pathname==="/signup")?null:<Navbar/>}
+    {(location.pathname==="/login" || location.pathname==="/signup") ? null: 
+    <>
+    <Navbar/>
+    {mobileView && <BottomNav/>}
+    </>}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />

@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
         <footer className='footer'>
             <div className='font-para'>Muscle Grabber</div>
-            <div >scragondragon@gmail.com</div>
+            <div className='font-para'>scragondragon@gmail.com</div>
             <div className="iconsCont">
               <a href="https://github.com/scragonrex/Gymesh-frontend" target="_blank"><GitHub/></a>
               <a href="https://www.linkedin.com/in/abhishek-anand-a55028208/" target="_blank"><LinkedIn/></a>
@@ -17,7 +17,7 @@ const Footer = () => {
               <WhatsApp/>
               </Tooltip>
             </div>
-            <div className='margin-top-1'>Muscle Grabber © 2023</div>
+            <div className='font-para margin-top-1'>Muscle Grabber © 2023</div>
         </footer>
     </div>
   )

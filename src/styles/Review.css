@@ -11,7 +11,7 @@
 .reviewCont{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 45%;
     align-items: center;
     gap: 1rem;
 }
@@ -40,4 +40,17 @@
 }
 .active{
     color: white;
+}
+
+@media (max-width:720px){
+    .review{
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+    }
+    .reviewCont{
+        width: 100%;
+    }
+    .reviewCardCont{
+        width: 100%;
+    }
 }

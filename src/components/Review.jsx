@@ -6,7 +6,7 @@ import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOu
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import { AddCircle } from '@mui/icons-material';
-import { Alert, Modal, Snackbar } from '@mui/material';
+import { Alert, Modal, Snackbar, useMediaQuery } from '@mui/material';
 const Review = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -93,6 +93,7 @@ const Review = () => {
         };
     }, [activeIndex]);
 
+    const mobileView = useMediaQuery('(max-width:720px)');
     return (
         <div className='review'>
             <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
@@ -102,8 +103,8 @@ const Review = () => {
                 </Alert>
             </Snackbar>
             <div>
-                <p className="font-headingfont-heading">What are Clients have to say?</p>
-                <p className='font-grey'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
+                <p className="font-heading">What our Clients { mobileView ? "saying" : "have to say"}?</p>
+                <p className='font-grey font-para'>Reviews add values to our lives. Explore yourself and find about whether our website is good or not.</p>
                 <div className="font-grey font-subHeading">Add your review here  <div className="addBtn"><AddCircle onClick={openReview} /></div></div>
 
             </div>
@@ -117,11 +118,11 @@ const Review = () => {
                                     <div className="display-flex-row align-item-center gap-2">
                                         <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
                                         <div>
-                                            <div className="font-2">{item.name}</div>
+                                            <div className="font-subHeading font-2">{item.name}</div>
                                             <div className="font-grey">{item.designation}</div>
                                         </div>
                                     </div>
-                                    <p className="font-grey margin-top-2">{item.review}</p>
+                                    <p className={`font-grey font-para ${mobileView ? "margin-top-1" : "margin-top-2"}`}>{item.review}</p>
                                 </div>
                             ))
                         }
