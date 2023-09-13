@@ -58,16 +58,12 @@
     .cardCont {
         gap: 1.5rem;
     }
-    .workoutCont {
-        padding: 0rem;
-    }
+    
     .formContainer{
         max-width: 59vw;
     }
     .font-white-para{
         font-size: 1.5rem;
     }
-    .goalFormContainer{
-        max-width: 55vw;
-    }
+ 
 }

@@ -3,10 +3,9 @@ import { Alert, Box, FormControl, IconButton, MenuItem, Modal, Snackbar, useMedi
 import React, { useEffect, useState } from 'react'
 import { InputLabelX, SelectMod, SelectX } from '../components/Utils'
 import { useNavigate } from 'react-router-dom';
-import '../styles/Workout.css'
 import { useSelector } from 'react-redux';
 import GoalsList from '../components/GoalsList';
-
+import  "../styles/Goals.css";
 const Goal = () => {
   const mobileView = useMediaQuery('(max-width:700px)');
   const navigate = useNavigate();
@@ -28,7 +27,93 @@ const Goal = () => {
   // eslint-disable-next-line
   const [excerciseValue, setExcerciseValue] = useState({ excercise: '', goal: '' });
   const [goalOptions, setGoalOptions] = useState(['select excercise first'])
-  const [goalsList, setGoalsList] = useState();
+  const [goalsList, setGoalsList] = useState([
+    {
+        "_id": "64e894550c1c81525ad77f8d",
+        "userId": "64ddc33e453b91316a2aa19a",
+        "startDate": "2023-08-25T11:45:25.427Z",
+        "excercise": "Pushups",
+        "frequency": "15 times a day",
+        "progress": [
+            "2",
+            "4",
+            "1",
+            "3",
+            "5",
+            "6",
+            "7"
+        ],
+        "__v": 3,
+        "progressValue": 100,
+        "status": "completed"
+    },
+    {
+        "_id": "64f48714e4a290ce93c8eec2",
+        "userId": "64ddc33e453b91316a2aa19a",
+        "startDate": "2023-09-03T13:16:04.439Z",
+        "excercise": "Burpees",
+        "frequency": "50 times a day",
+        "progress": [
+            "1",
+            "3",
+            "2",
+            "4",
+            "5"
+        ],
+        "__v": 3,
+        "progressValue": 72,
+        "status": "not completed"
+    },
+    {
+        "_id": "64fdccaad3b0879ab2720198",
+        "userId": "64ddc33e453b91316a2aa19a",
+        "startDate": "2023-09-10T14:03:22.555Z",
+        "excercise": "Running",
+        "frequency": "1 km",
+        "progress": [
+            "1",
+            "3",
+            "2",
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        "__v": 1,
+        "progressValue": 100,
+        "status": "completed"
+    },
+    {
+        "_id": "64fdccbfd3b0879ab27201a1",
+        "userId": "64ddc33e453b91316a2aa19a",
+        "startDate": "2023-09-10T14:03:43.141Z",
+        "excercise": "Cycling",
+        "frequency": "6 km",
+        "progress": [
+            "1",
+            "2"
+        ],
+        "__v": 1,
+        "progressValue": 29,
+        "status": "pending"
+    },
+    {
+        "_id": "64fdcccbd3b0879ab27201aa",
+        "userId": "64ddc33e453b91316a2aa19a",
+        "startDate": "2023-09-10T14:03:54.964Z",
+        "excercise": "Pullups",
+        "frequency": "6 times a day",
+        "progress": [
+            "1",
+            "3",
+            "2",
+            "4"
+        ],
+        "__v": 2,
+        "progressValue": 58,
+        "status": "pending"
+    }
+]);
 
   const handleBack = () => {
     navigate('/');
@@ -113,17 +198,17 @@ const Goal = () => {
 
 
   return (
-    <div className='workoutCont' style={{ justifyContent: "flex-start" }}>
+    <div className='goal'>
        <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
         <Alert onClose={handleAlertClose} severity={alert.status} variant='filled' sx={{ width: '100%' }}>
           {alert.message}
         </Alert>
       </Snackbar>
-      <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
-      </div>
+      {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
+      </div>}
       <div className='goalsListCont'>
-        <div className='font-4 text-align-center font-white'>Your Goals</div>{
+        <div className='font-heading text-align-center font-white'>Your Goals</div>{
           goalsList?.length > 0 ?
             goalsList?.map((item, key) => (
               <GoalsList item={item} id={key} index={key + 1} getGoals={getGoals} />
@@ -135,8 +220,8 @@ const Goal = () => {
       <Modal
         open={modalOpen}
         onClose={() => setModalOpen(false)}>
-        <div className="goalFormContainer">
-          <h1 className={`font-white ${mobileView ? "font-para" : "font-4"}`} >What's your Goal for this Week?</h1>
+        <div className="modalContainer">
+          <div className="font-white font-subHeading" >What's your Goal for this Week?</div>
           <Box sx={{ minWidth: 120, margin: mobileView ? "1rem 0" : "2rem 0" }}>
               <SelectMod
                 title="Excercise"

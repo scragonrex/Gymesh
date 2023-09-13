@@ -42,7 +42,7 @@ const Navbar = () => {
       
       <div className="logo flexBox gap-1 font-green font-bold">
         <div className='logoCont'>
-        <div className={mobileView?'font-2 text-align-center':'font-subHeading'}>Muscle Grabber</div></div>
+        <div className={mobileView?'font-bigger-para text-align-center':'font-subHeading'}>Muscle Grabber</div></div>
         </div>
       {mobileView ? "" : <div className="links">
         <ul className='font-white'>

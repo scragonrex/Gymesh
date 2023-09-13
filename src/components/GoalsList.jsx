@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/General.css'
-import '../styles/GoalsList.css'
+import '../styles/Goals.css'
 import { Accordion, AccordionDetails, AccordionSummary, Alert, Checkbox, FormControlLabel, Snackbar } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -120,14 +119,15 @@ const GoalsList = ({ item, index, getGoals }) => {
           expandIcon={<ExpandMore sx={{ color: "white" }} />}
         >
           <div className="barContainer">
-            <div>{`${item?.excercise} (${item?.frequency})`}</div>
-            <div>{Math.ceil((tasks / 7) * 100)} % {item.status === "not completed" ? "(Not completed)" : item.status === "completed" && "(completed)"}</div>
+            <div className='font-bigger-para'>{item?.excercise}</div>
+            <div className='font-bigger-para'>{Math.ceil((tasks / 7) * 100)} % {item.status === "not completed" ? "(Not completed)" : item.status === "completed" && "(completed)"}</div>
             <div id={`barCont${index}`} className="bar"></div>
           </div>
         </AccordionSummary>
         <AccordionDetails sx={{ 
           backgroundColor:item.status=== "completed" ? "#03311c" : item.status === "not completed" ? "#601826" : "rgb(41 41 41)"
           }}>
+            <div className='font-para'>{item?.frequency}</div>
           <div style={{ position: "relative" }}>
             <div className="display-flex-col width-100">
               <FormControlLabel

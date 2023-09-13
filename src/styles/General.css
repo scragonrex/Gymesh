@@ -65,7 +65,7 @@ font-size: 0.8rem;
 .font-para{
     font-size: 1rem;
 }
-.font-2{
+.font-bigger-para{
     font-size: 1.2rem;
 }
 .font-subHeading{
@@ -129,12 +129,15 @@ font-size: 0.8rem;
     .font-para{
         font-size: 0.8rem;
     }
+    .font-bigger-para{
+        font-size: 1rem;
+    }
     .font-heading{
         font-size: 1.8rem;
         text-align: center;
     }
     .font-subHeading{
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -293,30 +296,7 @@ font-size: 0.8rem;
     align-items: center;
     background-color: #2c2c2c;
 }
-
-/* ----------------------------------Forms-------------------------------- */
-.formContainer {
-    padding: 2em;
-    max-width: 49vw;
-    min-width: 30vw;
-    background: #1f1f1f;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-}
-
-.workoutCont {
-    min-height: 100vh;
-    background-color: #1b1b1b;
-    font-family: 'Rubik', sans-serif;
-    padding: 2rem 5rem 2rem 5rem;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    flex-direction: column;
-}
-.goalFormContainer{
+.modalContainer{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -330,6 +310,24 @@ font-size: 0.8rem;
     flex-direction: column;
     gap: 10px;
 }
+
+@media (max-width:720px){
+    .modalContainer{
+        width: 75vw; 
+    }
+}
+/* ----------------------------------Forms-------------------------------- */
+.formContainer {
+    padding: 2em;
+    max-width: 49vw;
+    min-width: 30vw;
+    background: #1f1f1f;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
 .inputCont {
     padding: 0.8em;
     border: none;
@@ -415,7 +413,7 @@ font-size: 0.8rem;
         left:0.3rem;
     }
 
-    .goalFormContainer{
+    .modalContainer{
         max-width: 18rem;
     }
 }

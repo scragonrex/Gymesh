@@ -118,7 +118,7 @@ const Review = () => {
                                     <div className="display-flex-row align-item-center gap-2">
                                         <Avatar sx={{ width: 60, height: 60, bgcolor: "purple", fontSize: "2rem" }}>{item.name[0]}</Avatar>
                                         <div>
-                                            <div className="font-subHeading font-2">{item.name}</div>
+                                            <div className="font-subHeading font-bigger-para">{item.name}</div>
                                             <div className="font-grey">{item.designation}</div>
                                         </div>
                                     </div>
@@ -144,8 +144,8 @@ const Review = () => {
             <Modal
                 open={modalOpen}
                 onClose={() => setModalOpen(false)}>
-                <div className="goalFormContainer">
-                    <h2 className='font-white'>Add your review</h2>
+                <div className="modalContainer">
+                    <div className='font-subHeading font-white'>Add your review</div>
                     <form onSubmit={handleReview}>
                         <div className='display-flex-col margin-top-1 margin-bottom-1'>
                             <label htmlFor="" className="font-white">Name</label>

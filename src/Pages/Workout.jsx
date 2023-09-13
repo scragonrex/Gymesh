@@ -77,7 +77,7 @@ const Workout = () => {
             {isLoading && <CircularProgress color='success' />}
             {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div></div>}
             {formOpen && <div className="formContainer">
-                <h1 className={`font-white font-heading`}>What do you want to shape?</h1>
+                <h1 className="font-white font-subHeading">What do you want to shape?</h1>
                 {mobileView ?
                     <>
                         <SelectMod ide="sm3" title='Excercise' options={bodyParts} onChange={handleExcerciseValue} />

@@ -1,3 +1,8 @@
+.goal{
+    min-height: 100vh;
+    padding: 2rem 5rem;
+    background-color: #151515;
+}
 .goalsListCont{
     display: flex;
     flex-direction: column;
@@ -23,8 +28,6 @@
     cursor: pointer;
     transition: 0.3s;
 }
-
-
 .bar{
     width: 0%;
     height: 30%;
@@ -45,4 +48,14 @@
 .checkBtn{
     cursor: pointer;
     transition: 0.3s;
+}
+
+@media (max-width:720px){
+    .goal{
+        padding: 1rem 2rem;
+    }
+    .addBtnPos{
+        bottom: 10%;
+        right: 7.5%;
+    }
 }
