@@ -35,14 +35,17 @@ const Review = () => {
 
     //To make the slider move automatically
     const handleReviewSlider = () => {
-        const value = activeIndex+1;
+        
         const size = reviewList.length - 1;
-        if (value < 0)
-            setActiveIndex(size);
-        else if (value > size)
-            setActiveIndex(0)
+       
+      if (size>0 && activeIndex+1 > size)
+           {
+             setActiveIndex(0)
+            }
         else
-            setActiveIndex(value);
+            {
+                setActiveIndex(activeIndex+1);
+            }
     }
 
     const [reviewList, setReviewList] = useState([]);
@@ -85,7 +88,7 @@ const Review = () => {
 
 
     useEffect(() => {
-        if(reviewList?.length===0) getReview();
+        getReview();
         const intervalId = setInterval(handleReviewSlider, 2500);
         return () => {
             console.log("unmounted");
