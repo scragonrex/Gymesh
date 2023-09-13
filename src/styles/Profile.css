@@ -4,7 +4,7 @@
     font-family: 'Rubik', sans-serif;
     padding: 7rem 5rem 2rem 5rem;
     display: flex;
-    gap: 1em;
+    gap: 1rem;
 }
 
 .goalsCont{
@@ -22,4 +22,13 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+}
+
+@media (max-width:720px){
+    .profileCont{
+        padding: 4rem 2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
 }

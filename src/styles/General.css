@@ -318,7 +318,7 @@ font-size: 0.8rem;
 }
 /* ----------------------------------Forms-------------------------------- */
 .formContainer {
-    padding: 2em;
+    padding: 2rem;
     max-width: 49vw;
     min-width: 30vw;
     background: #1f1f1f;
@@ -394,15 +394,7 @@ font-size: 0.8rem;
   }
 
 
-/* For styleing MUI select component */
-.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
-    background-color: #1b1b1b !important;
-}
-.css-r8u8y9 {
-    background-color: #1b1b1b !important;
-}
-
-@media only screen and (max-width: 730px)
+@media only screen and (max-width: 720px)
 {
     .formContainer{
         width: 100%;

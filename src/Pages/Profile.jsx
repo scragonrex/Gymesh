@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, AccordionDetails, AccordionSummary, Alert, Checkbox, Divider, FormControlLabel, Snackbar } from '@mui/material'
-import '../styles/Workout.css'
 import '../styles/Profile.css'
 import { useSelector } from 'react-redux';
-import LeaderBoard from '../components/LeaderBoard';
 import { ExpandMore } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
@@ -146,9 +144,8 @@ const Profile = () => {
                     </div>
                 </form>
             </div>
-
             <div className="userCont">
-                <p className="font-big">Rank: {rank}</p>
+                <p className="font-heading">Rank: {rank}</p>
                 <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{ color: "white" }} />}

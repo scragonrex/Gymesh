@@ -2,7 +2,7 @@
 .formContainer form{
     display: flex;
     flex-direction: column;
-    gap:1em;
+    gap:1rem;
     margin-top: 3rem;
 }
 .tags{
