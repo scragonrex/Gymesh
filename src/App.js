@@ -16,6 +16,7 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
 import { useMediaQuery } from "@mui/material";
 import BottomNav from "./components/BottomNav";
+import Calculators from "./Pages/Calculators";
 
 const router = createBrowserRouter([ 
   { path: "*", Component: Root },
@@ -42,6 +43,7 @@ function Root() {
           <Route path='/workout' element={isAuth ? <Workout /> : <Navigate to='/signup'/>} />
           <Route path='/goal' element={isAuth ? <Goal /> : <Navigate to='/signup'/>} />
           <Route path='/profile' element={isAuth ? <Profile /> : <Navigate to='/signup'/>} />
+          <Route path='/calculators' element={isAuth ? <Calculators/> : <Navigate to='/signup'/>} />
         </Routes>
     </>
   ); 

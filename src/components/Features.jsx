@@ -35,13 +35,13 @@ const Features = () => {
         </div>
       </div>
 
-      <div className="featureCard" >
+      <div className="featureCard" onClick={()=>navigate('/calculators')}>
       <div className='cardImg'>
       <img src="/assets/c3.png" alt="c3"  />
       </div>
         <div>
-        <div className='font-subHeading font-white font-bold'>Coming Soon</div>
-        <div className='font-grey margin-top-1 font-para'>Currently working on the new feature. </div>
+        <div className='font-subHeading font-white font-bold'>Fitness Calculators</div>
+        <div className='font-grey margin-top-1 font-para'>Know about your current BMI,ideal weight,etc </div>
         </div>
       </div>   
       </div>

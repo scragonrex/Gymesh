@@ -144,7 +144,7 @@ const Profile = () => {
                 </form>
             </div>
             <div className="userCont">
-                <p className="font-heading">Rank: {rank}</p>
+                <p className="font-heading">Rank:{rank}</p>
                 <Accordion sx={{ backgroundColor: "rgb(41 41 41)", color: "white", minHeight: "3.5em" }}>
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{ color: "white" }} />}

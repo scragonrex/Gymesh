@@ -17,7 +17,6 @@ const LeaderBoard = () => {
   const getLeaderBoard = async () => {
     const response = await fetch(`${url}/profile/getLeaderBoard`, {
       method: "GET",
-      headers: { "Content-type": "application/json" }
     });
 
     const data = await response.json();
