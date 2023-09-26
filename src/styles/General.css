@@ -198,9 +198,8 @@ font-size: 0.8rem;
     cursor: pointer;
 }
 .btn:hover {
-    background: transparent;
+    background: #0f3d27;
     color: #00cd6d;
-    box-shadow: inset 0px 0px 0 2px #00cd6d;
 }
 .deleteBtn{
     padding: 0.7rem 1rem;
