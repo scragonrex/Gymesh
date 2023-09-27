@@ -318,7 +318,7 @@ font-size: 0.8rem;
 /* ----------------------------------Forms-------------------------------- */
 .formContainer {
     padding: 2rem;
-    max-width: 49vw;
+    max-width: 33vw;
     min-width: 30vw;
     background: #1f1f1f;
     border-radius: 1rem;

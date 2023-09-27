@@ -77,7 +77,7 @@ const Login = () => {
             </Snackbar>
            
             <div className="formContainer ">
-                <h1 className={`font-white ${mobileView ? "font-paraer" : "font-4"}`}>Login Here!</h1>
+                <h1 className={`font-white ${mobileView ? "font-para" : "font-4"}`}>Login Here!</h1>
                 <form onSubmit={login}>
                     <div className='display-flex-col'>
                         <label htmlFor="" className="font-white">Email</label>
