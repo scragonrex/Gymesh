@@ -37,7 +37,7 @@ try {
 }
     }
   return (
-    <div className='display-flex-row'>
+    <div className='display-flex-row gap-2'>
     <div className="formContainer">
         <div>
         <h1 className="font-subHeading text-align-center">Basal Mass Index (BMR)</h1>
@@ -64,7 +64,7 @@ try {
             <button onClick={getBMR} className="btn">Calculate</button>
         </form>
     </div>
-    <div className="result">
+    <div className="formContainer">
         <p>{result}</p>
     </div>
 </div>

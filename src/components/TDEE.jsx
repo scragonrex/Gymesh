@@ -50,7 +50,7 @@ const TDEE = () => {
     }
 
     return (
-        <div className='display-flex-row'>
+        <div className='display-flex-row gap-2'>
             <div className="formContainer">
                 <div>
                     <h1 className="font-subHeading text-align-center">Total Daily Energy Expenditure (TDEE)</h1>
@@ -89,7 +89,7 @@ const TDEE = () => {
                     <button onClick={getTDEE} className="btn">Calculate</button>
                 </form>
             </div>
-            <div className="result">
+            <div className="formContainer">
                 <p>{result.tdee}</p>
             </div>
         </div>

@@ -1,10 +1,38 @@
 .calculators{
     min-height: 100vh;
-    padding: 8rem 5rem 1rem 5rem;
+    padding: 5rem 5rem 1rem 5rem;
     background-color: #151515;
 } 
 .calculatorCont{
     display: flex;
     flex-direction: column;
     color: white;
+
+}
+.calcOptions{
+    max-width: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.calcOption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: 0.3s;
+    border-radius: 0.5rem;
+    background-color: #272727;
+}
+.calcOption.active{
+    background-color: #00cd6d;
+    color: black; 
+}
+.calcOption:hover{
+    background-color: #00cd6d;
+    color: black;
+}
+.calcOption img{
+    width: 100%;
 }

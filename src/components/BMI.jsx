@@ -25,7 +25,7 @@ const BMI = () => {
         }
     }
     return (
-        <div className='display-flex-row'>
+        <div className='display-flex-row gap-2'>
             <div className="formContainer">
                 <div>
                 <h1 className="font-subHeading text-align-center">Body Mass Index (BMI)</h1>
@@ -43,7 +43,7 @@ const BMI = () => {
                     <button onClick={getBMI} className="btn">Calculate</button>
                 </form>
             </div>
-            <div className="result">
+            <div className="formContainer">
                 <p>{result?.bmi}</p>
                 <p>{result?.health}</p>
                 <p>{result?.healthy_bmi_range}</p>
