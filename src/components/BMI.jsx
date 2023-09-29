@@ -43,11 +43,11 @@ const BMI = () => {
                 <form onSubmit={getBMI}>
                     <div className="display-flex-col">
                         <label htmlFor="">Weight</label>
-                        <input type="number" required className="inputCont" placeholder='Enter your weight' value={weight} onChange={(e) => setWeight(e.target.value)} />
+                        <input type="number" required className="inputCont" placeholder='Enter your weight in kg' value={weight} onChange={(e) => setWeight(e.target.value)} />
                     </div>
                     <div className="display-flex-col">
                         <label htmlFor="">Height</label>
-                        <input type="number" required className="inputCont" placeholder='Enter your height' value={height} onChange={(e) => setHeight(e.target.value)} />
+                        <input type="number" required className="inputCont" placeholder='Enter your height in cm' value={height} onChange={(e) => setHeight(e.target.value)} />
                     </div>
                     <button onClick={getBMI} className="btn">{isLoading ? <CircularProgress style={{ color: "black", width: "20px", height: "20px" }} /> : "Calculate"}</button>
                 </form>
@@ -57,14 +57,17 @@ const BMI = () => {
             <div className='result'>
                 <div className='imageBMI'>
                     <img src="/assets/BMI.png" alt="BMI" />
-                    {/* {result?.bmi < 18.5 && <img src="/assets/underweight.png" alt="BMI" />}
-                    {result?.bmi >= 18.5 && result?.bmi <= 24.9 && <img src="/assets/BMI.png" alt="BMI" />}
-                    {result?.bmi > 24.9 && <img src="/assets/BMI.png" alt="BMI" />} */}
                 </div>
                 {result && <div className="display-flex-col gap-2">
-                    <div >BMI: <span className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.bmi}</span></div>
-                    <div >Health status: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.health}</span></div>
-                    <div >Healthy BMI Range: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.healthy_bmi_range}</span></div>
+                    <div >BMI: <span className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>
+                        {result?.bmi.toFixed(2)}
+                        </span></div>
+                    <div >Health status: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>
+                        {result?.health}
+                        </span></div>
+                    <div >Healthy BMI Range: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>
+                        {result?.healthy_bmi_range}
+                        </span></div>
                 </div>}
             </div>
         </div>
