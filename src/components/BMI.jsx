@@ -1,13 +1,17 @@
+import { CircularProgress } from '@mui/material';
 import React, { useState } from 'react'
 
 const BMI = () => {
     const [weight, setWeight] = useState();
     const [height, setHeight] = useState();
     const [result, setResult] = useState();
+    const [isLoading, setIsLoading] = useState(false);
 
     const getBMI = async (e) => {
+        setIsLoading(true);
         e.preventDefault();
-        const url = 'https://mega-fitness-calculator1.p.rapidapi.com/bmi?weight=65&height=167';
+        console.log(height, weight)
+        const url = `https://mega-fitness-calculator1.p.rapidapi.com/bmi?weight=${weight}&height=${height}`;
         const options = {
             method: 'GET',
             headers: {
@@ -19,17 +23,22 @@ const BMI = () => {
         try {
             const response = await fetch(url, options);
             const data = await response.json();
-            setResult(data.info)
+            setResult(data.info);
+            setIsLoading(false);
+
         } catch (error) {
             console.error(error);
+            setIsLoading(false);
+
         }
     }
     return (
-        <div className='display-flex-row gap-2'>
-            <div className="formContainer">
+        <div className='display-flex-row'>
+
+            <div className="formContainer" style={{ width: "40%" }}>
                 <div>
-                <h1 className="font-subHeading text-align-center">Body Mass Index (BMI)</h1>
-                <div className="font-para font-grey">BMI is an estimate of body fat and a good gauge of your risk for diseases that can occur with more body fat</div>
+                    <h1 className="font-subHeading text-align-center">Body Mass Index (BMI)</h1>
+                    <div className="font-para font-grey">BMI is an estimate of body fat and a good gauge of your risk for diseases that can occur with more body fat</div>
                 </div>
                 <form onSubmit={getBMI}>
                     <div className="display-flex-col">
@@ -40,13 +49,23 @@ const BMI = () => {
                         <label htmlFor="">Height</label>
                         <input type="number" required className="inputCont" placeholder='Enter your height' value={height} onChange={(e) => setHeight(e.target.value)} />
                     </div>
-                    <button onClick={getBMI} className="btn">Calculate</button>
+                    <button onClick={getBMI} className="btn">{isLoading ? <CircularProgress style={{ color: "black", width: "20px", height: "20px" }} /> : "Calculate"}</button>
                 </form>
             </div>
-            <div className="formContainer">
-                <p>{result?.bmi}</p>
-                <p>{result?.health}</p>
-                <p>{result?.healthy_bmi_range}</p>
+
+
+            <div className='result'>
+                <div className='imageBMI'>
+                    <img src="/assets/BMI.png" alt="BMI" />
+                    {/* {result?.bmi < 18.5 && <img src="/assets/underweight.png" alt="BMI" />}
+                    {result?.bmi >= 18.5 && result?.bmi <= 24.9 && <img src="/assets/BMI.png" alt="BMI" />}
+                    {result?.bmi > 24.9 && <img src="/assets/BMI.png" alt="BMI" />} */}
+                </div>
+                {result && <div className="display-flex-col gap-2">
+                    <div >BMI: <span className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.bmi}</span></div>
+                    <div >Health status: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.health}</span></div>
+                    <div >Healthy BMI Range: <span  className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>{result?.healthy_bmi_range}</span></div>
+                </div>}
             </div>
         </div>
     )

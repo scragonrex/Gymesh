@@ -22,16 +22,20 @@ const Calculators = () => {
     <div className='calculators'>
        {/* {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
       </div>} */}
+        <h1 className="font-heading font-white text-align-center margin-top-1">Check your Health</h1>
       <div className="calculatorCont">
-        <h1 className="font-heading text-align-center">Check your Health</h1>
-        <div className="display-flex-row justify-content-between margin-top-1">
+        <div className="display-flex-col">
           <div className="calcOptions">
-            <div className={`calcOption ${calculator==="BMI" && "active"}`} onClick={handleCalculator}>
-              <img src="/assets/BMI.png" alt="BMI" />BMI</div>
+            <div className={`calcOption ${calculator==="BMI" && "active"}`} 
+            onClick={handleCalculator}>
+              {/* <img src="/assets/BMI.png" alt="BMI" /> */}
+              BMI</div>
             <div className={`calcOption ${calculator==="BMR" && "active"}`} onClick={handleCalculator}>
-            <img src="/assets/BMR.png" alt="BMR" />BMR</div>
+            {/* <img src="/assets/BMR.png" alt="BMR" /> */}
+            BMR</div>
             <div className={`calcOption ${calculator==="TDEE" && "active"}`} onClick={handleCalculator}>
-            <img src="/assets/TDEE.png" alt="TDEE" />TDEE</div>
+            {/* <img src="/assets/TDEE.png" alt="TDEE" /> */}
+            TDEE</div>
           </div>
           {calculator=="BMI" && <BMI/>}
           {calculator=="BMR" && <BMR/>}

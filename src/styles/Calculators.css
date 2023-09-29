@@ -7,23 +7,26 @@
     display: flex;
     flex-direction: column;
     color: white;
-
+    background-color: #1f1f1f;
+    border-radius: 0.7rem;
+    padding: 1rem;
 }
 .calcOptions{
-    max-width: 6.5rem;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
 }
 .calcOption{
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     padding: 0.5rem;
     transition: 0.3s;
-    border-radius: 0.5rem;
     background-color: #272727;
+    border-radius: 0.7rem;
 }
 .calcOption.active{
     background-color: #00cd6d;
@@ -35,4 +38,31 @@
 }
 .calcOption img{
     width: 100%;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: space-between;
+}
+.imageBMI{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 3rem;
+}
+.imageBMI img{
+    width: 60%;
+}
+.resultNormal{
+    background: #0f3d27;
+    color: #00cd6d;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+}
+.resultDanger{
+    background: #320d03;
+    color: #f61c0d;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
 }
