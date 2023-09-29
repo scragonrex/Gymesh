@@ -14,8 +14,8 @@
 }
  
 .card{
-    width: 14rem;
-    height: 16.5rem;
+    width: 21.8rem;
+    /* height: 16.5rem; */
     border-radius: 1rem;
     padding: 1em;
     cursor: pointer;
@@ -45,7 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: center;
+    padding: 0 5rem;
 }
 
 @media only screen and (max-width: 600px)

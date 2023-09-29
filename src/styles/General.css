@@ -309,6 +309,24 @@ font-size: 0.8rem;
     flex-direction: column;
     gap: 10px;
 }
+.resultNormal{
+    background: #0f3d27;
+    color: #00cd6d;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+}
+.resultDanger{
+    background: #320d03;
+    color: #f61c0d;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+}
+.resultInfo{
+    background: #172343;
+    color: #779eff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+}
 
 @media (max-width:720px){
     .modalContainer{

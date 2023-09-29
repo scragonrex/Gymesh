@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import '../styles/Workout.css'
-import { CircularProgress, useMediaQuery } from '@mui/material'
+import { CircularProgress, Pagination, useMediaQuery } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { SelectMod } from '../components/Utils';
 const Workout = () => {
+    const mobileView = useMediaQuery('(max-width:720px)');
     const navigate = useNavigate();
     const [formOpen, setFormOpen] = useState(true);
     const [excerciseOpen, setExcerciseOpen] = useState(false);
@@ -70,7 +71,12 @@ const Workout = () => {
         }
     }
 
-    const mobileView = useMediaQuery('(max-width:720px)');
+   //--------------Pagination--------------------------//
+   const [page, setPage] = useState(1);
+   const handlePage = (event, value) => {
+    setPage(value);
+  }
+
 
     return (
         <div className='pageContainer'>
@@ -96,14 +102,20 @@ const Workout = () => {
                 <div className='excerciseCont'>
                     <div className="font-heading">Your Excercises</div>
                     <div className='cardCont'>
-                        {excerciseList.map((item, key) => (
+                        {excerciseList?.slice((page - 1) * 15, ((page - 1) * 15) + 15).map((item, key) => (
                             <div id={key} className="card">
                                 <img src={item.gifUrl
                                 } alt="gif" style={{ width: "100%" }} />
-                                <div className={`${mobileView ? "font-0" : "font-para"}`} style={{ textAlign: "center" }}>{item.name.length > 40 ? item.name.substring(0, 40) + ".." : item.name}</div>
+                                <div className="display-flex-row gap-2">
+                                    <span className="resultNormal">{item?.bodyPart}</span>
+                                    <span className="resultInfo">{item?.target}</span>
+                                </div>
+                                <div className={`${mobileView ? "font-0" : "font-bigger-para"}`}>{item.name.length > 30 ? item.name.substring(0, 30) + ".." : item.name}</div>
                             </div>
                         ))}
-                    </div></div>}
+                    </div>
+                    <Pagination sx={{ background:"green",marginBottom:"1rem"}} onChange={handlePage} count={Math.ceil(excerciseList?.length/15)} page={page} variant="outlined" shape="rounded" size="large"/>
+                    </div>}
         </div>
     )
 }

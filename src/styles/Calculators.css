@@ -54,15 +54,3 @@
 .imageBMI img{
     width: 60%;
 }
-.resultNormal{
-    background: #0f3d27;
-    color: #00cd6d;
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.3rem;
-}
-.resultDanger{
-    background: #320d03;
-    color: #f61c0d;
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.3rem;
-}
