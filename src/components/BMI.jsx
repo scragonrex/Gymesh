@@ -56,7 +56,7 @@ const BMI = () => {
 
             <div className='result'>
                 <div className='imageBMI'>
-                    <img src="/assets/BMI.png" alt="BMI" />
+                    <img src="/assets/BMI.png" alt="BMI" style={{ width:"60%"}}/>
                 </div>
                 {result && <div className="display-flex-col gap-2">
                     <div >BMI: <span className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>

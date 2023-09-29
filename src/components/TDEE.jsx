@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Checkbox, FormControlLabel, Slider } from '@mui/material'
+import { Checkbox, CircularProgress, FormControlLabel, Slider } from '@mui/material'
 
 const TDEE = () => {
     const [weight, setWeight] = useState();
@@ -8,6 +8,8 @@ const TDEE = () => {
     const [gender, setGender] = useState();
     const [result, setResult] = useState('');
     const [activity, setActivity] = useState();
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleGenderChange = (e) => {
         if (e.target.checked) {
             setGender(e.target.value);
@@ -18,6 +20,7 @@ const TDEE = () => {
 
     const getTDEE = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         const url = `https://mega-fitness-calculator1.p.rapidapi.com/tdee?weight=${weight}&height=${height}&activitylevel=${activity}dsd&age=${age}&gender=${gender}`;
         const options = {
             method: 'GET',
@@ -32,8 +35,12 @@ const TDEE = () => {
             const data = await response.json();
             setResult(data.info)
             console.log(data);
+            setIsLoading(false);
+
         } catch (error) {
             console.error(error);
+            setIsLoading(false);
+
         }
     }
 
@@ -50,8 +57,8 @@ const TDEE = () => {
     }
 
     return (
-        <div className='display-flex-row gap-2'>
-            <div className="formContainer">
+        <div className='display-flex-row'>
+            <div className="formContainer" style={{ width: "40%" }}>
                 <div>
                     <h1 className="font-subHeading text-align-center">Total Daily Energy Expenditure (TDEE)</h1>
                     <div className="font-para font-grey">TDEE is the total amount of calories burned when the activity rate is taken into account</div>
@@ -80,17 +87,25 @@ const TDEE = () => {
                             max={100}
                         />
                     </div>
-                    <div className="display-flex-row justify-content-between " >
+                    <div className="display-flex-col">
                         <label htmlFor="">Gender</label>
+                    <div className="display-flex-row justify-content-between" >
                         <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" value="male" onChange={handleGenderChange} checked={gender === 'male'} />} label="Male" />
 
                         <FormControlLabel sx={{ color: "#75756b" }} control={<Checkbox color="success" value="female" onChange={handleGenderChange} checked={gender === 'female'} />} label="Female" />
                     </div>
-                    <button onClick={getTDEE} className="btn">Calculate</button>
+                    </div>
+                    <button onClick={getTDEE} className="btn">{isLoading ? <CircularProgress style={{ color: "black", width: "20px", height: "20px" }} /> : "Calculate"}</button>
                 </form>
             </div>
-            <div className="formContainer">
-                <p>{result.tdee}</p>
+
+             <div className='result'>
+                <div className='imageBMI'>
+                    <img src="/assets/TDEE.png" alt="BMI" style={{width:"100%"}}/>
+                </div>
+                {result && <div className='font-subHeading text-align-center'>
+                   TDEE :<span className="resultNormal">{result.tdee.toFixed(2)}</span>
+                </div>}
             </div>
         </div>
     )
