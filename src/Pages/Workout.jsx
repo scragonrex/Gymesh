@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import '../styles/Workout.css'
-import { CircularProgress, Pagination, colors, useMediaQuery } from '@mui/material'
+import { CircularProgress, useMediaQuery } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { SelectMod } from '../components/Utils';
 import Page from '../components/Page';
-import styled from '@emotion/styled';
 import ExcerciseCard from '../components/ExcerciseCard';
 const Workout = () => {
     const mobileView = useMediaQuery('(max-width:720px)');

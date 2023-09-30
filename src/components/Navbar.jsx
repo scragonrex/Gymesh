@@ -16,7 +16,7 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(setLogout())
     navigate('/login')
-  }
+  } 
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

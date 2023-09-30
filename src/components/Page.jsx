@@ -1,5 +1,5 @@
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material'
-import React, { useState } from 'react'
+import React from 'react'
 import "../styles/Page.css"
 const Page = ({page, count, handleNextPage, handlePrevPage}) => {
 
@@ -13,8 +13,7 @@ const Page = ({page, count, handleNextPage, handlePrevPage}) => {
     temp=count-5;
   }
   console.log("temp",temp);
-  const [current, setCurrent] = useState(temp);
-  console.log("current",current);
+ 
   const divs = Array.from({ length: count }, (value, index) => (
     <div className={`pageNo ${index+1===page && "active"}`} key={index}>{index + 1}</div>
   ));

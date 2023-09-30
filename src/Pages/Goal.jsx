@@ -119,7 +119,7 @@ const Goal = () => {
       </div>}
       <div className='goalsListCont'>
         <div className='font-heading text-align-center font-white'>Your Goals</div>{
-          goalsList?.length > 0 ?
+          goalsList?.length > 0 ? 
             goalsList?.map((item, key) => (
               <GoalsList item={item} id={key} index={key + 1} getGoals={getGoals} />
             )) : <div className='font-subHeading font-white text-align-center'>No Goals Available. Click on the + icon to continue</div>

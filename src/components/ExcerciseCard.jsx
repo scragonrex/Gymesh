@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import React from 'react'
-
+ 
 const ExcerciseCard = ({key,item}) => {
   const mobileView = useMediaQuery('(max-width:720px)');
   return (

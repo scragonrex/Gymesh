@@ -21,7 +21,7 @@ const Profile = () => {
 
     const handleGenderChange = (e) => {
         if (e.target.checked) {
-            setGender(e.target.value);
+            setGender(e.target.value); 
         }
         else
             setGender();

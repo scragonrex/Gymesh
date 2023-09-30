@@ -7,7 +7,7 @@ const BMI = () => {
     const [height, setHeight] = useState();
     const [result, setResult] = useState();
     const [isLoading, setIsLoading] = useState(false);
-
+ 
     const getBMI = async (e) => {
         setIsLoading(true);
         e.preventDefault();

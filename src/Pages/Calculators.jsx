@@ -23,7 +23,7 @@ const Calculators = () => {
        {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
       </div>}
         <h1 className="font-heading font-white text-align-center margin-top-1">Check your Health</h1>
-      <div className="calculatorCont">
+      <div className="calculatorCont"> 
         <div className="display-flex-col">
           <div className="calcOptions">
             <div className={`calcOption ${calculator==="BMI" && "active"}`} 

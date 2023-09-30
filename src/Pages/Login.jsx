@@ -73,7 +73,7 @@ const Login = () => {
                 <Alert onClose={handleAlertClose} severity="error" variant='filled' sx={{ width: '100%' }}>
                     {alert.message}
                 </Alert>
-            </Snackbar>
+            </Snackbar> 
            
             <div className="formContainer ">
             <h1 className="font-white font-heading ">Login Here!</h1>

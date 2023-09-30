@@ -111,7 +111,7 @@ const TDEE = () => {
                    TDEE :<span className="resultNormal">{result.tdee.toFixed(2)}</span>
                 </div>}
             </div>
-        </div>
+        </div> 
     )
 }
 

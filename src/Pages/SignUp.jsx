@@ -60,7 +60,7 @@ const SignUp = () => {
       <Snackbar open={alert.open} autoHideDuration={6000} onClose={handleAlertClose}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
         <Alert onClose={handleAlertClose} severity="error" variant='filled' sx={{ width: '100%' }}>
-          {alert.message}
+          {alert.message} 
         </Alert>
       </Snackbar>
       <div className="formContainer ">

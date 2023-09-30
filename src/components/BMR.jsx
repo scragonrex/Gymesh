@@ -42,7 +42,7 @@ const BMR = () => {
             console.error(error);
             setIsLoading(false);
         }
-    }
+    } 
     return (
         <div className={`${mobileView ? 'display-flex-col':'display-flex-row'}`}>
             {mobileView && <div className='imageBMI margin-top-1'>
