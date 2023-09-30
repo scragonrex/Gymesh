@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import '../styles/Workout.css'
-import { CircularProgress, Pagination, useMediaQuery } from '@mui/material'
+import { CircularProgress, Pagination, colors, useMediaQuery } from '@mui/material'
 import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { SelectMod } from '../components/Utils';
+import Page from '../components/Page';
 const Workout = () => {
     const mobileView = useMediaQuery('(max-width:720px)');
     const navigate = useNavigate();
@@ -72,6 +73,9 @@ const Workout = () => {
     }
 
    //--------------Pagination--------------------------//
+   const divs = Array.from({ length: count }, (value, index) => (
+    <div key={index}>{index + 1}</div>
+  ));
    const [page, setPage] = useState(1);
    const handlePage = (event, value) => {
     setPage(value);
@@ -114,7 +118,8 @@ const Workout = () => {
                             </div>
                         ))}
                     </div>
-                    <Pagination sx={{ background:"green",marginBottom:"1rem"}} onChange={handlePage} count={Math.ceil(excerciseList?.length/15)} page={page} variant="outlined" shape="rounded" size="large"/>
+                    {/* <Pagination sx={{ color:"green",marginBottom:"1rem"}} onChange={handlePage} count={Math.ceil(excerciseList?.length/15)} page={page} variant="outlined" shape="rounded" size="large"/> */}
+                    <Page count={Math.ceil(excerciseList?.length/15)} page={page} onChange={handlePage}/>
                     </div>}
         </div>
     )
