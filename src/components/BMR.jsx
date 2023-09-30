@@ -1,7 +1,8 @@
-import { Checkbox, CircularProgress, FormControlLabel } from '@mui/material'
+import { Checkbox, CircularProgress, FormControlLabel, useMediaQuery } from '@mui/material'
 import React, { useState } from 'react'
 
 const BMR = () => {
+    const mobileView = useMediaQuery('(max-width:720px)');
     const [weight, setWeight] = useState();
     const [height, setHeight] = useState();
     const [age, setAge] = useState();
@@ -43,8 +44,11 @@ const BMR = () => {
         }
     }
     return (
-        <div className='display-flex-row'>
-            <div className="formContainer" style={{ width: "40%" }}>
+        <div className={`${mobileView ? 'display-flex-col':'display-flex-row'}`}>
+            {mobileView && <div className='imageBMI margin-top-1'>
+                    <img src="/assets/BMR.png" alt="BMR" style={{ width:"60%"}}/>
+                </div>}
+            <div className="formContainer" style={{ width: mobileView?"100%":"40%", padding:mobileView && "2rem 0.5rem 0 0.5rem"}}>
                 <div>
                     <h1 className="font-subHeading text-align-center">Basal Mass Index (BMR)</h1>
                     <div className="font-para font-grey">BMR is the number of calories required to keep your body functioning at rest</div>
@@ -74,9 +78,9 @@ const BMR = () => {
                 </form>
             </div>
             <div className='result'>
-                <div className='imageBMI'>
+                {!mobileView && <div className='imageBMI'>
                     <img src="/assets/BMR.png" alt="BMI"  style={{ width: "100%" }}/>
-                </div>
+                </div>}
                 {result && <div className='font-subHeading text-align-center'>
                    BMR : <span className="resultNormal">{result.toFixed(2)}</span>
                 </div>}

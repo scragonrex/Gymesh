@@ -1,7 +1,8 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react'
 
 const BMI = () => {
+    const mobileView = useMediaQuery('(max-width:720px)');
     const [weight, setWeight] = useState();
     const [height, setHeight] = useState();
     const [result, setResult] = useState();
@@ -33,9 +34,11 @@ const BMI = () => {
         }
     }
     return (
-        <div className='display-flex-row'>
-
-            <div className="formContainer" style={{ width: "40%" }}>
+        <div className={`${mobileView ? 'display-flex-col':'display-flex-row'}`}>
+            {mobileView && <div className='imageBMI margin-top-1'>
+                    <img src="/assets/BMI.png" alt="BMI" style={{ width:"60%"}}/>
+                </div>}
+            <div className="formContainer" style={{ width: mobileView?"100%":"40%", padding:mobileView && "2rem 0.5rem 0 0.5rem"}}>
                 <div>
                     <h1 className="font-subHeading text-align-center">Body Mass Index (BMI)</h1>
                     <div className="font-para font-grey">BMI is an estimate of body fat and a good gauge of your risk for diseases that can occur with more body fat</div>
@@ -55,9 +58,9 @@ const BMI = () => {
 
 
             <div className='result'>
-                <div className='imageBMI'>
+                {!mobileView && <div className='imageBMI'>
                     <img src="/assets/BMI.png" alt="BMI" style={{ width:"60%"}}/>
-                </div>
+                </div>}
                 {result && <div className="display-flex-col gap-2">
                     <div >BMI: <span className={`${result?.bmi > 24.9 || result?.bmi<18.5 ? "resultDanger" : "resultNormal"}`}>
                         {result?.bmi.toFixed(2)}

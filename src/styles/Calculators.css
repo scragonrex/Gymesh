@@ -54,3 +54,9 @@
 .imageBMI img{
     width: 60%;
 }
+@media (max-width:720px){
+    .calculators{
+        padding: 3rem 2rem;
+    }
+   
+}
