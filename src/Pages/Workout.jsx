@@ -5,6 +5,8 @@ import { ArrowBack } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { SelectMod } from '../components/Utils';
 import Page from '../components/Page';
+import styled from '@emotion/styled';
+import ExcerciseCard from '../components/ExcerciseCard';
 const Workout = () => {
     const mobileView = useMediaQuery('(max-width:720px)');
     const navigate = useNavigate();
@@ -73,14 +75,21 @@ const Workout = () => {
     }
 
    //--------------Pagination--------------------------//
-   const divs = Array.from({ length: count }, (value, index) => (
-    <div key={index}>{index + 1}</div>
-  ));
+
    const [page, setPage] = useState(1);
-   const handlePage = (event, value) => {
-    setPage(value);
+   const handleNextPage = () => {
+    const totalPage = Math.ceil(excerciseList?.length/15);
+    if(page+1<=totalPage)
+    setPage(page+1);
+  }
+   const handlePrevPage = () => {
+    if(page-1>=1)
+    setPage(page-1);
   }
 
+//   const handlePage = (event,value)=>{
+//     setPage(value)
+//   }
 
     return (
         <div className='pageContainer'>
@@ -107,19 +116,11 @@ const Workout = () => {
                     <div className="font-heading">Your Excercises</div>
                     <div className='cardCont'>
                         {excerciseList?.slice((page - 1) * 15, ((page - 1) * 15) + 15).map((item, key) => (
-                            <div id={key} className="card">
-                                <img src={item.gifUrl
-                                } alt="gif" style={{ width: "100%" }} />
-                                <div className="display-flex-row gap-2">
-                                    <span className="resultNormal">{item?.bodyPart}</span>
-                                    <span className="resultInfo">{item?.target}</span>
-                                </div>
-                                <div className={`${mobileView ? "font-0" : "font-bigger-para"}`}>{item.name.length > 30 ? item.name.substring(0, 30) + ".." : item.name}</div>
-                            </div>
+                            <ExcerciseCard key={key} item={item}/>
                         ))}
                     </div>
-                    {/* <Pagination sx={{ color:"green",marginBottom:"1rem"}} onChange={handlePage} count={Math.ceil(excerciseList?.length/15)} page={page} variant="outlined" shape="rounded" size="large"/> */}
-                    <Page count={Math.ceil(excerciseList?.length/15)} page={page} onChange={handlePage}/>
+                    
+                    <Page count={Math.ceil(excerciseList?.length/15)} page={page} handleNextPage = {handleNextPage} handlePrevPage={handlePrevPage}/>
                     </div>}
         </div>
     )
