@@ -25,8 +25,8 @@ export default function App() {
   return <RouterProvider router={router} />;
 }
 function Root() {
-  // const isAuth = Boolean(useSelector(state=>state.auth.token));
-  const isAuth=true;
+  const isAuth = Boolean(useSelector(state=>state.auth.token));
+  // const isAuth=true;
   const location = useLocation();
   const mobileView = useMediaQuery('(max-width:720px)');
   return (
@@ -40,10 +40,10 @@ function Root() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/workout' element={isAuth ? <Workout /> : <Navigate to='/signup'/>} />
+          <Route path='/workout' element={<Workout />} />
           <Route path='/goal' element={isAuth ? <Goal /> : <Navigate to='/signup'/>} />
           <Route path='/profile' element={isAuth ? <Profile /> : <Navigate to='/signup'/>} />
-          <Route path='/calculators' element={isAuth ? <Calculators/> : <Navigate to='/signup'/>} />
+          <Route path='/calculators' element={<Calculators/>} />
         </Routes>
     </>
   ); 

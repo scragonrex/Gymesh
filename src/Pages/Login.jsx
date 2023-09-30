@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {  VisibilityOffRounded, VisibilityRounded } from '@mui/icons-material'
-import { Alert, CircularProgress, Snackbar, useMediaQuery } from '@mui/material'
+import { Alert, CircularProgress, Snackbar } from '@mui/material'
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLogin } from '../store/authSlice'
@@ -8,7 +8,6 @@ import "../styles/login.css"
 
 const Login = () => {
     const url = useSelector((state)=>state.auth.url);
-    const mobileView = useMediaQuery('(max-width:600px)');
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import "../styles/Calculators.css"
 import { useNavigate } from 'react-router-dom'
-import { useMediaQuery } from '@mui/material';
-import { ArrowBack } from '@mui/icons-material';
 import BMI from '../components/BMI';
 import BMR from '../components/BMR';
 import TDEE from '../components/TDEE';
+import { useMediaQuery } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
 const Calculators = () => {
   const navigate = useNavigate();
-  const mobileView = useMediaQuery('(max-width:700px)');
+  const mobileView = useMediaQuery('(max-width:720px)');
   const [calculator, setCalculator] = useState('BMI');
   //----------- Back Button-----------------------//
   const handleBack = () => {
@@ -20,8 +20,8 @@ const Calculators = () => {
   }
   return (
     <div className='calculators'>
-       {/* {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
-      </div>} */}
+       {!mobileView && <div className='backBtn'><div className='btnCont' onClick={handleBack}><ArrowBack sx={{ color: "white", fontSize: "2rem" }} /></div>
+      </div>}
         <h1 className="font-heading font-white text-align-center margin-top-1">Check your Health</h1>
       <div className="calculatorCont">
         <div className="display-flex-col">
@@ -37,9 +37,9 @@ const Calculators = () => {
             {/* <img src="/assets/TDEE.png" alt="TDEE" /> */}
             TDEE</div>
           </div>
-          {calculator=="BMI" && <BMI/>}
-          {calculator=="BMR" && <BMR/>}
-          {calculator=="TDEE" && <TDEE/>}
+          {calculator==="BMI" && <BMI/>}
+          {calculator==="BMR" && <BMR/>}
+          {calculator==="TDEE" && <TDEE/>}
         </div>
       </div>
     </div>

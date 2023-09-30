@@ -87,7 +87,6 @@
 
 }
 .tabs.active{
-    background-color: #06cf6a;
-    color: black;
-    border-radius: 10px 10px 0 0;
+    color: #06cf6a;
+    border-top: 3px solid #06cf6a;
 }
