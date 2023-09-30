@@ -35,6 +35,9 @@ const Home = () => {
 
         </div>
       </div>
+      <div className="popualarExcercise">
+
+      </div>
       <Features/>
       <LeaderBoard />
       <Review />

@@ -64,7 +64,7 @@ const SignUp = () => {
         </Alert>
       </Snackbar>
       <div className="formContainer ">
-        <h1 className="font-white ">Register Here First!</h1>
+        <h1 className="font-white font-heading ">Register Here First!</h1>
         <form onSubmit={register}>
 
           <div className='display-flex-col'>
