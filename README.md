@@ -11,6 +11,7 @@ GymWebsite is a comprehensive web application developed with full-stack capabili
 - **Leaderboard:** Keep track of your progress and compete with others to stay motivated.
 - **Fitness Calculator:** Calculate your BMI and other vital fitness metrics to assess your health.
 
+## Backend Link -> https://github.com/scragonrex/MuscleGrabber-backend
 ## Screenshots
 ### Exercise Exploration
 ![Exercise Exploration](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/4212bafe-1357-44c7-adde-5f5f75b10e49)
