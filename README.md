@@ -12,27 +12,35 @@ GymWebsite is a comprehensive web application developed with full-stack capabili
 - **Fitness Calculator:** Calculate your BMI and other vital fitness metrics to assess your health.
 
 ## Screenshots
-
-![Exercise Exploration](images/exercise_exploration.png)
+### Exercise Exploration
+![Exercise Exploration](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/4212bafe-1357-44c7-adde-5f5f75b10e49)
 *Explore exercises based on specific body parts.*
 
-![Goal Tracker](images/goal_tracker.png)
+### Goal Tracker
+![Goal Tracker](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/ec430b08-b215-4a28-8295-5f530166bc76)
 *Set and track your weekly exercise goals.*
 
-![Leaderboard](images/leaderboard.png)
+### Leaderboard
+![Leaderboard](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/c72a0250-34c0-4922-8e85-d188185bc8ac)
 *Monitor your progress and compete for the top spot.*
 
-![Fitness Calculator](images/fitness_calculator.png)
+### Fitness Calculator
+![Fitness Calculator](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/82c64f04-a429-4183-93b4-47650507c10a)
 *Calculate your BMI and other essential fitness metrics.*
+
+### Mobile View
+![Mobile View](https://github.com/scragonrex/MuscleGrabberFrontend/assets/106229957/ae71f979-2616-47da-a5c1-52fb9fb92d8c)
+
 
 ## Getting Started
 
 To run this project locally, follow these steps:
 
 1. Clone the Frontend repository: `git clone https://github.com/scragonrex/MuscleGrabberFrontend.git`
-2. Clone the Backend repository: `git clone https://github.com/scragonrex/MuscleGrabberFrontend.git`
+2. Clone the Backend repository in another folder: `git clone https://github.com/scragonrex/MuscleGrabberFrontend.git`
 3. Install dependencies in both the folders(frontend,backend): `npm install` or `yarn install`
 4. Start the development server in frontend: `npm start` or `yarn start`
+5. Start the backend server in backend folder: `nodemon index`
 
 ## Technologies Used
 
