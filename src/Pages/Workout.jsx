@@ -7,6 +7,7 @@ import { SelectMod } from '../components/Utils';
 import Page from '../components/Page';
 import ExcerciseCard from '../components/ExcerciseCard';
 const Workout = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
     const mobileView = useMediaQuery('(max-width:720px)');
     const navigate = useNavigate();
     const [formOpen, setFormOpen] = useState(true);
@@ -49,13 +50,14 @@ const Workout = () => {
     }
 
     const handleSubmit = async () => {
+
         setFormOpen(false);
         setIsLoading(true);
         const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${tag}`;
         const options = {
             method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': "a47529c91emsha25daef1e66a341p1ba7adjsn5c4aed17e5e6",
+            headers: { 
+                'X-RapidAPI-Key': apiKey,
                 'X-RapidAPI-Host': "exercisedb.p.rapidapi.com"
             }
         };
