@@ -1,3 +1,53 @@
+# MuscleGrabber
+
+## Description
+
+GymWebsite is a comprehensive web application developed with full-stack capabilities, providing fitness enthusiasts with a user-friendly platform to enhance their workout experience. Users can explore a wide range of exercises categorized by specific body parts, set and track their fitness goals, and even calculate their Body Mass Index (BMI) and other essential fitness metrics. The application includes a leaderboard to monitor progress and achievements, making it an all-in-one fitness companion.
+
+## Features
+
+- **Exercise Exploration:** Browse a diverse selection of exercises tailored to specific body parts.
+- **Goal Tracker:** Create and monitor weekly exercise plans, earning muscle points upon achieving your fitness goals.
+- **Leaderboard:** Keep track of your progress and compete with others to stay motivated.
+- **Fitness Calculator:** Calculate your BMI and other vital fitness metrics to assess your health.
+
+## Screenshots
+
+![Exercise Exploration](images/exercise_exploration.png)
+*Explore exercises based on specific body parts.*
+
+![Goal Tracker](images/goal_tracker.png)
+*Set and track your weekly exercise goals.*
+
+![Leaderboard](images/leaderboard.png)
+*Monitor your progress and compete for the top spot.*
+
+![Fitness Calculator](images/fitness_calculator.png)
+*Calculate your BMI and other essential fitness metrics.*
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone the Frontend repository: `git clone https://github.com/scragonrex/MuscleGrabberFrontend.git`
+2. Clone the Backend repository: `git clone https://github.com/scragonrex/MuscleGrabberFrontend.git`
+3. Install dependencies in both the folders(frontend,backend): `npm install` or `yarn install`
+4. Start the development server in frontend: `npm start` or `yarn start`
+
+## Technologies Used
+
+- Frontend: HTML, CSS,  Javascript,React.js,Redux Toolkit, Material UI
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JWT
+- Deployment: Netlify
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+Happy exercising! 💪🏋️‍♀️🏃‍♂️
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
