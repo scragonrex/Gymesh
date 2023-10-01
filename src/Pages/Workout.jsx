@@ -9,7 +9,6 @@ import styled from '@emotion/styled';
 import ExcerciseCard from '../components/ExcerciseCard';
 const Workout = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
-    console.log("apikey",apiKey);
     const mobileView = useMediaQuery('(max-width:720px)');
     const navigate = useNavigate();
     const [formOpen, setFormOpen] = useState(true);
